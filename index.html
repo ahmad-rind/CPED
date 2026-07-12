@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer & Software Engineering Department — CPED</title>
+    <meta name="description"
+        content="Welcome to the Computer & Software Engineering Department. Empowering future engineers through excellence in education, research, and innovation.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- ============================================
+     HEADER
+     ============================================ -->
+    <header id="site-header" class="site-header">
+        <div class="header-inner">
+            <!-- Logo Section (pinned left) -->
+            <div class="header-left">
+                <a href="index.html" class="header-logo" id="header-logo">
+                    <div class="logo-icon">
+                    <img src="images/CPED logo.png" alt="CPED Logo">
+                </div>
+                    <div class="logo-text">
+                        <span class="uni-name">Department of</span>
+                        <span class="dept-name">Computer Engineering</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Navigation Section (centered) -->
+            <div class="header-middle">
+                <nav id="main-nav" class="main-nav">
+                    <!-- Mobile Search -->
+                    <div class="mobile-search">
+                        <form action="search.html" method="get">
+                            <input type="text" name="q" placeholder="Search..." aria-label="Search department website">
+                            <button type="submit" aria-label="Submit search">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+
+                    <ul class="nav-menu" id="nav-menu">
+                        <li class="active"><a href="index.html">Home</a></li>
+                        <li>
+                            <a href="#" data-dropdown>Faculty <span class="dropdown-arrow"></span></a>
+                            <ul class="sub-menu">
+                                <li><a href="faculty/members.html">Faculty Members</a></li>
+                                <li><a href="faculty/news.html">News</a></li>
+                                <li><a href="faculty/collaborations.html">Collaborations</a></li>
+                                <li><a href="faculty/labs.html">Research Labs and Groups</a></li>
+                                <li><a href="faculty/projects.html">Faculty Projects</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" data-dropdown>Academics <span class="dropdown-arrow"></span></a>
+                            <ul class="sub-menu">
+                                <li><a href="academics/undergraduate.html">Undergraduate Program</a></li>
+                                <li><a href="academics/postgraduate.html">Postgraduate Program</a></li>
+                                <li><a href="academics/ms-ai.html">MS in Artificial Intelligence</a></li>
+                                <li><a href="academics/phd.html">PhD Computer Engineering</a></li>
+                                <li><a href="academics/laboratories.html">Laboratories</a></li>
+                                <li><a href="academics/management.html">Academics Management System</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" data-dropdown>Contact Us <span class="dropdown-arrow"></span></a>
+                            <ul class="sub-menu">
+                                <li><a href="contact/contacts.html">Contacts</a></li>
+                                <li><a href="contact/helpdesk.html">Help Desk</a></li>
+                                <li><a href="contact/alumni.html">Alumni Relations</a></li>
+                                <li><a href="contact/faculty.html">Faculty</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="downloads.html">Downloads</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- Controls Section (pinned right) -->
+            <div class="header-right">
+                <div class="header-controls">
+                    <!-- Expanding Search Form -->
+                    <form action="search.html" method="get" class="header-search-wrap" id="header-search-wrap">
+                        <input type="text" name="q" class="search-input" id="search-input"
+                            placeholder="Search this site..." aria-label="Search this site" autocomplete="off">
+                        <button class="search-btn" id="search-btn" type="button" aria-label="Search">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                        </button>
+                    </form>
+
+                    <!-- Text-based Mobile Menu Trigger -->
+                    <button class="mobile-menu-trigger" id="mobile-menu-trigger" aria-label="Toggle navigation menu"
+                        aria-expanded="false" aria-controls="main-nav">
+                        <span>MENU ▾</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="nav-overlay" id="nav-overlay"></div>
+
+    <!-- ============================================
+     HERO SECTION
+     ============================================ -->
+    <section id="hero" class="hero-section">
+
+        <!-- Building image (bottom-aligned) -->
+        <div class="hero-bg-image">
+            <img src="CPED hero backround.png" alt="Computer & Software Engineering Department Building">
+        </div>
+
+        <!-- Subtle dark gradient overlay for text readability -->
+        <div class="hero-overlay"></div>
+
+        <!-- Giant "CPED" watermark text (outside hero-inner to allow correct layering) -->
+        <div class="hero-watermark" aria-hidden="true">CPED</div>
+
+        <div class="hero-inner">
+            <!-- Content overlay -->
+            <div class="hero-content">
+                <!-- Subtitle with cap icon -->
+                <div class="hero-subtitle">
+                    <svg class="cap-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                        fill="var(--accent-gold)" aria-hidden="true">
+                        <path d="M12 2L1 7l11 5 9-4.09V17h2V7L12 2zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z" />
+                    </svg>
+                    <span>Welcome to Computer Engineering Department</span>
+                </div>
+
+                <!-- Main heading -->
+                <h1 class="hero-heading">Leading the Way in Engineering Education</h1>
+            </div>
+
+            <!-- Campus Tour button (bottom right) -->
+            <div class="hero-campus-tour">
+                <a href="https://www.youtube.com/watch?v=PUzuTGjvdU0" class="video-play-btn" id="campus-tour-btn"
+                    aria-label="Play campus tour video">
+                    <span class="play-icon">▶</span>
+                </a>
+                <span class="campus-tour-text">Department Tour</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+     LATEST ACTION BAR
+     ============================================ -->
+    <div class="latest-action-bar">
+        <div class="latest-action-inner">
+            <span class="latest-action-label">Latest Action</span>
+            
+            <a href="https://web.uettaxila.edu.pk/Downloads/TimeTables/CPED/CPED-Spring-2026.xlsx" class="latest-action-link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="9" y1="3" x2="9" y2="21"></line>
+                    <line x1="15" y1="3" x2="15" y2="21"></line>
+                    <line x1="3" y1="9" x2="21" y2="9"></line>
+                    <line x1="3" y1="15" x2="21" y2="15"></line>
+                </svg>
+                <span>Spring-2026 UG Timetable</span>
+            </a>
+            
+            <span class="latest-action-divider">|</span>
+            
+            <a href="https://web.uettaxila.edu.pk/Downloads/TimeTables/CPED/CPED-PG-Spring-2026.pdf?random=638938928909643227" class="latest-action-link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+                <span>Spring-2026 PG Timetable</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- ============================================
+     ALERT TICKER SECTION
+     ============================================ -->
+    <div class="alert-ticker-section">
+        <div class="alert-ticker-wrapper">
+            <div class="alert-badge">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M20 12c0-1.1.9-2 2-2V8c-1.1 0-2-.9-2-2h-3v12h3c0-1.1.9-2 2-2v-2c-1.1 0-2-.9-2-2zM2 18V6c0-1.1.9-2 2-2h8c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2zm10-2v-8c0-.55-.45-1-1-1H5c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1h6c.55 0 1-.45 1-1z"/>
+                </svg>
+                <span>ALERTS</span>
+            </div>
+            <div class="alert-ticker-content">
+                <div class="alert-ticker-track">
+                    <span class="alert-item">Ph.D. session rules and guidelines have been updated.</span>
+                    <span class="alert-dot"></span>
+                    <span class="alert-item">Previous timetable documents are now archived in the Downloads section.</span>
+                    <span class="alert-dot"></span>
+                    <span class="alert-item">M.Sc./Ph.D. Co-supervisors notifications available.</span>
+                    
+                    <!-- Duplicate items for seamless wrapping -->
+                    <span class="alert-dot"></span>
+                    <span class="alert-item">Ph.D. session rules and guidelines have been updated.</span>
+                    <span class="alert-dot"></span>
+                    <span class="alert-item">Previous timetable documents are now archived in the Downloads section.</span>
+                    <span class="alert-dot"></span>
+                    <span class="alert-item">M.Sc./Ph.D. Co-supervisors notifications available.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+     ACADEMICS & PROGRAMS SECTION
+     ============================================ -->
+    <section id="academics-programs" class="academics-section">
+
+        <!-- Decorative squiggly line (upper-left) -->
+        <svg class="academics-squiggle" viewBox="0 0 40 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M20 0 C10 10, 30 20, 20 30 C10 40, 30 50, 20 60 C10 70, 30 80, 20 80" stroke="#999"
+                stroke-width="2" fill="none" stroke-linecap="round" />
+        </svg>
+
+        <!-- Section Header -->
+        <div class="academics-header">
+            <div class="academics-eyebrow">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 2L1 7l11 5 9-4.09V17h2V7L12 2zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z" />
+                </svg>
+                <span>Programs &amp; Study</span>
+            </div>
+            <h2 class="academics-heading">Academics &amp; Programs</h2>
+        </div>
+
+        <!-- Academics Layout Container -->
+        <div class="academics-layout-container">
+
+            <!-- Left Column: Image Cards -->
+            <div class="academics-images-side">
+                <div class="academics-img-card">
+                    <img src="images/003.jpg" alt="Student using laptop on campus lawn">
+                </div>
+                <div class="academics-img-card">
+                    <img src="images/008.jpg" alt="Happy graduates celebrating graduation ceremony">
+                </div>
+            </div>
+
+            <!-- Right Column: Programs Grid -->
+            <div class="academics-programs-side">
+
+                <!-- BSc Computer Engineering -->
+                <a href="academics/undergraduate.html" class="program-card" id="card-bsc">
+                    <div class="program-card-bg-mask"></div>
+                    <div class="program-card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" aria-hidden="true">
+                            <path d="M24 4L4 14l20 10 20-10L24 4z" />
+                            <path d="M10 18v10l14 8 14-8V18" />
+                            <line x1="40" y1="14" x2="40" y2="34" />
+                            <circle cx="40" cy="36" r="2" />
+                        </svg>
+                    </div>
+                    <div class="program-card-content">
+                        <h3 class="program-card-title">BSc Computer Engineering</h3>
+                        <p class="program-card-desc">4 years of study — Building strong foundations in hardware, software, and systems engineering.</p>
+                    </div>
+                    <div class="program-card-arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- MS Computer Engineering -->
+                <a href="academics/postgraduate.html" class="program-card" id="card-ms">
+                    <div class="program-card-bg-mask"></div>
+                    <div class="program-card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" aria-hidden="true">
+                            <rect x="6" y="6" width="28" height="36" rx="3" />
+                            <line x1="12" y1="14" x2="28" y2="14" />
+                            <line x1="12" y1="20" x2="28" y2="20" />
+                            <line x1="12" y1="26" x2="22" y2="26" />
+                            <rect x="18" y="30" width="24" height="14" rx="2" />
+                            <path d="M22 37h16" />
+                            <path d="M22 40h10" />
+                        </svg>
+                    </div>
+                    <div class="program-card-content">
+                        <h3 class="program-card-title">MS Computer Engineering</h3>
+                        <p class="program-card-desc">2 years of study — Advanced coursework in computing systems, networks, and embedded design.</p>
+                    </div>
+                    <div class="program-card-arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- MS in Artificial Intelligence -->
+                <a href="academics/ms-ai.html" class="program-card" id="card-ms-ai">
+                    <div class="program-card-bg-mask"></div>
+                    <div class="program-card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" aria-hidden="true">
+                            <circle cx="24" cy="18" r="10" />
+                            <circle cx="20" cy="16" r="2" />
+                            <circle cx="28" cy="16" r="2" />
+                            <path d="M19 22c0 0 2 3 5 3s5-3 5-3" />
+                            <line x1="24" y1="28" x2="24" y2="34" />
+                            <line x1="18" y1="32" x2="14" y2="38" />
+                            <line x1="30" y1="32" x2="34" y2="38" />
+                            <line x1="14" y1="8" x2="18" y2="12" />
+                            <line x1="34" y1="8" x2="30" y2="12" />
+                            <circle cx="14" cy="6" r="2" />
+                            <circle cx="34" cy="6" r="2" />
+                        </svg>
+                    </div>
+                    <div class="program-card-content">
+                        <h3 class="program-card-title">MS in Artificial Intelligence</h3>
+                        <p class="program-card-desc">2 years of study — Specialization in machine learning, deep learning, and intelligent systems.</p>
+                    </div>
+                    <div class="program-card-arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- PhD Computer Engineering -->
+                <a href="academics/phd.html" class="program-card" id="card-phd">
+                    <div class="program-card-bg-mask"></div>
+                    <div class="program-card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" aria-hidden="true">
+                            <circle cx="24" cy="20" r="8" />
+                            <path d="M20 18l3 3 5-6" />
+                            <path d="M10 36c0-6 6-10 14-10s14 4 14 10" />
+                            <rect x="6" y="38" width="36" height="4" rx="2" />
+                            <line x1="16" y1="8" x2="16" y2="4" />
+                            <line x1="24" y1="6" x2="24" y2="2" />
+                            <line x1="32" y1="8" x2="32" y2="4" />
+                        </svg>
+                    </div>
+                    <div class="program-card-content">
+                        <h3 class="program-card-title">PhD Computer Engineering</h3>
+                        <p class="program-card-desc">3 years of research — Original research contributions to computing, architecture, and systems science.</p>
+                    </div>
+                    <div class="program-card-arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                        </svg>
+                    </div>
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- Decorative graduation cap + diploma (bottom-right) -->
+        <svg class="academics-decor-cap" viewBox="0 0 140 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- Diploma scroll -->
+            <rect x="55" y="50" width="50" height="60" rx="6" fill="#e8e4dc" stroke="#ccc" stroke-width="1.5" />
+            <ellipse cx="55" cy="80" rx="6" ry="30" fill="#e8e4dc" stroke="#ccc" stroke-width="1.5" />
+            <line x1="65" y1="62" x2="95" y2="62" stroke="#bbb" stroke-width="1.2" />
+            <line x1="65" y1="70" x2="90" y2="70" stroke="#bbb" stroke-width="1.2" />
+            <line x1="65" y1="78" x2="85" y2="78" stroke="#bbb" stroke-width="1.2" />
+            <!-- Ribbon -->
+            <path d="M75 95 L70 115 L78 108 L86 115 L81 95" fill="#c0392b" opacity="0.8" />
+            <!-- Graduation cap -->
+            <polygon points="50,30 90,30 110,15 70,0 30,15" fill="#003A65" />
+            <rect x="68" y="0" width="4" height="15" fill="#003A65" />
+            <circle cx="70" cy="0" r="4" fill="#FFB800" />
+            <line x1="50" y1="30" x2="50" y2="42" stroke="#003A65" stroke-width="2" />
+            <line x1="90" y1="30" x2="90" y2="42" stroke="#003A65" stroke-width="2" />
+            <path d="M50 42 Q70 52 90 42" stroke="#003A65" stroke-width="2" fill="none" />
+            <!-- Tassel -->
+            <line x1="110" y1="15" x2="115" y2="35" stroke="#FFB800" stroke-width="2" />
+            <circle cx="115" cy="37" r="3" fill="#FFB800" />
+        </svg>
+
+    </section>
+
+    <!-- Video Popup Modal -->
+    <div id="video-modal" class="video-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close-btn" aria-label="Close video">&times;</button>
+            <iframe id="video-iframe" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
