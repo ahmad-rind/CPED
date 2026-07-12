@@ -1445,17 +1445,19 @@ img {
    ALERT TICKER SECTION
    ============================================ */
 .alert-ticker-section {
-    max-width: 1200px;
-    margin: 24px auto 24px;
-    padding: 0 40px;
+    background-color: var(--cream-bg);
+    padding: 24px 40px 0;
     position: relative;
     z-index: 8;
 }
 
 .alert-ticker-wrapper {
+    max-width: 1120px;
+    margin: 0 auto;
+    width: 100%;
     display: flex;
     align-items: center;
-    background-color: var(--cream-bg);
+    background-color: var(--white);
     border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 50px;
     height: 48px;
@@ -1547,7 +1549,7 @@ img {
 
 @media (max-width: 768px) {
     .alert-ticker-section {
-        padding: 0 20px;
+        padding: 24px 20px 0;
     }
     
     .alert-badge span {
