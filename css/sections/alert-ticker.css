@@ -2,7 +2,7 @@
    ALERT TICKER SECTION
    ============================================ */
 .alert-ticker-section {
-    background-color: var(--cream-bg);
+    background-color: var(--off-white);
     padding: 24px 40px 16px;
     position: relative;
     z-index: var(--z-alert-ticker);

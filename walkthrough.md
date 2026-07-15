@@ -39,6 +39,14 @@ This document outlines the refactoring, optimization, and accessibility updates 
   - Generated standard [sitemap.xml](file:///d:/CPED/sitemap.xml) and [robots.txt](file:///d:/CPED/robots.txt).
   - Added JSON-LD educational organization metadata inside the main landing page head.
 
+- **Background Color Consolidation**:
+  - Confirmed `--footer-bg` is unused in rendered output (no HTML footer exists yet).
+  - Retained `--dark-section` as a branded `#1A1A2E` text color for high-contrast gold buttons, documenting its purpose in `variables.css`.
+  - Consolidated near-identical light backgrounds:
+    - Set Academics, Outcome Mappings, and Alert Ticker sections to use the canonical `--off-white` (#F5F5F5).
+    - Applied Option A brand-tinted background `rgba(15, 82, 136, 0.04)` to the Resources honeycomb grid to serve as an intentional visual hub.
+    - Flagged `--cream-bg` and `--res-bg-light` as deprecated.
+
 ## Verification
 
 The production build was tested and compiled successfully via Vite:

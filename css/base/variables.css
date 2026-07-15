@@ -35,7 +35,7 @@
     --res-navy:         var(--brand-navy-deep);
     --res-navy-hover:   #123f77;
     --res-gold:         var(--brand-gold-base); /* Converged to FFB800 */
-    --res-bg-light:     #f4f7fc;
+    --res-bg-light:     #f4f7fc; /* DEPRECATED: Consolidated to off-white and brand tints */
     --res-card-bg:      #ffffff;
     --res-text-dark:    #1e293b;
     --res-text-muted:   #64748b;
@@ -48,9 +48,17 @@
     --text-medium: #555555;
     --text-light: #666666;
     --white: #FFFFFF;
-    --off-white: #F5F5F5;
-    --cream-bg: #f4f1ea;
-    --footer-bg: #0A0A0A;
+    --off-white: #F5F5F5; /* Canonical light section background */
+    --cream-bg: #f4f1ea;   /* DEPRECATED: Consolidated to off-white */
+    
+    /* Dark Tones */
+    --footer-bg: #0A0A0A;  /* UNUSED: Reserved for future global footer elements */
+    
+    /* 
+     * --dark-section is a branded navy-tinted dark used specifically for 
+     * high-contrast text on gold interactive buttons (e.g. Apply/Placeholder links)
+     * rather than as a solid background block, keeping it visually distinct from footer-bg.
+     */
     --dark-section: #1A1A2E;
     --border: #E0E0E0;
 

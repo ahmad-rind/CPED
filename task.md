@@ -14,3 +14,5 @@
 - `[x]` Verify critical safeguards: (a) Watermark behind building facade, (b) Badge & signage spacing
 - `[x]` low severity checks: HTML accessibility, JSON-LD metadata, static sitemap/robots generation, and Vite optimization settings
 - `[x]` Final production compilation check
+- `[x]` Consolidate background colors: Academics & Outcomes sections use canonical `--off-white`; Resources section uses brand-tinted `rgba(15, 82, 136, 0.04)` Option A.
+- `[x]` Confirm `--footer-bg` is unused in rendered output, and document the high-contrast button role of `--dark-section` in the variables file.

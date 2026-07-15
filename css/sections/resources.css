@@ -3,7 +3,7 @@
    ============================================ */
 .resources-section {
     position: relative;
-    background: var(--res-bg-light);
+    background: rgba(15, 82, 136, 0.04);
     padding: 30px 40px;
     overflow: hidden;
     max-width: 100%;
@@ -160,7 +160,7 @@
     justify-content: center;
     font-size: 1.1rem;
     box-shadow: 0 8px 20px rgba(10, 46, 92, 0.3);
-    border: 4px solid var(--res-bg-light);
+    border: 4px solid rgba(15, 82, 136, 0.04);
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
