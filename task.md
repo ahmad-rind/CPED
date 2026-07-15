@@ -16,3 +16,4 @@
 - `[x]` Final production compilation check
 - `[x]` Consolidate background colors: Academics & Outcomes sections use canonical `--off-white`; Resources section uses brand-tinted `rgba(15, 82, 136, 0.04)` Option A.
 - `[x]` Confirm `--footer-bg` is unused in rendered output, and document the high-contrast button role of `--dark-section` in the variables file.
+- `[x]` Map hardcoded subpage background gradient values (#021a30 and #003a65) to variables (`--brand-navy-midnight` and `--brand-navy-deep`).

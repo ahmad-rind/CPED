@@ -42,6 +42,7 @@ This document outlines the refactoring, optimization, and accessibility updates 
 - **Background Color Consolidation**:
   - Confirmed `--footer-bg` is unused in rendered output (no HTML footer exists yet).
   - Retained `--dark-section` as a branded `#1A1A2E` text color for high-contrast gold buttons, documenting its purpose in `variables.css`.
+  - Tokenized the subpage placeholder background gradient by creating `--brand-navy-midnight: #021A30;` and replacing hardcoded values with `var(--brand-navy-midnight)` and `var(--brand-navy-deep)`.
   - Consolidated near-identical light backgrounds:
     - Set Academics, Outcome Mappings, and Alert Ticker sections to use the canonical `--off-white` (#F5F5F5).
     - Applied Option A brand-tinted background `rgba(15, 82, 136, 0.04)` to the Resources honeycomb grid to serve as an intentional visual hub.
