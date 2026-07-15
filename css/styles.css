@@ -2131,6 +2131,9 @@ img {
 }
 
 .section-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
     margin-bottom: 3.5rem;
     position: relative;
@@ -2348,64 +2351,94 @@ img {
     align-items: center;
     padding: 1rem 0;
     position: relative;
+    z-index: 1;
 }
 
-.honeycomb-grid {
-    display: flex;
-    gap: 14px;
-    align-items: center;
+.resources-honeycomb {
     position: relative;
+    width: 450px;
+    height: 592px;
 }
 
-.hex-column {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
+/* Hex Cell Absolute Positioning (Pointy-Top interlocking layout) */
+.hex-cell {
+    position: absolute;
+    width: 180px;
+    height: 208px;
+    text-decoration: none;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), z-index 0.1s;
+    z-index: 1;
 }
 
-.hex-column.center-col {
-    margin-top: 0px; 
+/* Position mapping */
+.hex-cell:nth-child(1) {
+    left: 0;
+    top: 0;
 }
 
-/* Hexagon Shape Engine (Flat-Topped Geometry) */
+.hex-cell:nth-child(2) {
+    left: 135px;
+    top: 128px;
+}
+
+.hex-cell:nth-child(3) {
+    left: 270px;
+    top: 0;
+}
+
+.hex-cell:nth-child(4) {
+    left: 0;
+    top: 256px;
+}
+
+.hex-cell:nth-child(5) {
+    left: 135px;
+    top: 384px;
+}
+
+.hex-cell:nth-child(6) {
+    left: 270px;
+    top: 256px;
+}
+
+/* Outer Hex Layer (Pointy-Top Geometry) */
 .hex-outer {
-    width: 160px;
-    height: 140px;
-    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    cursor: pointer;
-    position: relative;
+    box-sizing: border-box;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.hex-outer:hover {
+.hex-cell:hover .hex-outer {
     transform: scale(1.08);
     z-index: 10;
 }
 
 /* Style 1: Solid Navy Blue Hexagon */
-.hex-navy {
+.hex-navy .hex-outer {
     background-color: var(--res-navy);
     color: white;
     box-shadow: 0 10px 20px rgba(10, 46, 92, 0.2);
 }
 
-.hex-navy:hover {
+.hex-navy:hover .hex-outer {
     background-color: var(--res-navy-hover);
 }
 
-/* Style 2: White Hexagon with Gold Border */
-.hex-white-gold {
+/* Style 2: White Hexagon with Gold Border (Thin outline as in image 2) */
+.hex-white-gold .hex-outer {
     background-color: var(--res-gold);
 }
 
 .hex-inner-white {
-    width: calc(100% - 6px);
-    height: calc(100% - 6px);
+    width: calc(100% - 4px); /* thin yellow outline border */
+    height: calc(100% - 4px);
     background-color: white;
-    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -2413,7 +2446,7 @@ img {
     padding: 1rem;
     color: var(--res-navy);
     text-align: center;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: background-color 0.3s ease;
     box-sizing: border-box;
 }
 
@@ -2436,14 +2469,10 @@ img {
     font-size: 1.6rem;
     color: var(--res-gold);
     margin-bottom: 0.5rem;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.hex-navy:hover .hex-icon {
-    transform: scale(1.15);
-}
-
-.hex-white-gold:hover .hex-icon {
+.hex-cell:hover .hex-icon {
     transform: scale(1.15);
 }
 
@@ -2452,7 +2481,7 @@ img {
     font-size: 0.8rem;
     font-weight: 700;
     line-height: 1.25;
-    max-width: 110px;
+    max-width: 120px;
     color: inherit;
 }
 
@@ -2462,27 +2491,6 @@ img {
     background-color: var(--res-gold);
     margin-top: 0.4rem;
 }
-
-/* Small Circular Connecting Nodes Between Hexagons */
-.node-dot {
-    position: absolute;
-    width: 14px;
-    height: 14px;
-    background-color: var(--res-navy);
-    border: 3px solid white;
-    border-radius: 50%;
-    z-index: 5;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-    pointer-events: none;
-}
-
-/* Position calculations for the 6 interconnecting nodes */
-.node-1 { top: 25%; left: 31%; }
-.node-2 { top: 25%; right: 31%; }
-.node-3 { top: 50%; left: 31%; }
-.node-4 { top: 50%; right: 31%; }
-.node-5 { bottom: 25%; left: 31%; }
-.node-6 { bottom: 25%; right: 31%; }
 
 /* RESPONSIVE DESIGN */
 @media (max-width: 1200px) {
@@ -2510,18 +2518,39 @@ img {
     .section-title {
         font-size: 2.2rem;
     }
-    .honeycomb-grid {
-        flex-direction: column;
-        gap: 10px;
+    .resources-honeycomb {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
         width: 100%;
+        height: auto;
     }
-    .hex-column {
-        gap: 10px;
+    .hex-cell {
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
         width: 100%;
-        align-items: center;
+        height: auto;
+        aspect-ratio: 1.15 / 1;
     }
-    .node-dot {
-        display: none;
+    .hex-outer, .hex-inner-white {
+        clip-path: none !important;
+        border-radius: 16px;
+    }
+    .hex-white-gold .hex-outer {
+        padding: 3px;
+    }
+    .hex-inner-white {
+        width: 100%;
+        height: 100%;
+        border-radius: 13px;
+        padding: 12px;
+    }
+}
+
+@media (max-width: 400px) {
+    .resources-honeycomb {
+        grid-template-columns: 1fr;
     }
 }
 
