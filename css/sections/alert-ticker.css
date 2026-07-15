@@ -1,0 +1,239 @@
+/* ============================================
+   ALERT TICKER SECTION
+   ============================================ */
+.alert-ticker-section {
+    background-color: var(--cream-bg);
+    padding: 24px 40px 16px;
+    position: relative;
+    z-index: 8;
+}
+
+.alert-ticker-wrapper {
+    max-width: 1120px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 9999px;
+    height: 64px;
+    padding: 0 8px;
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.05),
+        0 2px 8px rgba(0, 0, 0, 0.02),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    opacity: 0;
+    animation: pillLoadIn 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+.alert-ticker-wrapper:hover {
+    transform: translateY(-3px);
+    box-shadow: 
+        0 15px 35px rgba(11, 74, 122, 0.1),
+        0 4px 12px rgba(0, 0, 0, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+/* Left badge capsule */
+.alert-badge {
+    background-color: var(--accent-gold);
+    color: var(--primary-deep);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 20px;
+    height: 48px;
+    border-radius: 9999px;
+    flex-shrink: 0;
+    letter-spacing: 0.5px;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 4px 12px rgba(255, 184, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    animation: alertPulse 9s infinite ease-in-out;
+}
+
+.alert-badge svg.bell-icon {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+    flex-shrink: 0;
+}
+
+/* Content marquee wrapper */
+.alert-ticker-content {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    height: 100%;
+    z-index: 1;
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+.alert-ticker-track {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    gap: 32px;
+    animation: tickerScroll 30s linear infinite;
+    will-change: transform;
+}
+
+.alert-ticker-track:hover {
+    animation-play-state: paused;
+}
+
+/* Redesigned interactive items */
+.alert-item {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--primary-deep);
+    text-decoration: none;
+    transition: color 0.2s ease, opacity 0.2s ease;
+    cursor: pointer;
+}
+
+.alert-item:hover {
+    color: var(--primary-blue);
+    opacity: 0.85;
+}
+
+.alert-dot {
+    width: 6px;
+    height: 6px;
+    background-color: var(--accent-gold);
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+/* Right View All action button */
+.alert-view-all {
+    background-color: var(--primary-deep);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 24px;
+    height: 48px;
+    border-radius: 9999px;
+    flex-shrink: 0;
+    text-decoration: none;
+    box-shadow: 0 2px 6px rgba(0, 58, 101, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.alert-view-all:hover {
+    background-color: #002b4d;
+    box-shadow: 0 6px 18px rgba(0, 58, 101, 0.3);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.alert-view-all svg.arrow-icon {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.alert-view-all:hover svg.arrow-icon {
+    transform: translateX(4px);
+}
+
+/* Animations */
+@keyframes tickerScroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes alertPulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 4px 12px rgba(255, 184, 0, 0.25);
+    }
+    50% {
+        transform: scale(1.04);
+        box-shadow: 0 6px 20px rgba(255, 184, 0, 0.5);
+    }
+}
+
+@keyframes pillLoadIn {
+    0% {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .alert-ticker-section {
+        padding: 20px 24px 12px;
+    }
+    .alert-ticker-wrapper {
+        height: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .alert-ticker-section {
+        padding: 16px 16px 8px;
+    }
+
+    .alert-ticker-wrapper {
+        height: 56px;
+        padding: 0 6px;
+    }
+
+    .alert-badge {
+        padding: 0 14px;
+        height: 44px;
+        font-size: 13px;
+    }
+
+    .alert-badge span {
+        display: none;
+    }
+
+    .alert-ticker-content {
+        padding: 0 16px;
+    }
+
+    .alert-view-all {
+        padding: 0 18px;
+        height: 44px;
+        font-size: 13px;
+    }
+    
+    .alert-view-all span {
+        display: none;
+    }
+    
+    .alert-view-all svg.arrow-icon {
+        width: 18px;
+        height: 18px;
+    }
+}

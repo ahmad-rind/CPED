@@ -1,0 +1,379 @@
+/* ============================================
+   MISSION & OBJECTIVES SECTION (REDESIGN)
+   ============================================ */
+.mission-peos-section {
+    position: relative;
+    background-color: var(--white);
+    padding: 60px 40px;
+    overflow: hidden;
+}
+
+.mission-peos-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: stretch;
+}
+
+/* LEFT PANEL: MISSION CARD */
+.mission-panel {
+    background-color: var(--primary-deep);
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    border-left: 6px solid var(--accent-gold);
+    box-shadow: 0 20px 40px rgba(0, 58, 101, 0.12);
+    display: flex;
+    flex-direction: column;
+    color: var(--white);
+    min-height: 580px;
+}
+
+/* University Building Background Overlay */
+.mission-panel::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url('../CPED hero backround.png');
+    background-size: cover;
+    background-position: center bottom;
+    opacity: 0.15;
+    mix-blend-mode: luminosity;
+    z-index: 1;
+}
+
+/* Gradient overlay */
+.mission-panel::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to bottom, var(--primary-deep) 45%, rgba(0, 58, 101, 0.4) 100%);
+    z-index: 2;
+}
+
+.mission-content {
+    position: relative;
+    z-index: 3;
+    padding: 48px 48px 24px 48px;
+    flex-grow: 1;
+}
+
+.mission-icon-top {
+    width: 50px;
+    height: 50px;
+    background-color: var(--accent-gold);
+    color: var(--primary-deep);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 15px rgba(255, 184, 0, 0.3);
+}
+
+.mission-icon-top svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+.mission-content h2 {
+    font-family: 'Bitter', serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 20px;
+    color: var(--white);
+}
+
+.mission-content h2 span {
+    color: var(--accent-gold);
+}
+
+.mission-content p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 400;
+}
+
+/* Bottom Feature Icons Box */
+.mission-features-container {
+    position: relative;
+    z-index: 3;
+    padding: 0 32px 32px 32px;
+}
+
+.mission-features {
+    background-color: rgba(0, 39, 68, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 24px 16px;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 25%;
+}
+
+.feature-icon-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1.5px solid var(--accent-gold);
+    color: var(--accent-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.feature-icon-circle svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+/* Small dots around the feature icons */
+.feature-icon-circle::before, .feature-icon-circle::after {
+    content: '';
+    position: absolute;
+    width: 4px; height: 4px;
+    background-color: var(--accent-gold);
+    border-radius: 50%;
+}
+.feature-icon-circle::before { top: -2.5px; left: 50%; transform: translateX(-50%); }
+.feature-icon-circle::after { bottom: -2.5px; left: 50%; transform: translateX(-50%); }
+
+.feature-item span {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.3;
+}
+
+/* RIGHT PANEL: PEOs */
+.peos-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.peos-header {
+    margin-bottom: 32px;
+    position: relative;
+}
+
+/* Small gold dash above header */
+.peos-header::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 0;
+    width: 35px;
+    height: 4px;
+    background-color: var(--accent-gold);
+    border-radius: 2px;
+}
+
+.peos-header h2 {
+    font-family: 'Bitter', serif;
+    font-size: 28px;
+    color: var(--primary-deep);
+    margin-bottom: 12px;
+}
+
+.peos-header p {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text-medium);
+    font-size: 14.5px;
+    line-height: 1.6;
+}
+
+.peo-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.peo-card {
+    background-color: var(--white);
+    border-radius: 16px;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
+    border-left: 6px solid var(--primary-deep);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    cursor: pointer;
+}
+
+.peo-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 36px rgba(0, 58, 101, 0.08);
+    border-left-color: var(--accent-gold);
+}
+
+/* Number Circle */
+.peo-number {
+    width: 45px;
+    height: 45px;
+    background-color: var(--primary-deep);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bitter', serif;
+    font-weight: 700;
+    font-size: 16px;
+    flex-shrink: 0;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.peo-card:hover .peo-number {
+    background-color: var(--accent-gold);
+    color: var(--primary-deep);
+}
+
+/* Dotted border around the number */
+.peo-number::before {
+    content: '';
+    position: absolute;
+    top: -5px; left: -5px; right: -5px; bottom: -5px;
+    border: 1px dashed rgba(0, 58, 101, 0.25);
+    border-radius: 50%;
+    transition: border-color 0.3s ease;
+}
+
+.peo-card:hover .peo-number::before {
+    border-color: rgba(255, 184, 0, 0.4);
+}
+
+/* Graphic Icon with subtle border */
+.peo-icon-wrapper {
+    width: 45px;
+    height: 45px;
+    background-color: #f8fafc;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.peo-icon-wrapper svg {
+    width: 22px;
+    height: 22px;
+    stroke: var(--primary-blue);
+    stroke-width: 2px;
+    fill: none;
+}
+
+/* Yellow Accent Dots on Icon Wrapper */
+.peo-icon-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent-gold);
+    border-radius: 50%;
+}
+
+.peo-text {
+    flex-grow: 1;
+}
+
+.peo-text h3 {
+    font-family: 'Bitter', serif;
+    font-size: 16px;
+    color: var(--primary-deep);
+    margin-bottom: 4px;
+}
+
+.peo-text p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13.5px;
+    color: var(--text-medium);
+    line-height: 1.55;
+}
+
+/* Right Arrow Button */
+.peo-arrow {
+    width: 32px;
+    height: 32px;
+    background-color: var(--primary-deep);
+    color: var(--white);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.peo-arrow svg {
+    width: 14px;
+    height: 14px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 3px;
+}
+
+.peo-card:hover .peo-arrow {
+    background-color: var(--accent-gold);
+    color: var(--primary-deep);
+}
+
+/* Responsive queries */
+@media (max-width: 1024px) {
+    .mission-peos-section {
+        padding: 50px 24px;
+    }
+    
+    .mission-peos-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .mission-panel {
+        min-height: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .mission-content {
+        padding: 40px 24px 20px 24px;
+    }
+    .mission-features-container {
+        padding: 0 20px 24px 20px;
+    }
+    .peo-card {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 24px;
+    }
+    .peo-arrow {
+        position: absolute;
+        top: 24px;
+        right: 24px;
+    }
+}

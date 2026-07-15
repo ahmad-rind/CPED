@@ -1,0 +1,320 @@
+/* ============================================
+   ACADEMICS & PROGRAMS SECTION
+   ============================================ */
+.academics-section {
+    position: relative;
+    background: var(--cream-bg);
+    padding: 36px 40px 40px;
+    overflow: hidden;
+}
+
+/* Decorative squiggly line — upper left */
+.academics-squiggle {
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    width: 36px;
+    height: auto;
+    opacity: 0.25;
+    pointer-events: none;
+}
+
+/* Section header */
+.academics-header {
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.academics-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--primary-blue);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+}
+
+.academics-eyebrow svg {
+    width: 18px;
+    height: 18px;
+    fill: var(--primary-blue);
+}
+
+.academics-heading {
+    font-family: 'Bitter', serif;
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 800;
+    color: var(--primary-deep);
+    line-height: 1.2;
+}
+
+/* Academics layout container */
+.academics-layout-container {
+    display: flex;
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    align-items: stretch;
+}
+
+.academics-images-side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.academics-img-card {
+    flex: 1;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.academics-img-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.academics-programs-side {
+    flex: 1.5;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 16px;
+}
+
+@media (max-width: 1024px) {
+    .academics-layout-container {
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .academics-images-side {
+        flex-direction: row;
+    }
+
+    .academics-img-card {
+        aspect-ratio: 1.85 / 1;
+    }
+}
+
+@media (max-width: 778px) {
+    .academics-images-side {
+        flex-direction: column;
+    }
+
+    .academics-programs-side {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* Program card */
+.program-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    position: relative;
+    background: var(--white);
+    border-radius: 16px;
+    padding: 22px 20px 34px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: visible;
+}
+
+.program-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* Background stripe container and mask */
+.program-card-bg-mask {
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.program-card-bg-mask::before {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: -20px;
+    width: 80px;
+    height: 80px;
+    background: repeating-linear-gradient(45deg,
+            transparent,
+            transparent 4px,
+            rgba(0, 0, 0, 0.03) 4px,
+            rgba(0, 0, 0, 0.03) 8px);
+    border-radius: 8px;
+}
+
+.program-card-icon {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    z-index: 1;
+}
+
+.program-card-icon svg {
+    width: 32px;
+    height: 32px;
+    stroke: var(--primary-deep);
+    stroke-width: 1.5;
+    fill: none;
+}
+
+.program-card-content {
+    flex: 1;
+    z-index: 1;
+}
+
+.program-card-title {
+    font-family: 'Bitter', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary-deep);
+    margin-bottom: 4px;
+    line-height: 1.3;
+}
+
+.program-card-desc {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8125rem;
+    color: var(--text-light);
+    line-height: 1.4;
+}
+
+/* Bottom overlapping down-arrow button */
+.program-card-arrow {
+    position: absolute;
+    bottom: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 32px;
+    height: 32px;
+    background-color: var(--accent-gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.program-card-arrow svg {
+    width: 18px;
+    height: 18px;
+    fill: var(--primary-deep);
+    transition: transform 0.3s ease;
+}
+
+.program-card:hover .program-card-arrow {
+    background-color: var(--secondary-orange);
+    transform: translateX(-50%) translateY(-2px);
+    box-shadow: 0 6px 15px rgba(232, 101, 26, 0.45);
+}
+
+.program-card:hover .program-card-arrow svg {
+    fill: var(--white);
+    transform: translateY(2px);
+}
+
+/* Decorative graduation cap + diploma — bottom right */
+@keyframes float-cap {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-8px) rotate(2deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+.academics-decor-cap {
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    width: 110px;
+    height: auto;
+    opacity: 0.85;
+    pointer-events: none;
+    z-index: 0;
+    animation: float-cap 6s ease-in-out infinite;
+    will-change: transform;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .academics-section {
+        padding: 60px 24px 80px;
+    }
+
+    .academics-squiggle {
+        top: 32px;
+        left: 24px;
+        width: 36px;
+    }
+
+    .academics-decor-cap {
+        width: 100px;
+        bottom: -5px;
+        right: -5px;
+    }
+}
+
+@media (max-width: 600px) {
+    .academics-section {
+        padding: 48px 16px 70px;
+    }
+
+    .programs-grid {
+        gap: 16px;
+    }
+
+    .program-card {
+        padding: 24px 20px;
+    }
+
+    .academics-squiggle {
+        display: none;
+    }
+
+    .academics-decor-cap {
+        width: 80px;
+        opacity: 0.6;
+    }
+}
+
+
+@media (max-width: 778px) {
+    .program-card {
+        flex-direction: column;
+        gap: 12px;
+    }
+}

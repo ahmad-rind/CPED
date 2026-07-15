@@ -1,0 +1,621 @@
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: clamp(37.5rem, 100vh, 56.25rem);
+    /* Limits hero height on large displays to prevent excessive image scaling */
+    min-height: 650px;
+    /* Prevents text/content overlap on short viewports */
+    overflow: hidden;
+    background: var(--hero-gradient);
+}
+
+/* Center inner container to align with header logo and menu */
+.hero-inner {
+    position: relative;
+    width: 100%;
+    max-width: 100vw;
+    margin: 0;
+    height: 100%;
+    z-index: 10;
+    pointer-events: none;
+    box-sizing: border-box;
+}
+
+/* Hero background image (building) */
+.hero-bg-image {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    width: 100vw;
+    height: 100%;
+    pointer-events: none;
+}
+
+.hero-bg-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    object-position: center 70%;
+    /* Shifted building silhouette up slightly per user preference */
+}
+
+/* Dark overlay at the very bottom for text readability */
+.hero-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 20, 50, 0.65) 100%);
+    z-index: 4;
+    pointer-events: none;
+}
+
+/* Giant "CPED" Watermark Text */
+.hero-watermark {
+    position: absolute;
+    top: 37%;
+    /* Shifted to overlap behind the building silhouette */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+
+    font-family: 'Bitter', serif;
+    font-size: clamp(6.25rem, 24vw, 26rem);
+    font-weight: 700;
+    letter-spacing: clamp(0.25rem, 1vw, 1rem);
+    line-height: clamp(6.25rem, 24vw, 22rem);
+    text-align: center;
+    white-space: nowrap;
+
+    /* Gradient text that fades to transparent */
+    color: transparent;
+    background-image: linear-gradient(180deg, #FFFFFF -20%, rgba(255, 255, 255, 0.08) 90%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* Animation */
+    opacity: 0;
+    animation: watermarkReveal 1.85s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+}
+
+/* Hero Content (subtitle + heading) */
+.hero-content {
+    position: absolute;
+    bottom: 3rem;
+    left: 2.5rem;
+    z-index: 8;
+    max-width: 43.75rem;
+    padding: 0 1.25rem;
+    pointer-events: auto;
+}
+
+.hero-subtitle {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1.5px solid rgba(255, 255, 255, 0.15);
+    padding: 8px 24px;
+    border-radius: 50px;
+    margin-bottom: 18px;
+
+    opacity: 0;
+    animation: slideInLeft 1.48s cubic-bezier(0.76, 0, 0.24, 1) 1.04s forwards;
+}
+
+.hero-subtitle .cap-icon {
+    width: 22px;
+    height: 22px;
+    fill: var(--accent-gold) !important;
+    object-fit: contain;
+    flex-shrink: 0;
+
+    opacity: 0;
+    animation: slideInFromLeft 1s cubic-bezier(0.76, 0, 0.24, 1) 0.67s forwards;
+}
+
+.hero-subtitle span {
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(0.8125rem, 1.5vw, 1rem);
+    font-weight: 500;
+    color: var(--white);
+    letter-spacing: 0.03125rem;
+}
+
+.hero-heading {
+    font-family: 'Bitter', serif;
+    font-size: clamp(1.5rem, 5.5vw, 3.625rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: clamp(2.125rem, 6.5vw, 4.375rem);
+    letter-spacing: 0.03125rem;
+    max-width: 40.625rem;
+
+    opacity: 0;
+    animation: slideInLeft 1.56s cubic-bezier(0.76, 0, 0.24, 1) 1.33s forwards;
+}
+
+.hero-description {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.7;
+    margin-top: 20px;
+    max-width: 520px;
+
+    opacity: 0;
+    animation: slideInLeft 1.4s cubic-bezier(0.76, 0, 0.24, 1) 1.6s forwards;
+}
+
+.hero-cta-group {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 32px;
+
+    opacity: 0;
+    animation: slideInLeft 1.4s cubic-bezier(0.76, 0, 0.24, 1) 1.85s forwards;
+}
+
+.hero-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--secondary-orange);
+    color: var(--white);
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.hero-btn-primary:hover {
+    background: var(--orange-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(232, 101, 26, 0.4);
+}
+
+.hero-btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: var(--white);
+    padding: 13px 30px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.hero-btn-outline:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: var(--white);
+    transform: translateY(-2px);
+}
+
+/* Campus Tour (bottom right) */
+.hero-campus-tour {
+    position: absolute;
+    bottom: 3rem;
+    right: 2.5rem;
+    z-index: 12;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    pointer-events: auto;
+
+    opacity: 0;
+    animation: slideInRight 1s cubic-bezier(0.76, 0, 0.24, 1) 0.99s forwards;
+}
+
+.video-play-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    position: relative;
+}
+
+.video-play-btn::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.video-play-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.1);
+}
+
+.play-icon {
+    color: var(--white);
+    font-size: 18px;
+    margin-left: 3px;
+}
+
+.campus-tour-text {
+    font-family: 'Bitter', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--white);
+    letter-spacing: 1px;
+}
+
+/* Progress Bar removed */
+
+/* ============================================
+   VIDEO MODAL
+   ============================================ */
+.video-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-modal.active {
+    display: flex;
+}
+
+.modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.88);
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 900px;
+    aspect-ratio: 16/9;
+    z-index: 1;
+}
+
+.modal-close {
+    position: absolute;
+    top: -45px;
+    right: 0;
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 34px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.modal-close:hover {
+    transform: scale(1.2);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.modal-content iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+/* ============================================
+   KEYFRAME ANIMATIONS
+   ============================================ */
+
+/* Header slide down on sticky */
+@keyframes slideDown {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Watermark "CPED" slides down from above */
+@keyframes watermarkReveal {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, calc(-50% - 100px));
+        clip-path: inset(0 0 100% 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+/* Slide in from left with clip mask */
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-60px);
+        clip-path: inset(0 100% 0 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+/* Icon slides in from far left */
+@keyframes slideInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-200%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Slide in from right */
+@keyframes slideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+        clip-path: inset(0 0 0 100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+/* Pulsing ring on play button */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.4);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+/* Progress bar keyframes removed */
+
+
+/* Responsive styles */
+@media (max-width: 1440px) {
+    .hero-watermark {
+        font-size: 20rem;
+        letter-spacing: 0.9375rem;
+        line-height: 17.5rem;
+    }
+}
+
+@media (max-width: 1200px) {
+    .hero-section {
+        height: 100vh;
+        min-height: 600px;
+    }
+
+    .hero-watermark {
+        font-size: 17.5rem;
+        letter-spacing: 0.875rem;
+        line-height: 15.625rem;
+        top: 36%;
+    }
+
+    .hero-heading {
+        font-size: 3rem;
+        line-height: 3.625rem;
+    }
+
+}
+
+@media (max-width: 1024px) {
+    .hero-section {
+        height: 780px;
+    }
+
+    .hero-watermark {
+        font-size: 13.75rem;
+        letter-spacing: 0.75rem;
+        line-height: 11.875rem;
+        top: 35%;
+    }
+
+    .hero-heading {
+        font-size: 2.75rem;
+        line-height: 3.375rem;
+        max-width: 30rem;
+    }
+
+    .hero-subtitle span {
+        font-size: 1rem;
+    }
+
+    .hero-content {
+        left: 1.875rem;
+        bottom: 2.5rem;
+    }
+
+    .hero-campus-tour {
+        right: 1.875rem;
+        bottom: 2.5rem;
+    }
+
+}
+
+@media (max-width: 778px) {
+    .hero-section {
+        height: 700px;
+    }
+
+    .hero-watermark {
+        font-size: 10rem;
+        letter-spacing: 0.625rem;
+        line-height: 8.75rem;
+        top: 33%;
+    }
+
+    .hero-content {
+        left: 1.25rem;
+        bottom: 8.75rem;
+        /* Shifted up to clear play button */
+        text-align: left;
+        width: calc(100% - 2.5rem);
+        padding: 0;
+    }
+
+    .hero-subtitle {
+        justify-content: flex-start;
+    }
+
+    .hero-heading {
+        font-size: 2.375rem;
+        line-height: 3rem;
+        max-width: 27.5rem;
+        text-align: left;
+        margin: 0;
+    }
+
+    .hero-subtitle span {
+        font-size: 0.9375rem;
+    }
+
+    /* Fluid bg image inherited */
+
+    .hero-campus-tour {
+        position: absolute;
+        bottom: 2.5rem;
+        /* Positioned at bottom center */
+        right: 1.25rem;
+        left: auto;
+        transform: none;
+        z-index: 8;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .campus-tour-text {
+        font-size: 0.9375rem;
+        display: block;
+    }
+
+    .video-play-btn {
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        height: 600px;
+    }
+
+    .hero-watermark {
+        font-size: 6.25rem;
+        line-height: 5.625rem;
+        letter-spacing: 0.375rem;
+        top: 30%;
+    }
+
+    .hero-content {
+        left: 1.25rem;
+        bottom: 7.5rem;
+        /* Shifted up to clear play button */
+        text-align: left;
+        width: calc(100% - 2.5rem);
+        padding: 0;
+    }
+
+    .hero-subtitle {
+        justify-content: flex-start;
+    }
+
+    .hero-subtitle .cap-icon {
+        width: 1.375rem;
+        height: 1.375rem;
+    }
+
+    .hero-heading {
+        font-size: 1.75rem;
+        line-height: 2.375rem;
+        max-width: 21.25rem;
+        text-align: left;
+        margin: 0;
+    }
+
+    .hero-campus-tour {
+        position: absolute;
+        bottom: 1.875rem;
+        /* Positioned at bottom center */
+        right: 1.25rem;
+        left: auto;
+        transform: none;
+        z-index: 8;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .campus-tour-text {
+        font-size: 0.875rem;
+        display: block;
+        /* Show text next to button on mobile */
+    }
+
+}

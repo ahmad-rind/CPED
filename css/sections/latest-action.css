@@ -1,0 +1,74 @@
+/* ============================================
+   LATEST ACTION BAR
+   ============================================ */
+.latest-action-bar {
+    background-color: var(--primary-deep);
+    color: var(--white);
+    padding: 12px 40px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    border-bottom: 3px solid var(--accent-gold);
+    position: relative;
+    z-index: 9;
+}
+
+.latest-action-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.latest-action-label {
+    color: var(--accent-gold);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.latest-action-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: 500;
+}
+
+.latest-action-link:hover {
+    color: var(--accent-gold);
+}
+
+.latest-action-link svg {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    flex-shrink: 0;
+}
+
+.latest-action-divider {
+    color: rgba(255, 255, 255, 0.25);
+    font-weight: 300;
+}
+
+@media (max-width: 768px) {
+    .latest-action-bar {
+        padding: 12px 20px;
+    }
+
+    .latest-action-inner {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px 16px;
+        font-size: 13px;
+    }
+
+    .latest-action-divider {
+        display: none;
+    }
+}

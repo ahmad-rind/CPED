@@ -1,0 +1,469 @@
+/* ============================================
+   RESOURCES SECTION (HONEYCOMB HEX GRID)
+   ============================================ */
+.resources-section {
+    position: relative;
+    background: var(--res-bg-light);
+    padding: 60px 40px;
+    overflow: hidden;
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 8;
+}
+
+/* Background Decorative Graphics */
+.resources-section::before {
+    content: '';
+    position: absolute;
+    top: 5%; left: 3%;
+    width: 200px; height: 200px;
+    background-image: radial-gradient(var(--res-border-light) 2px, transparent 2px);
+    background-size: 20px 20px;
+    opacity: 0.7;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.resources-section::after {
+    content: '';
+    position: absolute;
+    top: 10%; right: 2%;
+    width: 300px; height: 300px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><polygon points="25,0 75,0 100,50 75,100 25,100 0,50" fill="none" stroke="%23e2e8f0" stroke-width="1.5"/></svg>');
+    background-size: 80px 80px;
+    opacity: 0.5;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Title Header */
+.resources-header {
+    display: none;
+}
+
+.section-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 3.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.explore-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--res-navy);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.explore-tag::before, .explore-tag::after {
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 2px;
+    background-color: var(--res-gold);
+}
+
+.section-title {
+    font-family: 'Roboto Slab', serif;
+    font-size: 3rem;
+    color: var(--res-navy);
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 4px;
+    background-color: var(--res-gold);
+    border-radius: 2px;
+}
+
+/* Three-Column Content Grid */
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr 1fr;
+    gap: 2.5rem;
+    width: 100%;
+    max-width: 1350px;
+    margin: 0 auto;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* SIDE CARDS (Academic Portals & Downloads) */
+.info-card {
+    background: var(--res-card-bg);
+    border-radius: 24px;
+    padding: 3rem 2.2rem 2.5rem 2.2rem;
+    box-shadow: var(--res-shadow-soft);
+    position: relative;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 440px;
+    box-sizing: border-box;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--res-shadow-hover);
+}
+
+/* Corner Border Accents */
+.card-left {
+    border-top: 4px solid var(--res-navy);
+    border-left: 4px solid var(--res-navy);
+    border-bottom: 4px solid var(--res-gold);
+    border-right: 4px solid var(--res-gold);
+}
+
+.card-right {
+    border-top: 4px solid var(--res-navy);
+    border-right: 4px solid var(--res-navy);
+    border-bottom: 4px solid var(--res-gold);
+    border-left: 4px solid var(--res-gold);
+}
+
+/* Floating Circular Corner Badges */
+.card-badge {
+    position: absolute;
+    top: -20px;
+    width: 54px;
+    height: 54px;
+    background-color: var(--res-navy);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    box-shadow: 0 8px 20px rgba(10, 46, 92, 0.3);
+    border: 4px solid var(--res-bg-light);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.card-left .card-badge { left: -20px; }
+.card-right .card-badge { right: -20px; }
+
+.info-card:hover .card-badge {
+    background-color: var(--res-gold);
+    color: var(--res-navy);
+    transform: scale(1.1) rotate(10deg);
+}
+
+.card-heading {
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.5rem;
+    color: var(--res-navy);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.card-description {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: var(--res-text-muted);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+/* Interactive List Buttons / Pills */
+.pill-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pill-item {
+    background-color: #f8fafc;
+    border: 1px solid var(--res-border-light);
+    padding: 0.75rem 1.2rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    color: var(--res-text-dark);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-sizing: border-box;
+}
+
+.pill-item:hover {
+    background-color: white;
+    border-color: var(--res-navy);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transform: translateX(5px);
+}
+
+.pill-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.pill-icon {
+    width: 36px;
+    height: 36px;
+    background-color: var(--res-navy);
+    color: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.pill-item:hover .pill-icon {
+    background-color: var(--res-gold);
+    color: var(--res-navy);
+}
+
+.pill-arrow {
+    color: var(--res-text-muted);
+    font-size: 0.8rem;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.pill-item:hover .pill-arrow {
+    color: var(--res-navy);
+    transform: translateX(3px);
+}
+
+/* CENTER HONEYCOMB GRID */
+.honeycomb-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+    position: relative;
+    z-index: 1;
+}
+
+.resources-honeycomb {
+    position: relative;
+    width: 450px;
+    height: 592px;
+}
+
+/* Hex Cell Absolute Positioning (Pointy-Top interlocking layout) */
+.hex-cell {
+    position: absolute;
+    width: 180px;
+    height: 208px;
+    text-decoration: none;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), z-index 0.1s;
+    z-index: 1;
+}
+
+/* Position mapping */
+.hex-cell:nth-child(1) {
+    left: 0;
+    top: 0;
+}
+
+.hex-cell:nth-child(2) {
+    left: 135px;
+    top: 128px;
+}
+
+.hex-cell:nth-child(3) {
+    left: 270px;
+    top: 0;
+}
+
+.hex-cell:nth-child(4) {
+    left: 0;
+    top: 256px;
+}
+
+.hex-cell:nth-child(5) {
+    left: 135px;
+    top: 384px;
+}
+
+.hex-cell:nth-child(6) {
+    left: 270px;
+    top: 256px;
+}
+
+/* Outer Hex Layer (Pointy-Top Geometry) */
+.hex-outer {
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.hex-cell:hover .hex-outer {
+    transform: scale(1.08);
+    z-index: 10;
+}
+
+/* Style 1: Solid Navy Blue Hexagon */
+.hex-navy .hex-outer {
+    background-color: var(--res-navy);
+    color: white;
+    box-shadow: 0 10px 20px rgba(10, 46, 92, 0.2);
+}
+
+.hex-navy:hover .hex-outer {
+    background-color: var(--res-navy-hover);
+}
+
+/* Style 2: White Hexagon with Gold Border (Thin outline as in image 2) */
+.hex-white-gold .hex-outer {
+    background-color: var(--res-gold);
+}
+
+.hex-inner-white {
+    width: calc(100% - 4px); /* thin yellow outline border */
+    height: calc(100% - 4px);
+    background-color: white;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    color: var(--res-navy);
+    text-align: center;
+    transition: background-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.hex-white-gold:hover .hex-inner-white {
+    background-color: #fffcf5;
+}
+
+/* Content inside Hexagons */
+.hex-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+}
+
+.hex-icon {
+    font-size: 1.6rem;
+    color: var(--res-gold);
+    margin-bottom: 0.5rem;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.hex-cell:hover .hex-icon {
+    transform: scale(1.15);
+}
+
+.hex-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    line-height: 1.25;
+    max-width: 120px;
+    color: inherit;
+}
+
+.hex-dash {
+    width: 20px;
+    height: 2px;
+    background-color: var(--res-gold);
+    margin-top: 0.4rem;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1200px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+        padding: 0;
+    }
+    .info-card {
+        min-height: auto;
+        max-width: 600px;
+        margin: 0 auto;
+        width: 100%;
+    }
+    .card-left .card-badge, .card-right .card-badge {
+        left: 20px;
+        right: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .resources-section {
+        padding: 40px 16px;
+    }
+    .section-title {
+        font-size: 2.2rem;
+    }
+    .resources-honeycomb {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        width: 100%;
+        height: auto;
+    }
+    .hex-cell {
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1.15 / 1;
+    }
+    .hex-outer, .hex-inner-white {
+        clip-path: none !important;
+        border-radius: 16px;
+    }
+    .hex-white-gold .hex-outer {
+        padding: 3px;
+    }
+    .hex-inner-white {
+        width: 100%;
+        height: 100%;
+        border-radius: 13px;
+        padding: 12px;
+    }
+}
+
+@media (max-width: 400px) {
+    .resources-honeycomb {
+        grid-template-columns: 1fr;
+    }
+}
