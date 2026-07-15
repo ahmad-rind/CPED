@@ -12,8 +12,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Roboto+Slab:wght@600;700;800&display=swap"
         rel="stylesheet">
+
+    <!-- FontAwesome for crisp icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -388,146 +391,170 @@
      RESOURCES SECTION
      ============================================ -->
     <section id="resources" class="resources-section">
-        <div class="resources-header">
-            <div class="resources-eyebrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/>
-                </svg>
-                <span>Explore More</span>
+        
+        <!-- Header Title Section -->
+        <header class="section-header">
+            <div class="explore-tag">
+                <i class="fa-solid fa-book-open"></i> Explore More
             </div>
-            <h2 class="resources-heading">Resources</h2>
-        </div>
+            <h1 class="section-title">Resources</h1>
+        </header>
 
-        <div class="resources-grid-container">
-            <!-- Left Side Panel: Portals -->
-            <div class="resources-side-panel left">
-                <div class="panel-header">
-                    <h3 class="panel-title">Academic Portals</h3>
+        <!-- Three-Column Grid -->
+        <div class="content-grid">
+            
+            <!-- LEFT COLUMN: Academic Portals Card -->
+            <div class="info-card card-left">
+                <div class="card-badge">
+                    <i class="fa-solid fa-book-open-reader"></i>
                 </div>
-                <p class="panel-desc">Access departmental management tools, virtual labs, and automated portals for students and faculty members.</p>
-                <ul class="panel-links">
-                    <li class="panel-link-item">
-                        <a href="academics/management.html">
-                            <span>AMS Portal</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                <div>
+                    <h2 class="card-heading">Academic Portals</h2>
+                    <p class="card-description">
+                        Access departmental management tools, virtual labs, and automated portals for students and faculty members.
+                    </p>
+                </div>
+                <ul class="pill-list">
+                    <li>
+                        <a href="academics/management.html" class="pill-item">
+                            <div class="pill-left">
+                                <div class="pill-icon"><i class="fa-solid fa-desktop"></i></div>
+                                <span>AMS Portal</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-right pill-arrow"></i>
                         </a>
                     </li>
-                    <li class="panel-link-item">
-                        <a href="contact/helpdesk.html">
-                            <span>IT Helpdesk</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    <li>
+                        <a href="contact/helpdesk.html" class="pill-item">
+                            <div class="pill-left">
+                                <div class="pill-icon"><i class="fa-solid fa-headset"></i></div>
+                                <span>IT Helpdesk</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-right pill-arrow"></i>
                         </a>
                     </li>
-                    <li class="panel-link-item">
-                        <a href="faculty/members.html">
-                            <span>Faculty Directory</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    <li>
+                        <a href="faculty/members.html" class="pill-item">
+                            <div class="pill-left">
+                                <div class="pill-icon"><i class="fa-solid fa-user-tie"></i></div>
+                                <span>Faculty Directory</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-right pill-arrow"></i>
                         </a>
                     </li>
                 </ul>
             </div>
 
-            <div class="resources-honeycomb">
-                <!-- Hex 1: Research Areas -->
-                <a href="faculty/labs.html" class="hex-cell hex-navy">
-                    <div class="hex-outer">
-                        <div class="hex-inner">
-                            <svg class="hex-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
-                            </svg>
-                            <span class="hex-label">Research Areas</span>
-                        </div>
-                    </div>
-                </a>
+            <!-- CENTER COLUMN: Interlocking Honeycomb Cluster -->
+            <div class="honeycomb-wrapper">
+                
+                <!-- Interconnecting Nodes -->
+                <div class="node-dot node-1"></div>
+                <div class="node-dot node-2"></div>
+                <div class="node-dot node-3"></div>
+                <div class="node-dot node-4"></div>
+                <div class="node-dot node-5"></div>
+                <div class="node-dot node-6"></div>
 
-                <!-- Hex 2: Research Labs -->
-                <a href="faculty/labs.html" class="hex-cell hex-white">
-                    <div class="hex-outer">
-                        <div class="hex-inner">
-                            <svg class="hex-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M19 19L13 8V4h1c.55 0 1-.45 1-1s-.45-1-1-1h-4c-.55 0-1 .45-1 1s.45 1 1 1h1v4L5 19c-.73 1.12-.13 2.5 1.25 2.5h11.5c1.38 0 1.98-1.38 1.25-2.5zM7.5 18l3.5-5.5V5h2v7.5l3.5 5.5h-9z"/>
-                            </svg>
-                            <span class="hex-label">Research Labs &amp; Groups</span>
-                        </div>
+                <div class="honeycomb-grid">
+                    
+                    <!-- Left Hex Column (2 Navy Hexagons) -->
+                    <div class="hex-column">
+                        <a href="faculty/labs.html" class="hex-outer hex-navy" style="text-decoration: none;">
+                            <div class="hex-content">
+                                <i class="fa-solid fa-magnifying-glass-chart hex-icon"></i>
+                                <span class="hex-title">Research Areas</span>
+                                <div class="hex-dash"></div>
+                            </div>
+                        </a>
+                        <a href="faculty/projects.html" class="hex-outer hex-navy" style="text-decoration: none;">
+                            <div class="hex-content">
+                                <i class="fa-solid fa-book-journal-whills hex-icon"></i>
+                                <span class="hex-title">Research Projects & Publications</span>
+                                <div class="hex-dash"></div>
+                            </div>
+                        </a>
                     </div>
-                </a>
 
-                <!-- Hex 3: Societies -->
-                <a href="contact/alumni.html" class="hex-cell hex-navy">
-                    <div class="hex-outer">
-                        <div class="hex-inner">
-                            <svg class="hex-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
-                            </svg>
-                            <span class="hex-label">Departmental Societies</span>
-                        </div>
+                    <!-- Center Hex Column (2 White/Gold Hexagons) -->
+                    <div class="hex-column center-col">
+                        <a href="faculty/labs.html" class="hex-outer hex-white-gold" style="text-decoration: none;">
+                            <div class="hex-inner-white">
+                                <i class="fa-solid fa-flask hex-icon"></i>
+                                <span class="hex-title">Research Labs & Groups</span>
+                            </div>
+                        </a>
+                        <a href="academics/management.html" class="hex-outer hex-white-gold" style="text-decoration: none;">
+                            <div class="hex-inner-white">
+                                <i class="fa-solid fa-laptop hex-icon"></i>
+                                <span class="hex-title">Class Advisors & Representatives</span>
+                            </div>
+                        </a>
                     </div>
-                </a>
 
-                <!-- Hex 4: Projects & Publications -->
-                <a href="faculty/projects.html" class="hex-cell hex-navy">
-                    <div class="hex-outer">
-                        <div class="hex-inner">
-                            <svg class="hex-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 6c3.11-1.78 6.44-2 9-2v12c-2.56 0-5.89.22-9 2-3.11-1.78-6.44-2-9-2V4c2.56 0 5.89.22 9 2zm0 11.64c2.81-1.22 5.76-1.55 8-1.55V6.3c-2.24 0-5.19.33-8 1.55v9.79zm-1 0V7.85c-2.81-1.22-5.76-1.55-8-1.55v9.79c2.24 0 5.19.33 8 1.55z"/>
-                            </svg>
-                            <span class="hex-label">Research Projects &amp; Publications</span>
-                        </div>
+                    <!-- Right Hex Column (2 Navy Hexagons) -->
+                    <div class="hex-column">
+                        <a href="contact/alumni.html" class="hex-outer hex-navy" style="text-decoration: none;">
+                            <div class="hex-content">
+                                <i class="fa-solid fa-users-line hex-icon"></i>
+                                <span class="hex-title">Departmental Societies</span>
+                                <div class="hex-dash"></div>
+                            </div>
+                        </a>
+                        <a href="downloads.html" class="hex-outer hex-navy" style="text-decoration: none;">
+                            <div class="hex-content">
+                                <i class="fa-solid fa-trophy hex-icon"></i>
+                                <span class="hex-title">Gold Medalists</span>
+                                <div class="hex-dash"></div>
+                            </div>
+                        </a>
                     </div>
-                </a>
 
-                <!-- Hex 5: Class Advisors & Reps -->
-                <a href="academics/management.html" class="hex-cell hex-white">
-                    <div class="hex-outer">
-                        <div class="hex-inner">
-                            <svg class="hex-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M20 18c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"/>
-                            </svg>
-                            <span class="hex-label">Class Advisors &amp; Class Representatives</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Hex 6: Gold Medalists -->
-                <a href="downloads.html" class="hex-cell hex-navy">
-                    <div class="hex-outer">
-                        <div class="hex-inner">
-                            <svg class="hex-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v3c0 2.24 1.76 4.09 4 4.47V17c0 1.66 1.34 3 3 3h4c1.66 0 3-1.34 3-3v-2.53c2.24-.38 4-2.23 4-4.47V7c0-1.1-.9-2-2-2zM5 10V7h2v3H5zm14 0h-2V7h2v3z"/>
-                            </svg>
-                            <span class="hex-label">Gold Medalists</span>
-                        </div>
-                    </div>
-                </a>
+                </div>
             </div>
 
-            <!-- Right Side Panel: Academic Archives -->
-            <div class="resources-side-panel right">
-                <div class="panel-header">
-                    <h3 class="panel-title">Downloads &amp; Info</h3>
+            <!-- RIGHT COLUMN: Downloads & Info Card -->
+            <div class="info-card card-right">
+                <div class="card-badge">
+                    <i class="fa-solid fa-download"></i>
                 </div>
-                <p class="panel-desc">Retrieve official documents, timetables, code of conduct guides, registration forms, and research records.</p>
-                <ul class="panel-links">
-                    <li class="panel-link-item">
-                        <a href="downloads.html">
-                            <span>Downloads Hub</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                <div>
+                    <h2 class="card-heading">Downloads & Info</h2>
+                    <p class="card-description">
+                        Retrieve official documents, timetables, code of conduct guides, registration forms, and research records.
+                    </p>
+                </div>
+                <ul class="pill-list">
+                    <li>
+                        <a href="downloads.html" class="pill-item">
+                            <div class="pill-left">
+                                <div class="pill-icon"><i class="fa-solid fa-file-arrow-down"></i></div>
+                                <span>Downloads Hub</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-right pill-arrow"></i>
                         </a>
                     </li>
-                    <li class="panel-link-item">
-                        <a href="academics/undergraduate.html">
-                            <span>UG Rules &amp; Regs</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    <li>
+                        <a href="academics/undergraduate.html" class="pill-item">
+                            <div class="pill-left">
+                                <div class="pill-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                                <span>UG Rules & Regs</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-right pill-arrow"></i>
                         </a>
                     </li>
-                    <li class="panel-link-item">
-                        <a href="academics/ms-ai.html">
-                            <span>Curriculum Schemes</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    <li>
+                        <a href="academics/ms-ai.html" class="pill-item">
+                            <div class="pill-left">
+                                <div class="pill-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                                <span>Curriculum Schemes</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-right pill-arrow"></i>
                         </a>
                     </li>
                 </ul>
             </div>
+
         </div>
     </section>
 
