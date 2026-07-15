@@ -1,0 +1,20 @@
+<%
+  // Initialize defaults
+  if (typeof prefix === 'undefined') prefix = '';
+  if (typeof showVideoModal === 'undefined') showVideoModal = false;
+%>
+<% if (showVideoModal) { %>
+    <!-- Video Popup Modal -->
+    <div id="video-modal" class="video-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close-btn" aria-label="Close video">&times;</button>
+            <iframe id="video-iframe" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+<% } %>
+
+    <script type="module" src="<%= prefix %>js/main.js"></script>
+</body>
+</html>

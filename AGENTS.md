@@ -12,3 +12,14 @@ Measured content bounds: building content spans native y=376 to y=1023
 Do NOT tune `object-position` or `.hero-section` height by guessing — 
 recalculate from these bounds using: scale factor = container_width / 1536, 
 scaled image height = 1024 * scale, native visible window = container_height / scale.
+
+
+## Vite & HTML Partials System
+
+- **Local Server Required**: The project uses Vite with EJS-based template injection. You can **no longer run the site by double-clicking index.html** (via the `file://` protocol). You must run `npm run dev` to start the local development server at `http://localhost:5173/`.
+- **Production Build**: Run `npm run build` to compile the optimized production static files into the `dist/` folder. Run `npm run preview` to start a local preview server hosting the compiled production build at `http://localhost:4173/`.
+- **Editing Shared Layouts**: The header/navigation markup and footer elements are extracted as template files under the `partials/` directory:
+  - `partials/header.html`
+  - `partials/footer.html`
+  Any shared structural header, dropdown navigation link additions, or modal changes **must** be made inside these partial files rather than individual HTML files.
+

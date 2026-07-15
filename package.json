@@ -1,0 +1,19 @@
+{
+  "name": "cped-website",
+  "version": "1.0.0",
+  "description": "Computer Engineering Department website",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ejs": "^3.1.10",
+    "vite": "^5.2.11",
+    "vite-plugin-ejs": "^1.7.0"
+  }
+}
