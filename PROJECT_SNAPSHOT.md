@@ -137,12 +137,18 @@ d:/CPED/
 | **Neutrals** | | |
 | `--text-dark` | `#333333` | Global default body text color. |
 | `--text-medium` | `#555555` | Secondary descriptive text. |
+| `--text-light` | `#666666` | Muted descriptions (e.g. program card body text). |
 | `--white` | `#FFFFFF` | Background cards, container frames, headers. |
 | `--off-white` | `#F5F5F5` | Canonical light background backing. |
+| `--border` | `#E0E0E0` | Standard divider borders. |
 | `--footer-bg` | `#0A0A0A` | Unused background (reserved for future footer widgets). |
 | `--dark-section` | `#1A1A2E` | Branded high-contrast text color for gold buttons (inline commented). |
 | `--cream-bg` | `#f4f1ea` | *DEPRECATED* (Unused, consolidated to `--off-white`). |
 | `--res-bg-light` | `#f4f7fc` | *DEPRECATED* (Unused, consolidated to `--off-white` / brand tints). |
+| **Gradients & Spacing** | | |
+| `--hero-gradient` | `linear-gradient(180deg, rgba(0, 58, 101, 1) 0%, rgba(0, 146, 255, 1) 100%)` | Main top-to-bottom background gradient. |
+| `--container-width`| `1200px` | Center alignment max-width width for standard sections. |
+| `--container-wide` | `1320px` | Wide desktop width container limits for Header and Hero. |
 | **Z-Index Hierarchy Layering Scale** | | |
 | `--z-modal` | `1000` | Video popup modals. |
 | `--z-header` | `100` | Pinned sticky site header. |
@@ -161,8 +167,14 @@ d:/CPED/
 *   *(Note: Inter and Roboto Slab are fully consolidated and removed from active dependencies).*
 
 ### Breakpoint Values (Media Queries)
-The CSS uses the following standard mobile query breakpoint:
-*   `768px`: Desktop header navigation transitions to mobile triggers; ticker segments wrap; Academics layouts collapse to a single column stack.
+The CSS uses the following responsive media queries to support desktop, tablet, and mobile layouts:
+*   `1440px`: Header spacing adjustments.
+*   `1200px`: Resources layout wraps; Mission & PEO blocks align vertically.
+*   `1024px`: Desktop header navigation collapses into mobile hamburger triggers. Academics switches to column view.
+*   `768px`: Standard mobile layout wrap; action bar stacks vertically; alert tickers shrink.
+*   `600px`: Honeycomb hexagonal grid collapses to rectangular cards.
+*   `480px`: Mobile menu sizes and hero height limit triggers.
+*   `400px`: Resources grids scale down to single column.
 
 ---
 
@@ -212,12 +224,12 @@ The CSS uses the following standard mobile query breakpoint:
 
 ## 5. Known Constraints and History
 
-### Hero Image Bounds Context
-```
-Hero background image: cped-hero-background.png (1536x1024px)
-Measured content bounds: building content spans native y=376 to y=1023 
-(36.7% to 99.9% of image height), full width used.
-```
+### Hero Image Bounds Context & Tuning Variables
+*   **Hero Image crop/position**: `cped-hero-background.png` is `1536x1024px`. Building silhouette spans vertical y=376 to y=1023.
+*   **Hero height limits**: Default `.hero-section` uses `height: clamp(37.5rem, 100vh, 56.25rem);` to restrict vertical growth.
+*   **Hero image alignment**: `.hero-bg-image img` uses `object-position: center 70%;` to shift building silhouette up slightly.
+*   **Mobile hero height**: Reverted back to a static `600px` height at `@media (max-width: 480px)` to maintain verified aspect layout.
+*   **Watermark alignment**: `.hero-watermark` (z-index: `var(--z-hero-watermark) = 2`) sits behind `.hero-bg-image` (z-index: `var(--z-hero-bg) = 3`) to frame visual depth behind building facade.
 
 ### Stacking Order (z-index hierarchy)
 *   `z-index: var(--z-modal)` (`1000`) — Video Modals.
