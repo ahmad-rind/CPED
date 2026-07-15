@@ -131,6 +131,7 @@ d:/CPED/
 | `--brand-navy-light` | `#0F5288` | Main light navy accent. |
 | `--brand-navy-dark` | `#003F7D` | Secondary hover borders and highlights. |
 | `--brand-navy-deep` | `#003A65` | Main deep background backing accent. |
+| `--brand-navy-midnight`| `#021A30` | Midnight navy used for subpage background gradients. |
 | `--brand-orange-base` | `#E8651A` | Main call-to-action color. |
 | `--brand-orange-hover`| `#DD6B20` | Hover orange highlighting. |
 | `--brand-gold-base` | `#FFB800` | Golden accents, welcome banners, and active indicators. |
