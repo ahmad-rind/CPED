@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap');
 
 /* ============================================
    RESET & BASE
@@ -12,23 +12,35 @@
 }
 
 :root {
-    /* Primary Colors */
-    --primary-blue: #0F5288;
-    --primary-dark: #003F7D;
-    --primary-deep: #003A65;
-    --secondary-orange: #E8651A;
-    --orange-hover: #DD6B20;
-    --accent-gold: #FFB800;
+    /* ============================================
+       BRAND DESIGN SYSTEM & TOKENS
+       ============================================ */
+    /* Standardized Brand Color System */
+    --brand-navy-light: #0F5288;
+    --brand-navy-dark:  #003F7D;
+    --brand-navy-deep:  #003A65;
+    --brand-orange-base: #E8651A;
+    --brand-orange-hover:#DD6B20;
+    --brand-gold-base:   #FFB800;
+
+    /* Legacy Compat & Mapping Aliases */
+    --primary-blue:     var(--brand-navy-light);
+    --primary-dark:     var(--brand-navy-dark);
+    --primary-deep:     var(--brand-navy-deep);
+    --secondary-orange: var(--brand-orange-base);
+    --orange-hover:     var(--brand-orange-hover);
+    --accent-gold:      var(--brand-gold-base);
+
     /* Explore Resources Section Design Tokens */
-    --res-navy: #0a2e5c;
-    --res-navy-hover: #123f77;
-    --res-gold: #ffb703;
-    --res-bg-light: #f4f7fc;
-    --res-card-bg: #ffffff;
-    --res-text-dark: #1e293b;
-    --res-text-muted: #64748b;
+    --res-navy:         var(--brand-navy-deep);
+    --res-navy-hover:   #123f77;
+    --res-gold:         var(--brand-gold-base); /* Converged to FFB800 */
+    --res-bg-light:     #f4f7fc;
+    --res-card-bg:      #ffffff;
+    --res-text-dark:    #1e293b;
+    --res-text-muted:   #64748b;
     --res-border-light: #e2e8f0;
-    --res-shadow-soft: 0 15px 35px rgba(10, 46, 92, 0.08);
+    --res-shadow-soft:  0 15px 35px rgba(10, 46, 92, 0.08);
     --res-shadow-hover: 0 20px 45px rgba(10, 46, 92, 0.15);
 
     /* Neutrals */
@@ -99,4 +111,24 @@ img {
     max-width: var(--container-width);
     margin: 0 auto;
     padding: 0 20px;
+}
+
+/* ============================================
+   ACCESSIBILITY: REDUCED MOTION SUPPORT
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-delay: -1ms !important;
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        background-attachment: initial !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0s !important;
+        transition-delay: 0s !important;
+    }
+    .alert-ticker-track {
+        animation-play-state: paused !important;
+    }
 }

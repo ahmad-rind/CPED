@@ -1,7 +1,4 @@
-export function initHero() {
-    // ------------------------------------------------
-    // 3. VIDEO POPUP (Campus Tour button)
-    // ------------------------------------------------
+export function initVideoModal() {
     const playBtn = document.getElementById('campus-tour-btn');
     const modal = document.getElementById('video-modal');
     
@@ -18,6 +15,11 @@ export function initHero() {
             }
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
+            
+            // Focus trap: set focus to the modal close button
+            if (closeBtn) {
+                closeBtn.focus();
+            }
         }
 
         function closeVideo() {
@@ -26,6 +28,7 @@ export function initHero() {
                 iframe.src = '';
             }
             document.body.style.overflow = '';
+            playBtn.focus(); // return focus
         }
 
         playBtn.addEventListener('click', (e) => {
@@ -41,23 +44,26 @@ export function initHero() {
                 closeVideo();
             }
         });
-    }
-
-    // ------------------------------------------------
-    // 5. PARALLAX EFFECT on hero background
-    // ------------------------------------------------
-    const bgImage = document.querySelector('.hero-bg-image');
-
-    if (hero && bgImage) {
-        window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY;
-            const heroHeight = hero.offsetHeight;
-
-            if (scrollY < heroHeight) {
-                const parallaxOffset = scrollY * 0.12;
-                bgImage.style.transform = `translateX(-50%) translateY(${parallaxOffset}px)`;
+        
+        // Focus trapping inside modal
+        modal.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab') {
+                const focusables = modal.querySelectorAll('button, iframe, [tabindex="0"]');
+                if (focusables.length === 0) return;
+                const first = focusables[0];
+                const last = focusables[focusables.length - 1];
+                if (e.shiftKey) {
+                    if (document.activeElement === first) {
+                        last.focus();
+                        e.preventDefault();
+                    }
+                } else {
+                    if (document.activeElement === last) {
+                        first.focus();
+                        e.preventDefault();
+                    }
+                }
             }
-        }, { passive: true });
+        });
     }
-
 }

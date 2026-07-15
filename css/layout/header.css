@@ -604,7 +604,7 @@
     }
 }
 
-@media (max-width: 778px) {
+@media (max-width: 768px) {
     .header-inner {
         padding: 0 1.25rem;
         height: 4.375rem;

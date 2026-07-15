@@ -90,6 +90,7 @@ d:/CPED/
 | `partials/header.html` | Shared header & navigation markup containing EJS placeholders for prefixes & active states. | Injected into all 18 HTML pages at compilation. |
 | `partials/footer.html` | Shared script inclusion tags, closing tags, and conditional video popup modal code. | Injected into all 18 HTML pages at compilation. |
 | `css/styles.css` | Comprehensive stylesheet housing global resets, design variables, utility classes, and layout rules. | Referenced in `<head>` by all HTML files. |
+| `css/sections/outcome-mappings.css` | Stylesheet containing layouts, watermark effects, and visual transitions for CPED mappings and PLO tab switches. | Imported by `css/styles.css`. |
 | `js/main.js` | Main interactive script (handles sticky header transitions, mobile accordions, search expand, parallax, modals). | Loaded at the footer of all HTML files. |
 | `vite.config.js` | Configures EJS views directory pointing to root, and Rollup inputs mapping all 18 pages. | Vite engine configuration. |
 | `package.json` | Contains project metadata, dependencies (`vite`, `ejs`, `vite-plugin-ejs`), and npm dev/build scripts. | Package manager configuration. |
@@ -202,10 +203,16 @@ The CSS uses the following `max-width` media query breakpoints:
 *   **Controllers**: HTML file end, `css/styles.css`, and `js/main.js` (lines 122–163) via EJS conditional include of `partials/footer.html`
 *   **Layout & Behavior**: Dark overlay modal which handles dynamic creation and destruction of YouTube iframe embeds (`autoplay=1`) to prevent resources loading lag on page open. Triggers open/close key checks (e.g. Escape).
 
-### IX. Subpage Placeholder Layout
+### IX. Outcome Mappings & PLO Grid Section (`#cped-outcomes`)
+*   **HTML selectors**: `#cped-outcomes`, `.cped-outcomes-section`, `.mission-grid`, `.plo-grid-container`, `.matrix-container-wrapper`, `.features-wrapper`
+*   **Controllers**: `css/sections/outcome-mappings.css`, `css/styles.css`, and `js/main.js`
+*   **Layout & Behavior**: Multi-component section with a light gray-blue background. Includes a 4-card PEO strategic alignment grid, a toggleable PLO grid (swaps between 12 PLOs for Session 2022/2023 and 11 PLOs for Session 2024 onwards), dual mapping matrix tables that dynamically swap in sync with active session tabs, and a 4-column features highlights banner.
+
+### X. Subpage Placeholder Layout
 *   **HTML selectors**: `.subpage-section`, `.placeholder-card`
 *   **Controllers**: `css/styles.css` (lines 2010–2086)
 *   **Layout & Behavior**: Used in all secondary portal files. Consists of a dark blue overlay background centering a translucent frosted glass card that displays status details, a topic icon, and navigation options.
+
 
 ---
 
@@ -315,3 +322,4 @@ not guessed.
 | **Academics** | Split column side layout: 2 image cards left, 4 program cards right (2x2 grid). | Flex order reverses: 2 images top side-by-side, 4 program cards bottom (2x2 grid). | Images stack vertically (1 column), program cards grid collapses to single column stack. |
 | **Resources** | 3-column grid: side cards (with outline accent offsets) framing honeycomb cluster. | Single-column stack: side cards stretch full width; honeycomb centers. | Honeycomb cells lose hexagonal shape and clip-path, becoming regular rectangular cards in 2 columns (1 column below 400px). |
 | **Mission & PEOs**| 2-column grid: mission block left, 4 objective cards right. | Grid collapses to 1-column stack. | PEO objective cards flex wrap vertically; number layout sizes adjust. |
+| **Outcome Mappings** | 4-column PEO cards, 3-column PLO cards, responsive matrix tables, and 4-column feature blocks. | Layout shifts to 2 columns for PEO and features; PLO grid fits screen width. | PLO grids collapse to single-column card stacks; table horizontal scrollbars enable; feature blocks stack. |

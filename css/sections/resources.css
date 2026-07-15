@@ -76,7 +76,7 @@
 }
 
 .section-title {
-    font-family: 'Roboto Slab', serif;
+    font-family: 'Bitter', serif;
     font-size: 2.2rem;
     color: var(--res-navy);
     font-weight: 800;
@@ -174,7 +174,7 @@
 }
 
 .card-heading {
-    font-family: 'Roboto Slab', serif;
+    font-family: 'Bitter', serif;
     font-size: 1.5rem;
     color: var(--res-navy);
     margin-bottom: 1rem;
@@ -182,7 +182,7 @@
 }
 
 .card-description {
-    font-family: 'Inter', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: 0.9rem;
     color: var(--res-text-muted);
     line-height: 1.5;
@@ -209,7 +209,7 @@
     justify-content: space-between;
     text-decoration: none;
     color: var(--res-text-dark);
-    font-family: 'Inter', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     font-weight: 600;
     font-size: 0.9rem;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -391,7 +391,7 @@
 }
 
 .hex-title {
-    font-family: 'Inter', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: 0.72rem;
     font-weight: 700;
     line-height: 1.25;

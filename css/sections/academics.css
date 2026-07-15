@@ -108,7 +108,7 @@
     }
 }
 
-@media (max-width: 778px) {
+@media (max-width: 768px) {
     .academics-images-side {
         flex-direction: column;
     }
@@ -312,7 +312,7 @@
 }
 
 
-@media (max-width: 778px) {
+@media (max-width: 768px) {
     .program-card {
         flex-direction: column;
         gap: 12px;

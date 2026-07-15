@@ -1,11 +1,21 @@
-import { initHeader } from './header/sticky-nav.js';
-import { initHero } from './hero/hero-and-modal.js';
+import { initStickyNav } from './layout/sticky-nav.js';
+import { initMobileNav } from './layout/mobile-nav.js';
+import { initSearch } from './layout/search.js';
+import { initParallax } from './sections/parallax.js';
+import { initVideoModal } from './components/video-modal.js';
+import { initPloTabs } from './sections/plo-tabs.js';
+import { initAlertTicker } from './sections/alert-ticker.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-    initHeader();
-    initHero();
+    initStickyNav();
+    initMobileNav();
+    initSearch();
+    initParallax();
+    initVideoModal();
+    initPloTabs();
+    initAlertTicker();
 
-    // 8. SMOOTH SCROLL FOR ANCHOR LINKS
+    // SMOOTH SCROLL FOR ANCHOR LINKS
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href');

@@ -60,3 +60,9 @@
 - **Context**: The root directory had various temporary, unreferenced images and old markdown guides/references that cluttered the workspace.
 - **Decision**: Created an `unused_files` directory in the root and moved all unreferenced images (`2026-07-07_00-09.png`, `bnr-e-main-img1-min.png`, `building.png`, `cped.png`) and documentation files (`univet_hero_clone_guide.md`, `design.md`) into it, leaving only active source files and subdirectories.
 - **Consequence**: The workspace is clean and organized, reducing cognitive load and avoiding confusion about which files are currently active in production.
+
+## 13. CPED Outcome Mappings & PLO Grid Section
+- **Context**: The user requested detailed outcome mapping sections (PEO-to-Mission mapping, PLOs with toggleable session grids, PEO-to-PLO matrix, and feature highlights) added below the `#mission-peos` section, matching the design reference and the app's native branding colors.
+- **Decision**: Added `#cped-outcomes` section above the footer in `index.html` and styled it in a new modular CSS file `css/sections/outcome-mappings.css` using the global color variables (`--primary-deep`, `--primary-blue`, `--accent-gold`, `--res-bg-light`). Programmed interactive tab switching in `js/main.js` using defensive queries to swap active states between Session 2022/2023 (12 PLOs) and Session 2024 Onwards (11 PLOs) grids and their corresponding matrix mapping tables with fade-in animations.
+- **Consequence**: The new layout integrates natively with the site's brand aesthetic, supports clean responsive grid columns, provides responsive tab switching for both outcomes and mapping tables, and offers float-row interactive matrix hovers.
+

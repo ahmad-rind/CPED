@@ -1,6 +1,24 @@
 # Changelog
 
+## [1.1.0] - 2026-07-16
+
+### Added
+- Integrated the new Outcome Mappings section (`#cped-outcomes`) on the homepage, containing Strategic Alignment PEO cards, a tabbed PLO cards container, a float-row PEO-to-PLO mapping matrix table, and a feature highlights grid.
+- Created `css/sections/outcome-mappings.css` to handle target watermark overlays, custom active states, responsive grid columns, floating table rows, and hover transitions.
+- Linked `outcome-mappings.css` in `css/styles.css`.
+- Programmed interactive tab toggling in `js/main.js` with defensive element validation to switch between Session 2022/2023 and Session 2024 Onwards PLO lists and matrices.
+- Updated Session 2022/2023 list with 12 detailed PLOs and Session 2024 Onwards list with 11 approved PLO descriptors.
+- Configured dynamic swapping of mapping matrix tables depending on the selected active session.
+- Optimized matrix mapping layout spacings (shrunk vertical paddings, row gaps, check badges, and bottom margins) to make the tables compact and viewport-friendly.
+- Subtly compacted the PLO card grid spacing (gap from 24px to 20px, card padding to 20px, icon size to 48px, tab padding, and bottom margin to 50px) to present a sleeker grid layout.
+- Optimized PLO card grid compactness further (grid columns to minmax(280px), card padding to 16px, icon size to 38px, font size, and text sizing) to maximize spatial density.
+
+### Fixed
+- Fixed table cell horizontal shift/misalignment on matrix row hover by removing scale transforms and shadows on `td` elements.
+- Fixed play button top border clipping in the Hero section by changing final keyframe clip-paths from inset masks to none.
+
 ## [1.0.0] - 2026-07-11
+
 
 ### Added
 - Added `.hero-inner` wrapper container inside `index.html` to align hero content overlay elements with the header grid container (`max-width: 1320px`).

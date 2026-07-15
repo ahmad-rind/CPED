@@ -42,8 +42,13 @@
     height: 100%;
     aspect-ratio: 3 / 2;
     object-fit: cover;
-    object-position: center 70%;
-    /* Shifted building silhouette up slightly per user preference */
+    /* 
+     * Image source cped-hero-background.png is 1536x1024px.
+     * Measured content bounds: building content spans native y=376 to y=1023
+     * (36.7% to 99.9% of image height), full width used.
+     * object-position 25% aligns the roofline and watermark correctly without clipping.
+     */
+    object-position: center 25%;
 }
 
 /* Dark overlay at the very bottom for text readability */
@@ -147,7 +152,7 @@
 }
 
 .hero-description {
-    font-family: 'Inter', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: 16px;
     font-weight: 400;
     color: rgba(255, 255, 255, 0.85);
@@ -379,7 +384,7 @@
     100% {
         opacity: 1;
         transform: translateX(0);
-        clip-path: inset(0 0 0 0);
+        clip-path: none;
     }
 }
 
@@ -407,7 +412,7 @@
     100% {
         opacity: 1;
         transform: translateX(0);
-        clip-path: inset(0 0 0 0);
+        clip-path: none;
     }
 }
 
@@ -495,7 +500,7 @@
 
 }
 
-@media (max-width: 778px) {
+@media (max-width: 768px) {
     .hero-section {
         height: 700px;
     }
