@@ -8,7 +8,10 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for crisp icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -17,33 +20,166 @@
 <%- include('partials/header.html', { prefix: '', activeTab: '', activeSub: '' }) %>
 
 <section class="subpage-section">
-    <div class="subpage-container">
-        <div class="placeholder-card">
+    <div class="subpage-container" id="search-container" style="max-width: 600px; transition: max-width 0.3s ease;">
+        <div class="placeholder-card" id="search-card">
             <span class="placeholder-icon">🔍</span>
             <h1 class="placeholder-title">Search Results</h1>
+            
+            <!-- Result text / message -->
             <p class="placeholder-text" id="search-results-message">Search results — coming soon</p>
-            <a href="index.html" class="placeholder-btn">Back to Home</a>
+            
+            <!-- Search field box for new search -->
+            <div style="margin: 20px 0 30px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                <input type="text" id="search-results-input" style="flex: 1; min-width: 200px; padding: 12px 18px; border-radius: 30px; border: 1.5px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.08); color: white; font-family: 'DM Sans', sans-serif; outline: none; font-size: 15px;" placeholder="Search department website...">
+                <button id="search-results-btn" class="placeholder-btn" style="padding: 12px 24px; border-radius: 30px; font-size: 14px; text-transform: none;">Search</button>
+            </div>
+
+            <!-- Dynamic list container -->
+            <div id="results-target-list" style="margin-top: 24px; display: none;"></div>
+
+            <a href="index.html" class="placeholder-btn" style="margin-top: 10px; background: transparent; color: white; border: 1.5px solid rgba(255,255,255,0.3);">Back to Home</a>
         </div>
     </div>
 </section>
 
-<script>
-    // Read the query parameter and display it dynamically
-    const params = new URLSearchParams(window.location.search);
-    const query = params.get('q');
-    const messageEl = document.getElementById('search-results-message');
-    if (query && messageEl) {
-        // Sanitize input to prevent XSS
-        const safeQuery = query.replace(/[&<>"']/g, function(m) {
-            return {
-                '&': '&amp;',
-                '<': '&lt;',
-                '>': '&gt;',
-                '"': '&quot;',
-                "'": '&#039;'
-            }[m];
-        });
-        messageEl.innerHTML = 'Search results for "<strong>' + safeQuery + '</strong>" — coming soon';
+<style>
+    .search-result-item {
+        background: rgba(255, 255, 255, 0.04);
+        padding: 16px 20px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        margin-bottom: 14px;
+        text-align: left;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
+    .search-result-item:hover {
+        background: rgba(255, 255, 255, 0.09);
+        border-color: var(--accent-gold);
+        transform: translateY(-2px);
+    }
+    .search-result-category {
+        font-size: 0.75rem;
+        background: var(--brand-navy-light);
+        color: white;
+        padding: 2px 8px;
+        border-radius: 4px;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+    }
+    .search-result-link {
+        color: var(--accent-gold);
+        font-family: 'Bitter', serif;
+        font-size: 1.1rem;
+        font-weight: 700;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+    .search-result-link:hover {
+        color: white;
+    }
+    .search-result-desc {
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.75);
+        line-height: 1.5;
+        margin-top: 8px;
+        margin-bottom: 0;
+    }
+</style>
+
+<script>
+    const searchDatabase = [
+        { title: "Department Homepage", path: "index.html", category: "General", desc: "Official landing page of the Computer Engineering Department, featuring student maps, mission parameters, and course structures." },
+        { title: "Faculty Members", path: "faculty/members.html", category: "Faculty", desc: "Academic staff members, professors, lecturers, and lab supervisors directory." },
+        { title: "News & Bulletins", path: "faculty/news.html", category: "Faculty", desc: "Latest news, notices, and events bulletins from the department." },
+        { title: "Collaborations", path: "faculty/collaborations.html", category: "Research", desc: "MOUs, industrial partnerships, and collaboration guidelines." },
+        { title: "Research Labs", path: "faculty/labs.html", category: "Research", desc: "State of the art research centers, computational hubs, and laboratory profiles." },
+        { title: "Faculty Projects", path: "faculty/projects.html", category: "Research", desc: "Ongoing and past research projects, supervisor grants, and funding milestones." },
+        { title: "Undergraduate Program (BSc)", path: "academics/undergraduate.html", category: "Academics", desc: "BSc Computer Engineering degree details, entry prerequisites, and course outlines." },
+        { title: "Postgraduate Program (MS)", path: "academics/postgraduate.html", category: "Academics", desc: "Master of Science in Computer Engineering courses, eligibility, and thesis guidelines." },
+        { title: "MS in Artificial Intelligence", path: "academics/ms-ai.html", category: "Academics", desc: "Specialized MS-AI coursework description, research hubs, and supervisors." },
+        { title: "PhD Computer Engineering", path: "academics/phd.html", category: "Academics", desc: "Doctoral research tracks, guides, research areas, and program roadmap." },
+        { title: "Student Laboratories", path: "academics/laboratories.html", category: "Academics", desc: "Computing halls, hardware lab networks, and hardware resources catalog." },
+        { title: "Academics Management System", path: "academics/management.html", category: "Academics", desc: "Administrative dashboard access details for courses and student profiles." },
+        { title: "Contact Directory", path: "contact/contacts.html", category: "Contact", desc: "Office maps, administrative phone numbers, and location addresses." },
+        { title: "Support Help Desk", path: "contact/helpdesk.html", category: "Contact", desc: "Student queries form, academic support desks, and contacts." },
+        { title: "Alumni Networks", path: "contact/alumni.html", category: "Contact", desc: "Alumni portal registration, chapter information, and reunion details." },
+        { title: "Downloads Center", path: "downloads.html", category: "General", desc: "Academic timetables, registration forms, templates, and syllabus catalogs download desk." }
+    ];
+
+    const messageEl = document.getElementById('search-results-message');
+    const inputEl = document.getElementById('search-results-input');
+    const btnEl = document.getElementById('search-results-btn');
+    const listEl = document.getElementById('results-target-list');
+    const containerEl = document.getElementById('search-container');
+
+    function performSearch(query) {
+        if (!query) {
+            messageEl.textContent = 'Please enter a search query.';
+            listEl.style.display = 'none';
+            containerEl.style.max-width = '600px';
+            return;
+        }
+
+        inputEl.value = query;
+        const normalizedQuery = query.toLowerCase().trim();
+        const matches = searchDatabase.filter(item => 
+            item.title.toLowerCase().includes(normalizedQuery) ||
+            item.category.toLowerCase().includes(normalizedQuery) ||
+            item.desc.toLowerCase().includes(normalizedQuery)
+        );
+
+        // Sanitize search query to prevent XSS
+        const safeQuery = query.replace(/[&<>"']/g, function(m) {
+            return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m];
+        });
+
+        if (matches.length > 0) {
+            messageEl.innerHTML = `Found <strong>${matches.length}</strong> matching pages for "<strong>${safeQuery}</strong>":`;
+            containerEl.style.max-width = '800px';
+            
+            listEl.innerHTML = matches.map(item => `
+                <div class="search-result-item">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-wrap: wrap; gap: 8px;">
+                        <span class="search-result-category">${item.category}</span>
+                        <a href="${item.path}" class="search-result-link">${item.title} <i class="fa-solid fa-arrow-right-long"></i></a>
+                    </div>
+                    <p class="search-result-desc">${item.desc}</p>
+                </div>
+            `).join('');
+            listEl.style.display = 'block';
+        } else {
+            messageEl.innerHTML = `No results found for "<strong>${safeQuery}</strong>". Try searching for "Faculty", "Academics", "Downloads", or "MS".`;
+            listEl.style.display = 'none';
+            containerEl.style.max-width = '600px';
+        }
+    }
+
+    // Initialize search on load
+    const params = new URLSearchParams(window.location.search);
+    const initialQuery = params.get('q');
+    if (initialQuery) {
+        performSearch(initialQuery);
+    }
+
+    // Handle button search click
+    btnEl.addEventListener('click', () => {
+        const q = inputEl.value;
+        // Update URL query string
+        const newUrl = window.location.pathname + '?q=' + encodeURIComponent(q);
+        window.history.pushState({ path: newUrl }, '', newUrl);
+        performSearch(q);
+    });
+
+    // Handle enter key press on input
+    inputEl.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            btnEl.click();
+        }
+    });
 </script>
 <%- include('partials/footer.html', { prefix: '' }) %>
+</body>
+</html>

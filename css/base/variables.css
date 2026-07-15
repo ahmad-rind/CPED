@@ -65,6 +65,17 @@
     /* Spacing */
     --container-width: 1200px;
     --container-wide: 1320px;
+
+    /* Z-Index Hierarchy Layering Scale */
+    --z-modal:          1000;
+    --z-header:         100;
+    --z-overlay:        99;
+    --z-hero-content:   10;
+    --z-latest-action:  9;
+    --z-alert-ticker:   8;
+    --z-hero-overlay:   4;
+    --z-hero-bg:        3;
+    --z-hero-watermark: 2;
 }
 
 html {

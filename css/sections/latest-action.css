@@ -9,7 +9,7 @@
     font-size: 14px;
     border-bottom: 3px solid var(--accent-gold);
     position: relative;
-    z-index: 9;
+    z-index: var(--z-latest-action);
 }
 
 .latest-action-inner {
