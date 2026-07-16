@@ -3,35 +3,48 @@
    ============================================ */
 .events-section {
     position: relative;
-    background-color: var(--brand-navy-deep);
-    border-radius: 28px;
+    background: linear-gradient(160deg, #00294d 0%, var(--brand-navy-deep) 40%, #012d50 100%);
+    border-radius: 32px;
     margin: 60px auto;
     max-width: calc(var(--container-width) - 40px);
-    padding: 60px 40px;
+    padding: 56px 48px 48px;
     overflow: hidden;
     color: var(--white);
-    box-shadow: 0 20px 50px rgba(0, 58, 101, 0.12);
+    box-shadow:
+        0 24px 64px rgba(0, 40, 78, 0.18),
+        0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
-/* Background watermark */
+/* Subtle ambient glow behind the active slide area */
 .events-section::before {
-    content: 'EVENTS';
+    content: '';
     position: absolute;
-    bottom: -40px;
-    right: 20px;
-    font-family: 'Bitter', serif;
-    font-size: 15vw;
-    font-weight: 800;
-    color: rgba(255, 255, 255, 0.03);
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 320px;
+    background: radial-gradient(ellipse, rgba(15, 82, 136, 0.35) 0%, transparent 70%);
     pointer-events: none;
-    line-height: 1;
     z-index: 0;
-    user-select: none;
+}
+
+/* Decorative corner accents */
+.events-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 280px;
+    height: 280px;
+    background: radial-gradient(circle at top right, rgba(255, 184, 0, 0.06) 0%, transparent 65%);
+    pointer-events: none;
+    z-index: 0;
 }
 
 .events-header {
     text-align: center;
-    margin-bottom: 24px;
+    margin-bottom: 32px;
     position: relative;
     z-index: 1;
 }
@@ -41,17 +54,17 @@
     align-items: center;
     gap: 8px;
     font-family: 'DM Sans', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
+    font-size: 12px;
+    font-weight: 700;
     color: var(--accent-gold);
     text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: 8px;
+    letter-spacing: 2.5px;
+    margin-bottom: 10px;
 }
 
 .events-eyebrow svg {
-    width: 16px;
-    height: 16px;
+    width: 15px;
+    height: 15px;
     fill: none;
     stroke: var(--accent-gold);
     stroke-width: 2;
@@ -59,10 +72,10 @@
 
 .events-heading {
     font-family: 'Bitter', serif;
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-size: clamp(1.6rem, 2.8vw, 2.25rem);
     font-weight: 800;
     color: var(--white);
-    line-height: 1.2;
+    line-height: 1.25;
 }
 
 /* Slider Outer Container */
@@ -70,10 +83,10 @@
     position: relative;
     max-width: var(--container-width);
     margin: 0 auto;
-    overflow: visible; /* side slides bleed out in 3D */
+    overflow: visible;
     z-index: 1;
-    height: clamp(200px, 30vw, 360px);
-    perspective: 1800px;
+    height: clamp(220px, 32vw, 400px);
+    perspective: 2000px;
     transform-style: preserve-3d;
 }
 
@@ -85,22 +98,24 @@
     transform-style: preserve-3d;
 }
 
-/* Individual Slide with 3D Coverflow positioning */
+/* Individual Slide */
 .event-slide {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 60%;
-    height: 90%;
+    width: 58%;
+    height: 92%;
     transform: translate(-50%, -50%);
     transform-style: preserve-3d;
-    transition: transform 0.76s cubic-bezier(0.76, 0, 0.24, 1),
-                filter 0.76s cubic-bezier(0.76, 0, 0.24, 1),
-                opacity 0.76s cubic-bezier(0.76, 0, 0.24, 1),
-                z-index 0.76s cubic-bezier(0.76, 0, 0.24, 1);
-    border-radius: 20px;
+    transition: transform 0.72s cubic-bezier(0.76, 0, 0.24, 1),
+                filter 0.72s cubic-bezier(0.76, 0, 0.24, 1),
+                opacity 0.72s cubic-bezier(0.76, 0, 0.24, 1),
+                z-index 0s;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+    box-shadow:
+        0 16px 40px rgba(0, 0, 0, 0.4),
+        0 4px 12px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     user-select: none;
     background-color: var(--brand-navy-midnight);
@@ -118,85 +133,101 @@
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.6s ease;
+    transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .event-slide:hover .event-slide-inner img {
-    transform: scale(1.04);
+    transform: scale(1.05);
 }
 
-/* Subtle overlay on the image */
+/* Gradient overlay on image for depth */
 .event-slide-inner::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.2) 0%, transparent 40%, transparent 60%, rgba(0, 0, 0, 0.2) 100%);
+    background: linear-gradient(
+        to top,
+        rgba(0, 20, 40, 0.35) 0%,
+        transparent 35%,
+        transparent 70%,
+        rgba(0, 20, 40, 0.15) 100%
+    );
     pointer-events: none;
 }
 
-/* Slider Arrow Navigation Controls - Glassmorphism style */
+/* Slider Arrow Navigation Controls — pill-shaped glass buttons */
 .slider-control {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 54px;
-    height: 54px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     color: var(--white);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 18px;
+    font-size: 16px;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    z-index: 30; /* Keep controls on top */
+    transition: all 0.28s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: 30;
 }
 
 .slider-control:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.35);
-    transform: translateY(-50%) scale(1.08);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    background: rgba(255, 255, 255, 0.16);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-50%) scale(1.06);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.slider-control:active {
+    transform: translateY(-50%) scale(0.96);
 }
 
 .prev-control {
-    left: -20px;
+    left: 6px;
 }
 
 .next-control {
-    right: -20px;
+    right: 6px;
 }
 
 /* Segmented Progress Bar Navigation */
 .slider-progress-bar {
     display: flex;
-    gap: 10px;
+    gap: 8px;
     justify-content: center;
     align-items: center;
-    margin-top: 24px;
+    margin-top: 28px;
     z-index: 20;
     position: relative;
 }
 
 .progress-segment {
-    width: 32px;
-    height: 6px;
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.2);
+    width: 28px;
+    height: 4px;
+    border-radius: 99px;
+    background-color: rgba(255, 255, 255, 0.15);
     border: none;
     padding: 0;
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    transition: width 0.4s cubic-bezier(0.76, 0, 0.24, 1), background-color 0.3s;
+    transition: width 0.4s cubic-bezier(0.76, 0, 0.24, 1),
+                background-color 0.3s;
+}
+
+.progress-segment:hover {
+    background-color: rgba(255, 255, 255, 0.25);
 }
 
 .progress-segment.active {
-    width: 80px;
+    width: 56px;
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .progress-fill {
@@ -206,7 +237,7 @@
     height: 100%;
     width: 0%;
     background-color: var(--accent-gold);
-    border-radius: 10px;
+    border-radius: 99px;
 }
 
 .progress-segment:not(.active) .progress-fill {
@@ -214,69 +245,74 @@
 }
 
 /* Responsive adjustments */
-@media (max-width: 1024px) {
-    .prev-control {
-        left: 10px;
-    }
-    
-    .next-control {
-        right: 10px;
-    }
-}
-
 @media (max-width: 1240px) {
     .events-section {
         margin: 45px 20px;
         max-width: calc(100% - 40px);
-        padding: 50px 30px;
-        border-radius: 24px;
+        padding: 48px 32px 40px;
+        border-radius: 26px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .prev-control {
+        left: 8px;
+    }
+
+    .next-control {
+        right: 8px;
+    }
+
+    .event-slide {
+        width: 65%;
     }
 }
 
 @media (max-width: 768px) {
     .events-section {
-        margin: 30px 15px;
-        max-width: calc(100% - 30px);
-        padding: 40px 20px;
-        border-radius: 16px;
+        margin: 30px 12px;
+        max-width: calc(100% - 24px);
+        padding: 36px 16px 32px;
+        border-radius: 20px;
     }
 
     .events-slider-container {
-        height: 200px;
-        perspective: 1200px;
+        height: 220px;
+        perspective: 1400px;
     }
 
     .event-slide {
-        width: 75%;
-        height: 85%;
-        border-radius: 14px;
+        width: 78%;
+        height: 88%;
+        border-radius: 12px;
     }
 
     .slider-control {
-        width: 44px;
-        height: 44px;
-        font-size: 15px;
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        font-size: 14px;
     }
 
     .prev-control {
-        left: 5px;
+        left: 4px;
     }
 
     .next-control {
-        right: 5px;
+        right: 4px;
     }
 
     .slider-progress-bar {
-        margin-top: 16px;
+        margin-top: 18px;
         gap: 6px;
     }
 
     .progress-segment {
-        width: 16px;
-        height: 4px;
+        width: 18px;
+        height: 3px;
     }
 
     .progress-segment.active {
-        width: 48px;
+        width: 40px;
     }
 }
