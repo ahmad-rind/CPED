@@ -1,10 +1,10 @@
 /* ============================================
-   EVENTS GALLERY SECTION & SLIDER (IMAGE ONLY)
+   EVENTS GALLERY SECTION & SLIDER (3D COVERFLOW)
    ============================================ */
 .events-section {
     position: relative;
     background-color: var(--brand-navy-deep);
-    padding: 60px 40px;
+    padding: 50px 20px;
     overflow: hidden;
     color: var(--white);
 }
@@ -13,7 +13,7 @@
 .events-section::before {
     content: 'EVENTS';
     position: absolute;
-    bottom: -40px;
+    bottom: -30px;
     right: 20px;
     font-family: 'Bitter', serif;
     font-size: 15vw;
@@ -27,7 +27,7 @@
 
 .events-header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     position: relative;
     z-index: 1;
 }
@@ -37,17 +37,17 @@
     align-items: center;
     gap: 8px;
     font-family: 'DM Sans', sans-serif;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
     color: var(--accent-gold);
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
 .events-eyebrow svg {
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
     fill: none;
     stroke: var(--accent-gold);
     stroke-width: 2;
@@ -55,39 +55,51 @@
 
 .events-heading {
     font-family: 'Bitter', serif;
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-size: clamp(1.5rem, 2.5vw, 2.1rem);
     font-weight: 800;
     color: var(--white);
     line-height: 1.2;
 }
 
-/* Slider Outer Container */
+/* Slider Outer Container - Compact height */
 .events-slider-container {
     position: relative;
     max-width: var(--container-width);
     margin: 0 auto;
-    overflow: hidden;
-    border-radius: 20px;
+    overflow: visible; /* side slides bleed out in 3D */
     z-index: 1;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    height: clamp(280px, 45vw, 550px);
+    height: clamp(180px, 28vw, 360px);
+    perspective: 1800px;
+    transform-style: preserve-3d;
 }
 
 /* Slider Track */
 .events-slider-track {
-    display: flex;
-    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    position: relative;
     width: 100%;
     height: 100%;
+    transform-style: preserve-3d;
 }
 
-/* Individual Slide */
+/* Individual Slide with 3D Coverflow positioning */
 .event-slide {
-    flex: 0 0 100%;
-    width: 100%;
-    height: 100%;
-    background-color: var(--brand-navy-midnight);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 95%;
+    transform: translate(-50%, -50%);
+    transform-style: preserve-3d;
+    transition: transform 0.76s cubic-bezier(0.76, 0, 0.24, 1),
+                filter 0.76s cubic-bezier(0.76, 0, 0.24, 1),
+                opacity 0.76s cubic-bezier(0.76, 0, 0.24, 1),
+                z-index 0.76s cubic-bezier(0.76, 0, 0.24, 1);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+    cursor: pointer;
     user-select: none;
+    background-color: var(--brand-navy-midnight);
 }
 
 .event-slide-inner {
@@ -106,117 +118,139 @@
 }
 
 .event-slide:hover .event-slide-inner img {
-    transform: scale(1.03);
+    transform: scale(1.04);
 }
 
-/* Subtle overlay on the image to improve visibility of navigation controls */
+/* Subtle overlay on the image */
 .event-slide-inner::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.3) 0%, transparent 40%, transparent 60%, rgba(0, 0, 0, 0.3) 100%);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.2) 0%, transparent 40%, transparent 60%, rgba(0, 0, 0, 0.2) 100%);
     pointer-events: none;
 }
 
-/* Slider Arrow Navigation Controls */
+/* Slider Arrow Navigation Controls - Glassmorphism style, inside container edges */
 .slider-control {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 50px;
-    height: 50px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background-color: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     color: var(--white);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 18px;
+    font-size: 15px;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    z-index: 10;
+    z-index: 30; /* Keep controls on top */
 }
 
 .slider-control:hover {
-    background-color: var(--white);
-    color: var(--brand-navy-deep);
+    background-color: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.4);
     transform: translateY(-50%) scale(1.08);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
 .prev-control {
-    left: 24px;
+    left: 15px;
 }
 
 .next-control {
-    right: 24px;
+    right: 15px;
 }
 
-/* Pagination Dots (Centered overlay at the bottom) */
-.slider-pagination {
-    position: absolute;
-    bottom: 24px;
-    left: 50%;
-    transform: translateX(-50%);
+/* Segmented Progress Bar Navigation */
+.slider-progress-bar {
     display: flex;
-    gap: 10px;
-    z-index: 10;
-    background-color: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    padding: 8px 16px;
-    border-radius: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 24px;
+    z-index: 20;
+    position: relative;
 }
 
-.pagination-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.4);
+.progress-segment {
+    width: 24px;
+    height: 5px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.2);
     border: none;
     padding: 0;
     cursor: pointer;
-    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    transition: width 0.4s cubic-bezier(0.76, 0, 0.24, 1), background-color 0.3s;
 }
 
-.pagination-dot.active {
+.progress-segment.active {
+    width: 60px;
+}
+
+.progress-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
     background-color: var(--accent-gold);
-    transform: scale(1.2);
-    box-shadow: 0 0 8px rgba(255, 184, 0, 0.6);
+    border-radius: 8px;
+}
+
+.progress-segment:not(.active) .progress-fill {
+    width: 0% !important;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .events-section {
-        padding: 40px 20px;
+        padding: 40px 15px;
     }
 
     .events-slider-container {
-        height: 250px;
-        border-radius: 14px;
+        height: 200px;
+        perspective: 1200px;
+    }
+
+    .event-slide {
+        width: 70%;
+        height: 90%;
+        border-radius: 12px;
     }
 
     .slider-control {
-        width: 40px;
-        height: 40px;
-        font-size: 14px;
+        width: 38px;
+        height: 38px;
+        font-size: 13px;
     }
 
     .prev-control {
-        left: 12px;
+        left: 5px;
     }
 
     .next-control {
-        right: 12px;
+        right: 5px;
     }
 
-    .slider-pagination {
-        bottom: 16px;
-        padding: 6px 12px;
-        gap: 8px;
+    .slider-progress-bar {
+        margin-top: 16px;
+        gap: 6px;
+    }
+
+    .progress-segment {
+        width: 14px;
+        height: 4px;
+    }
+
+    .progress-segment.active {
+        width: 40px;
     }
 }
