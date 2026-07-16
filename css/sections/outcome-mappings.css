@@ -229,12 +229,14 @@
 .cped-outcomes-section .plo-card {
     background: var(--white);
     border-radius: 12px;
-    padding: 20px;
+    padding: 16px 20px;
     display: flex;
+    align-items: flex-start;
     gap: 16px;
     border: 1px solid rgba(0, 0, 0, 0.06);
     box-shadow: none;
-    transition: all 0.25s var(--ease-standard);
+    transition: all 0.3s var(--ease-standard);
+    overflow: hidden;
 }
 
 .cped-outcomes-section .plo-card:hover {
@@ -253,6 +255,7 @@
     justify-content: center;
     font-size: 1.25rem;
     flex-shrink: 0;
+    margin-top: 2px; /* aligns icon perfectly with title first line */
     transition: all 0.25s var(--ease-standard);
 }
 
@@ -267,7 +270,7 @@
     font-size: 0.95rem;
     font-weight: 700;
     color: var(--primary-deep);
-    margin-bottom: 4px;
+    margin-bottom: 0;
     line-height: 1.3;
 }
 
@@ -276,6 +279,19 @@
     font-size: 0.85rem;
     color: var(--text-medium);
     line-height: 1.45;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    margin: 0;
+    transition: max-height 0.3s var(--ease-standard),
+                opacity 0.25s var(--ease-standard),
+                margin-top 0.3s var(--ease-standard);
+}
+
+.cped-outcomes-section .plo-card:hover .plo-content p {
+    max-height: 120px;
+    opacity: 1;
+    margin-top: 8px;
 }
 
 .cped-outcomes-section .matrix-container-wrapper {
