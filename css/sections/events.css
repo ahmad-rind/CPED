@@ -4,7 +4,7 @@
 .events-section {
     position: relative;
     background-color: var(--brand-navy-deep);
-    padding: 50px 20px;
+    padding: 80px 40px;
     overflow: hidden;
     color: var(--white);
 }
@@ -13,7 +13,7 @@
 .events-section::before {
     content: 'EVENTS';
     position: absolute;
-    bottom: -30px;
+    bottom: -40px;
     right: 20px;
     font-family: 'Bitter', serif;
     font-size: 15vw;
@@ -27,7 +27,7 @@
 
 .events-header {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
     position: relative;
     z-index: 1;
 }
@@ -37,17 +37,17 @@
     align-items: center;
     gap: 8px;
     font-family: 'DM Sans', sans-serif;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 600;
     color: var(--accent-gold);
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
 }
 
 .events-eyebrow svg {
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     fill: none;
     stroke: var(--accent-gold);
     stroke-width: 2;
@@ -55,20 +55,20 @@
 
 .events-heading {
     font-family: 'Bitter', serif;
-    font-size: clamp(1.5rem, 2.5vw, 2.1rem);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
     font-weight: 800;
     color: var(--white);
     line-height: 1.2;
 }
 
-/* Slider Outer Container - Compact height */
+/* Slider Outer Container */
 .events-slider-container {
     position: relative;
     max-width: var(--container-width);
     margin: 0 auto;
     overflow: visible; /* side slides bleed out in 3D */
     z-index: 1;
-    height: clamp(180px, 28vw, 360px);
+    height: clamp(280px, 42vw, 550px);
     perspective: 1800px;
     transform-style: preserve-3d;
 }
@@ -86,17 +86,17 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 50%;
-    height: 95%;
+    width: 60%;
+    height: 90%;
     transform: translate(-50%, -50%);
     transform-style: preserve-3d;
     transition: transform 0.76s cubic-bezier(0.76, 0, 0.24, 1),
                 filter 0.76s cubic-bezier(0.76, 0, 0.24, 1),
                 opacity 0.76s cubic-bezier(0.76, 0, 0.24, 1),
                 z-index 0.76s cubic-bezier(0.76, 0, 0.24, 1);
-    border-radius: 16px;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
     cursor: pointer;
     user-select: none;
     background-color: var(--brand-navy-midnight);
@@ -130,13 +130,13 @@
     pointer-events: none;
 }
 
-/* Slider Arrow Navigation Controls - Glassmorphism style, inside container edges */
+/* Slider Arrow Navigation Controls - Glassmorphism style */
 .slider-control {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 44px;
-    height: 44px;
+    width: 54px;
+    height: 54px;
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(12px);
@@ -146,42 +146,42 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 15px;
+    font-size: 18px;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     z-index: 30; /* Keep controls on top */
 }
 
 .slider-control:hover {
-    background-color: rgba(255, 255, 255, 0.25);
-    border-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.35);
     transform: translateY(-50%) scale(1.08);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 }
 
 .prev-control {
-    left: 15px;
+    left: -20px;
 }
 
 .next-control {
-    right: 15px;
+    right: -20px;
 }
 
 /* Segmented Progress Bar Navigation */
 .slider-progress-bar {
     display: flex;
-    gap: 8px;
+    gap: 10px;
     justify-content: center;
     align-items: center;
-    margin-top: 24px;
+    margin-top: 40px;
     z-index: 20;
     position: relative;
 }
 
 .progress-segment {
-    width: 24px;
-    height: 5px;
-    border-radius: 8px;
+    width: 32px;
+    height: 6px;
+    border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.2);
     border: none;
     padding: 0;
@@ -192,7 +192,7 @@
 }
 
 .progress-segment.active {
-    width: 60px;
+    width: 80px;
 }
 
 .progress-fill {
@@ -202,7 +202,7 @@
     height: 100%;
     width: 0%;
     background-color: var(--accent-gold);
-    border-radius: 8px;
+    border-radius: 10px;
 }
 
 .progress-segment:not(.active) .progress-fill {
@@ -210,26 +210,36 @@
 }
 
 /* Responsive adjustments */
+@media (max-width: 1024px) {
+    .prev-control {
+        left: 10px;
+    }
+    
+    .next-control {
+        right: 10px;
+    }
+}
+
 @media (max-width: 768px) {
     .events-section {
-        padding: 40px 15px;
+        padding: 50px 20px;
     }
 
     .events-slider-container {
-        height: 200px;
+        height: 260px;
         perspective: 1200px;
     }
 
     .event-slide {
-        width: 70%;
-        height: 90%;
-        border-radius: 12px;
+        width: 75%;
+        height: 85%;
+        border-radius: 14px;
     }
 
     .slider-control {
-        width: 38px;
-        height: 38px;
-        font-size: 13px;
+        width: 44px;
+        height: 44px;
+        font-size: 15px;
     }
 
     .prev-control {
@@ -241,16 +251,16 @@
     }
 
     .slider-progress-bar {
-        margin-top: 16px;
+        margin-top: 24px;
         gap: 6px;
     }
 
     .progress-segment {
-        width: 14px;
+        width: 16px;
         height: 4px;
     }
 
     .progress-segment.active {
-        width: 40px;
+        width: 48px;
     }
 }

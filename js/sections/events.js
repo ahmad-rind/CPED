@@ -1,7 +1,7 @@
 /**
  * 3D Coverflow Events Image Slider Controller
- * Features compact coverflow rendering, segmented progress indicators, requestAnimationFrame loop,
- * pause on hover, arrow key listeners, and touch/drag gestures without click interference.
+ * Features premium animations, segmented progress bars, autoplay loop via requestAnimationFrame,
+ * pause on hover, keyboard, clickable sides, and swipe gestures.
  */
 export function initEventsSlider() {
     const slider = document.querySelector('.events-slider-container');
@@ -15,8 +15,8 @@ export function initEventsSlider() {
 
     let currentIndex = 0;
     const totalSlides = slides.length;
-    const duration = 5500; // 5.5s autoplay duration
-
+    const duration = 5500; // 5.5 seconds autoplay duration
+    
     let progressAnimationId = null;
     let lastTime = 0;
     let accumulatedTime = 0;
@@ -24,7 +24,6 @@ export function initEventsSlider() {
 
     // Drag / Swipe States
     let isDragging = false;
-    let hasMoved = false;
     let startX = 0;
     let currentX = 0;
     const threshold = 50; // pixels to trigger slide change
@@ -105,12 +104,9 @@ export function initEventsSlider() {
         updateSlider(currentIndex - 1);
     }
 
-    // Click directly on left/right side slides to navigate to them
+    // Click to select from sides
     slides.forEach((slide, i) => {
-        slide.addEventListener('click', (e) => {
-            // Prevent triggers if drag movement happened
-            if (hasMoved) return;
-
+        slide.addEventListener('click', () => {
             const offset = getCircularOffset(i, currentIndex, totalSlides);
             if (offset === -1) {
                 prevSlide();
@@ -183,7 +179,7 @@ export function initEventsSlider() {
     function startAutoplay() {
         if (isAutoplayPlaying) return;
         isAutoplayPlaying = true;
-        lastTime = 0;
+        lastTime = 0; // force recalculation on next frame
         progressAnimationId = requestAnimationFrame(updateProgress);
     }
 
@@ -198,7 +194,7 @@ export function initEventsSlider() {
     function resumeAutoplay() {
         if (isAutoplayPlaying) return;
         isAutoplayPlaying = true;
-        lastTime = performance.now();
+        lastTime = performance.now(); // align time correctly to avoid sudden jumps
         progressAnimationId = requestAnimationFrame(updateProgress);
     }
 
@@ -222,36 +218,28 @@ export function initEventsSlider() {
     // Touch support (Swipes)
     slider.addEventListener('touchstart', (e) => {
         startX = e.touches[0].clientX;
-        currentX = startX;
         isDragging = true;
-        hasMoved = false;
         pauseAutoplay();
     }, { passive: true });
 
     slider.addEventListener('touchmove', (e) => {
         if (!isDragging) return;
         currentX = e.touches[0].clientX;
-        if (Math.abs(currentX - startX) > 5) {
-            hasMoved = true;
-        }
     }, { passive: true });
 
     slider.addEventListener('touchend', () => {
         if (!isDragging) return;
         isDragging = false;
-        
-        if (hasMoved) {
-            const diffX = startX - currentX;
-            if (Math.abs(diffX) > threshold) {
-                if (diffX > 0) {
-                    nextSlide();
-                } else {
-                    prevSlide();
-                }
+        const diffX = startX - currentX;
+
+        if (Math.abs(diffX) > threshold && currentX !== 0) {
+            if (diffX > 0) {
+                nextSlide();
+            } else {
+                prevSlide();
             }
         }
         currentX = 0;
-        hasMoved = false;
         resumeAutoplay();
     });
 
@@ -259,9 +247,7 @@ export function initEventsSlider() {
     slider.addEventListener('mousedown', (e) => {
         if (e.button !== 0) return;
         startX = e.clientX;
-        currentX = startX;
         isDragging = true;
-        hasMoved = false;
         pauseAutoplay();
         slider.style.cursor = 'grabbing';
     });
@@ -269,28 +255,22 @@ export function initEventsSlider() {
     window.addEventListener('mousemove', (e) => {
         if (!isDragging) return;
         currentX = e.clientX;
-        if (Math.abs(currentX - startX) > 5) {
-            hasMoved = true;
-        }
     });
 
     window.addEventListener('mouseup', () => {
         if (!isDragging) return;
         isDragging = false;
         slider.style.cursor = '';
+        const diffX = startX - currentX;
 
-        if (hasMoved) {
-            const diffX = startX - currentX;
-            if (Math.abs(diffX) > threshold) {
-                if (diffX > 0) {
-                    nextSlide();
-                } else {
-                    prevSlide();
-                }
+        if (Math.abs(diffX) > threshold && currentX !== 0) {
+            if (diffX > 0) {
+                nextSlide();
+            } else {
+                prevSlide();
             }
         }
         currentX = 0;
-        hasMoved = false;
         resumeAutoplay();
     });
 
