@@ -4,9 +4,13 @@
 .events-section {
     position: relative;
     background-color: var(--brand-navy-deep);
-    padding: 80px 40px;
+    border-radius: 28px;
+    margin: 60px auto;
+    max-width: calc(var(--container-width) - 40px);
+    padding: 60px 40px;
     overflow: hidden;
     color: var(--white);
+    box-shadow: 0 20px 50px rgba(0, 58, 101, 0.12);
 }
 
 /* Background watermark */
@@ -27,7 +31,7 @@
 
 .events-header {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 24px;
     position: relative;
     z-index: 1;
 }
@@ -68,7 +72,7 @@
     margin: 0 auto;
     overflow: visible; /* side slides bleed out in 3D */
     z-index: 1;
-    height: clamp(280px, 42vw, 550px);
+    height: clamp(200px, 30vw, 360px);
     perspective: 1800px;
     transform-style: preserve-3d;
 }
@@ -173,7 +177,7 @@
     gap: 10px;
     justify-content: center;
     align-items: center;
-    margin-top: 40px;
+    margin-top: 24px;
     z-index: 20;
     position: relative;
 }
@@ -220,13 +224,25 @@
     }
 }
 
+@media (max-width: 1240px) {
+    .events-section {
+        margin: 45px 20px;
+        max-width: calc(100% - 40px);
+        padding: 50px 30px;
+        border-radius: 24px;
+    }
+}
+
 @media (max-width: 768px) {
     .events-section {
-        padding: 50px 20px;
+        margin: 30px 15px;
+        max-width: calc(100% - 30px);
+        padding: 40px 20px;
+        border-radius: 16px;
     }
 
     .events-slider-container {
-        height: 260px;
+        height: 200px;
         perspective: 1200px;
     }
 
@@ -251,7 +267,7 @@
     }
 
     .slider-progress-bar {
-        margin-top: 24px;
+        margin-top: 16px;
         gap: 6px;
     }
 
