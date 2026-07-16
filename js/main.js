@@ -6,6 +6,7 @@ import { initVideoModal } from './components/video-modal.js';
 import { initPloTabs } from './sections/plo-tabs.js';
 import { initAlertTicker } from './sections/alert-ticker.js';
 import { initEventsSlider } from './sections/events.js';
+import { initScrollReveal } from './utils/scroll-reveal.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     initStickyNav();
@@ -16,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initPloTabs();
     initAlertTicker();
     initEventsSlider();
+    initScrollReveal();
 
     // SMOOTH SCROLL FOR ANCHOR LINKS
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

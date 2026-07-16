@@ -207,16 +207,16 @@
 
 .cped-outcomes-section .plo-grid-container {
     display: none;
-    animation: fadeIn 0.5s ease;
+    opacity: 0;
+    transition: opacity var(--duration-fast) var(--ease-standard);
 }
 
 .cped-outcomes-section .plo-grid-container.active {
     display: block;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+.cped-outcomes-section .plo-grid-container.fade-in {
+    opacity: 1;
 }
 
 .cped-outcomes-section .plo-grid {
@@ -280,11 +280,16 @@
 
 .cped-outcomes-section .matrix-container-wrapper {
     display: none;
-    animation: fadeIn 0.5s ease;
+    opacity: 0;
+    transition: opacity var(--duration-fast) var(--ease-standard);
 }
 
 .cped-outcomes-section .matrix-container-wrapper.active {
     display: block;
+}
+
+.cped-outcomes-section .matrix-container-wrapper.fade-in {
+    opacity: 1;
 }
 
 /* =========================================

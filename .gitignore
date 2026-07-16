@@ -4,5 +4,3 @@ dist/
 .env*
 !*demo*
 .agents/
-images/slider/006.html
-images/slider/007.html

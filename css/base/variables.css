@@ -85,6 +85,26 @@
     --z-hero-overlay:   4;
     --z-hero-bg:        3;
     --z-hero-watermark: 2;
+
+    /* Animation Tokens */
+    --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+    --duration-fast: 150ms;
+    --duration-base: 250ms;
+    --duration-slow: 400ms;
+}
+
+/* ============================================
+   ENTRANCE ANIMATIONS
+   ============================================ */
+.fade-up {
+    opacity: 0;
+    transform: translateY(14px);
+}
+.fade-up.in-view {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity var(--duration-slow) var(--ease-standard),
+                transform var(--duration-slow) var(--ease-standard);
 }
 
 html {

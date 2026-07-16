@@ -284,6 +284,31 @@
     z-index: 1;
 }
 
+/* Honeycomb cells stagger & scale entrance */
+.hex-cell.fade-up {
+    opacity: 0;
+    transform: translateY(14px) scale(0.9);
+}
+.hex-cell.fade-up.in-view {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition: opacity var(--duration-slow) var(--ease-standard),
+                transform var(--duration-slow) var(--ease-standard);
+}
+.hex-cell.fade-up.in-view:nth-child(1) { transition-delay: 0ms; }
+.hex-cell.fade-up.in-view:nth-child(2) { transition-delay: 80ms; }
+.hex-cell.fade-up.in-view:nth-child(3) { transition-delay: 160ms; }
+.hex-cell.fade-up.in-view:nth-child(4) { transition-delay: 240ms; }
+.hex-cell.fade-up.in-view:nth-child(5) { transition-delay: 320ms; }
+.hex-cell.fade-up.in-view:nth-child(6) { transition-delay: 400ms; }
+
+/* Reset delays on mobile query when grid wraps */
+@media (max-width: 600px) {
+    .hex-cell.fade-up.in-view:nth-child(n) {
+        transition-delay: 0ms !important;
+    }
+}
+
 /* Position mapping */
 .hex-cell:nth-child(1) {
     left: 0;
