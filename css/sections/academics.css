@@ -56,65 +56,30 @@
 
 /* Academics layout container */
 .academics-layout-container {
-    display: flex;
-    gap: 24px;
     max-width: 1200px;
     margin: 0 auto;
     position: relative;
     z-index: 1;
-    align-items: stretch;
-}
-
-.academics-images-side {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.academics-img-card {
-    flex: 1;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-}
-
-.academics-img-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
 }
 
 .academics-programs-side {
-    flex: 1.5;
+    width: 100%;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px 16px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
 }
 
 @media (max-width: 1024px) {
-    .academics-layout-container {
-        flex-direction: column;
-        gap: 32px;
-    }
-
-    .academics-images-side {
-        flex-direction: row;
-    }
-
-    .academics-img-card {
-        aspect-ratio: 1.85 / 1;
+    .academics-programs-side {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
     }
 }
 
 @media (max-width: 768px) {
-    .academics-images-side {
-        flex-direction: column;
-    }
-
     .academics-programs-side {
         grid-template-columns: 1fr;
+        gap: 16px;
     }
 }
 
