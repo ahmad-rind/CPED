@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.2.0] - 2026-07-17
+
+### Added
+- Created a premium interactive Events section (`#events`) on the homepage, featuring an image slider/carousel with category badge, title, detailed metadata (date, time, location), and action buttons.
+- Designed `css/sections/events.css` containing visual styling for the slider track, absolute arrow controls, pagination dots, zoom transition states, and mobile column stacking media queries.
+- Created `js/sections/events.js` to control slider interactive behaviors, supporting autoplay, touch-swipe gestures for mobile devices, and mouse-drag gestures for desktop monitors.
+- Generated three realistic high-quality university event images: `images/event-roboquest.png`, `images/event-ai-summit.png`, and `images/event-hackathon.png`.
+- Registered `events.css` stylesheet and initialized the slide controller inside `main.js` and `styles.css`.
+
 ## [1.1.0] - 2026-07-16
 
 ### Added

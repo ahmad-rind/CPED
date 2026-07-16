@@ -66,3 +66,9 @@
 - **Decision**: Added `#cped-outcomes` section above the footer in `index.html` and styled it in a new modular CSS file `css/sections/outcome-mappings.css` using the global color variables (`--primary-deep`, `--primary-blue`, `--accent-gold`, `--res-bg-light`). Programmed interactive tab switching in `js/main.js` using defensive queries to swap active states between Session 2022/2023 (12 PLOs) and Session 2024 Onwards (11 PLOs) grids and their corresponding matrix mapping tables with fade-in animations.
 - **Consequence**: The new layout integrates natively with the site's brand aesthetic, supports clean responsive grid columns, provides responsive tab switching for both outcomes and mapping tables, and offers float-row interactive matrix hovers.
 
+## 14. Interactive Events Section & Image Slider
+- **Context**: The homepage required a new Events section showcasing upcoming activities with an interactive image slider that integrates natively with the site's brand system (navy deep, white cards, gold/orange accents).
+- **Decision**: Added `#events` section with a side-by-side card layout (event image and content text card) on desktop, wrapping to a stacked column layout on mobile. Implemented CSS slider track translations in `css/sections/events.css` and interactive autoplay, touch-swipe, and mouse-drag gestures in `js/sections/events.js`.
+- **Consequence**: Users can smoothly browse upcoming department events on all devices (mobile, tablet, desktop) using arrow controls, pagination dots, mouse dragging, or touch swiping, with autoplay pausing on hover/focus to support accessibility.
+
+

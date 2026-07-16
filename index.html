@@ -313,6 +313,68 @@
     </section>
 
     <!-- ============================================
+     EVENTS SECTION
+     ============================================ -->
+    <section id="events" class="events-section">
+        <!-- Section Header -->
+        <div class="events-header">
+            <div class="events-eyebrow">
+                <svg class="calendar-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                    <line x1="16" y1="2" x2="16" y2="6"/>
+                    <line x1="8" y1="2" x2="8" y2="6"/>
+                    <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+                <span>Department Life</span>
+            </div>
+            <h2 class="events-heading">Upcoming Events & Highlights</h2>
+        </div>
+
+        <!-- Events Slider Container -->
+        <div class="events-slider-container" tabindex="0" aria-label="Department events gallery">
+            <div class="events-slider-track" id="events-track">
+                
+                <!-- Slide 1 -->
+                <div class="event-slide active" data-index="0">
+                    <div class="event-slide-inner">
+                        <img src="images/event-roboquest.png" alt="Department Event Image 1">
+                    </div>
+                </div>
+                
+                <!-- Slide 2 -->
+                <div class="event-slide" data-index="1">
+                    <div class="event-slide-inner">
+                        <img src="images/event-ai-summit.png" alt="Department Event Image 2">
+                    </div>
+                </div>
+                
+                <!-- Slide 3 -->
+                <div class="event-slide" data-index="2">
+                    <div class="event-slide-inner">
+                        <img src="images/event-hackathon.png" alt="Department Event Image 3">
+                    </div>
+                </div>
+                
+            </div>
+
+            <!-- Slider Navigation Controls -->
+            <button class="slider-control prev-control" id="prev-event-btn" aria-label="Previous Slide">
+                <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+            </button>
+            <button class="slider-control next-control" id="next-event-btn" aria-label="Next Slide">
+                <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+            </button>
+
+            <!-- Bullet Pagination -->
+            <div class="slider-pagination" id="events-pagination" role="tablist" aria-label="Select slide">
+                <button class="pagination-dot active" data-slide="0" role="tab" aria-selected="true" aria-label="Slide 1"></button>
+                <button class="pagination-dot" data-slide="1" role="tab" aria-selected="false" aria-label="Slide 2"></button>
+                <button class="pagination-dot" data-slide="2" role="tab" aria-selected="false" aria-label="Slide 3"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
      RESOURCES SECTION
      ============================================ -->
     <section id="resources" class="resources-section">
