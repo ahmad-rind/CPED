@@ -15,6 +15,98 @@
     </div>
 <% } %>
 
+    <!-- ============================================
+     FOOTER
+     ============================================ -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <!-- Column 1: Branding -->
+                <div class="footer-col footer-brand">
+                    <div class="footer-brand-logo">
+                        <img src="<%= prefix %>images/CPED logo.png" alt="CPED Logo">
+                        <div class="footer-brand-title">
+                            <span class="dept-name">Computer Engineering</span>
+                            <span class="uni-name">UET Taxila</span>
+                        </div>
+                    </div>
+                    <div class="footer-about-heading">About Computer Engg. Dept.</div>
+                    <p class="footer-desc">
+                        Department of Computer Engineering, is concerned with the theory, design, development and applications of computer networks and computer systems.
+                    </p>
+                    <div class="footer-socials">
+                        <a href="https://www.facebook.com/profile.php?id=61554368427060" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/computer-engineering-department-uett/?originalSubdomain=pk" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.youtube.com/channel/UCbl2zCWGT9HnpU-vYLe8lfA" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Academic Programs -->
+                <div class="footer-col">
+                    <h3>Academics</h3>
+                    <div class="footer-links">
+                        <a href="<%= prefix %>academics/undergraduate.html">Undergraduate Program</a>
+                        <a href="<%= prefix %>academics/postgraduate.html">Postgraduate Program</a>
+                        <a href="<%= prefix %>academics/ms-ai.html">MS in Artificial Intelligence</a>
+                        <a href="<%= prefix %>academics/phd.html">PhD Computer Engineering</a>
+                        <a href="<%= prefix %>academics/laboratories.html">Laboratories</a>
+                    </div>
+                </div>
+
+                <!-- Column 3: Quick Links / Resources -->
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <div class="footer-links">
+                        <a href="<%= prefix %>faculty/members.html">Faculty Directory</a>
+                        <a href="<%= prefix %>faculty/labs.html">Research Labs</a>
+                        <a href="<%= prefix %>faculty/projects.html">Faculty Projects</a>
+                        <a href="<%= prefix %>downloads.html">Downloads Center</a>
+                        <a href="<%= prefix %>contact/helpdesk.html">Help Desk</a>
+                    </div>
+                </div>
+
+                <!-- Column 4: Contact Info -->
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <div class="footer-contact-info">
+                        <div class="contact-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Department of Computer Engineering, UET Taxila, Punjab 47080, Pakistan</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fa-solid fa-phone"></i>
+                            <a href="tel:+92519047568">051-9047568</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <a href="mailto:cped@uettaxila.edu.pk">cped@uettaxila.edu.pk</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom Bar -->
+        <div class="footer-bottom">
+            <div class="footer-bottom-inner">
+                <div class="footer-copyright">
+                    © <%= new Date().getFullYear() %> Department of Computer Engineering, UET Taxila. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top-btn" id="back-to-top" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
     <script type="module" src="/js/main.js"></script>
 </body>
 </html>

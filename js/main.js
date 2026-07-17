@@ -7,6 +7,7 @@ import { initPloTabs } from './sections/plo-tabs.js';
 import { initAlertTicker } from './sections/alert-ticker.js';
 import { initEventsSlider } from './sections/events.js';
 import { initScrollReveal } from './utils/scroll-reveal.js';
+import { initBackToTop } from './layout/back-to-top.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     initStickyNav();
@@ -18,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initAlertTicker();
     initEventsSlider();
     initScrollReveal();
+    initBackToTop();
 
     // SMOOTH SCROLL FOR ANCHOR LINKS
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

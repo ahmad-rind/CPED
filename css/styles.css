@@ -1,5 +1,6 @@
 @import './base/variables.css';
 @import './layout/header.css';
+@import './layout/footer.css';
 @import './sections/hero.css';
 @import './sections/latest-action.css';
 @import './sections/alert-ticker.css';

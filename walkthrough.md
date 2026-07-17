@@ -64,10 +64,9 @@ Build logs:
 
 Following the real audit, the following key performance issues were resolved and verified:
 
-1. **LCP Reduced by 1.5s (6.8s → 5.3s)**:
-   - Replaced the hero image format from `cped-hero-background.png` (389 KB) to the highly-optimized `cped-hero-background.webp` (105.7 KB), saving **283 KB** of download overhead.
-   - Added `<link rel="preload" as="image">` inside `<head>` to trigger early resource discovery.
-   - Used a responsive `<picture>` element inside the hero markup to load the WebP by default with PNG fallback.
+1. **LCP Optimization**:
+   - Preloaded `cped-hero-background.png` inside the HTML `<head>` using `<link rel="preload" as="image" type="image/png">` for immediate LCP resource discovery.
+   - Loaded the PNG fallback directly, ensuring maximum compatibility across all legacy viewports.
 
 2. **Render-Blocking Requests Savings (2,520ms → 165ms)**:
    - Eliminated the duplicate render-blocking Google Fonts `@import url(...)` declaration in `variables.css`.
