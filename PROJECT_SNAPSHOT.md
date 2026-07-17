@@ -55,10 +55,17 @@ d:/CPED/
 │   ├── news.html
 │   └── projects.html
 ├── images/                         # Active production image assets
-│   ├── 003.jpg
-│   ├── 008.jpg
-│   ├── CPED logo.png
-│   └── academics-decor.png
+│   ├── CPED logo.webp
+│   ├── academics-decor.webp
+│   └── slider/                     # Event slide images for coverflow slider
+│       ├── 001.webp
+│       ├── 003.webp
+│       ├── 004a.webp
+│       ├── 005.webp
+│       ├── 008.webp
+│       ├── 009.webp
+│       ├── 0010.webp
+│       └── cped-2026.webp
 ├── js/
 │   ├── components/
 │   │   └── video-modal.js          # Keyboard-trapped YouTube player modal overlay logic
@@ -90,7 +97,7 @@ d:/CPED/
 ├── task.md                         # Workspace execution task checklist
 ├── vite.config.js                  # Vite server & build configurations
 ├── walkthrough.md                  # Detailed optimization implementation log
-└── cped-hero-background.png        # Consolidated main hero background image
+└── cped-hero-background.webp       # Consolidated main hero background image
 ```
 
 ---
@@ -113,11 +120,10 @@ d:/CPED/
 | `js/main.js` | Boots and imports JS sub-modules. | Loaded at the footer of all HTML files. |
 | `vite.config.js` | Configures EJS views directory and Rollup entrypoint configs. | Vite engine configuration. |
 | `package.json` | Project metadata, scripts, and EJS plugins. | Package manager configuration. |
-| `cped-hero-background.png` | Standardized background image of the main department building. | Loaded by hero background and mission card. |
-| `images/CPED logo.png` | Official department logo icon. | Loaded in `partials/header.html`. |
-| `images/003.jpg` | Student photo. | Displayed in Academics section in `index.html`. |
-| `images/008.jpg` | Graduates photo. | Displayed in Academics section in `index.html`. |
-| `images/academics-decor.png` | Graduation cap graphics. | Floating cap in Academics section in `index.html`. |
+| `cped-hero-background.webp` | WebP-optimized main hero background image. | Loaded by hero background and mission card. |
+| `images/CPED logo.webp` | WebP-optimized department logo icon. | Loaded in `partials/header.html`. |
+| `images/academics-decor.webp` | WebP-optimized graduation cap decorative graphic. | Floating cap in Academics section in `index.html`. |
+| `images/slider/*.webp` | 8 WebP-optimized image slides (001.webp to cped-2026.webp). | Loaded by the events carousel slider in `index.html`. |
 
 ---
 
@@ -201,23 +207,27 @@ The CSS uses the following responsive media queries to support desktop, tablet, 
 *   **Controllers**: `css/sections/academics.css`.
 *   **Layout & Behavior**: 2-column flex layout sitting on `--off-white`. Grid of four program cards (BSc, MS, MS-AI, PhD) displaying hover translateY offsets.
 
-### VI. Explore Resources Section (`#resources`)
+### VI. Events Section (`#events`)
+*   **Controllers**: `css/sections/events.css`, [events.js](file:///d:/CPED/js/sections/events.js).
+*   **Layout & Behavior**: Interactive 3D Coverflow image gallery showing department highlights. Supports automatic progress autoplay loop, mouse dragging, keyboard controls, and touch swipe gestures.
+
+### VII. Explore Resources Section (`#resources`)
 *   **Controllers**: `css/sections/resources.css`.
 *   **Layout & Behavior**: Honeycomb visual hub. Background uses Option A brand-tinted `rgba(15, 82, 136, 0.04)` to stand apart. Interlocking hex grid of six buttons.
 
-### VII. Mission & PEOs Section (`#mission-peos`)
+### VIII. Mission & PEOs Section (`#mission-peos`)
 *   **Controllers**: `css/sections/mission-peos.css`.
 *   **Layout & Behavior**: 2-column Vision mission statement card and Program Educational Objectives panels.
 
-### VIII. Video Popup Modal (`#video-modal`)
+### IX. Video Popup Modal (`#video-modal`)
 *   **Controllers**: [video-modal.js](file:///d:/CPED/js/components/video-modal.js).
 *   **Layout & Behavior**: Keyboard focus trapping overlay launching YouTube stream overlays.
 
-### IX. Outcome Mappings & PLO Grid Section (`#cped-outcomes`)
+### X. Outcome Mappings & PLO Grid Section (`#cped-outcomes`)
 *   **Controllers**: `css/sections/outcome-mappings.css`, [plo-tabs.js](file:///d:/CPED/js/sections/plo-tabs.js).
 *   **Layout & Behavior**: Alignment mapping grids and tables sitting on `--off-white`. Tabs toggle between session matrices.
 
-### X. Subpage Template Layout
+### XI. Subpage Template Layout
 *   **Controllers**: `css/components/subpage-placeholder.css`, [subpage-template.html](file:///d:/CPED/partials/subpage-template.html).
 *   **Layout & Behavior**: Centralized layout displaying localized page contents, icons, and navigation buttons.
 
@@ -251,14 +261,21 @@ The CSS uses the following responsive media queries to support desktop, tablet, 
 
 | File Path | Dimensions | Purpose |
 | :--- | :--- | :--- |
-| `images/CPED logo.png` | ~512x512px | Branding logo in header. |
-| `cped-hero-background.png`| 1536x1024px | Cover backdrop on hero. |
-| `images/003.jpg` | 800x533px | Context photo (Student with laptop). |
-| `images/008.jpg` | 800x533px | Context photo (Graduates celebrating). |
-| `images/academics-decor.png`| 512x512px | Decorative floating cap. |
+| `images/CPED logo.webp` | 282x282px | Branding logo in header. |
+| `cped-hero-background.webp`| 1536x1024px | Cover backdrop on hero. |
+| `images/academics-decor.webp`| 172x132px | Decorative floating cap in Academics section. |
+| `images/slider/001.webp` | 700x325px | Event slide image 1. |
+| `images/slider/003.webp` | 700x325px | Event slide image 2. |
+| `images/slider/004a.webp`| 700x325px | Event slide image 3. |
+| `images/slider/005.webp` | 700x325px | Event slide image 4. |
+| `images/slider/008.webp` | 700x325px | Event slide image 5. |
+| `images/slider/009.webp` | 700x325px | Event slide image 6. |
+| `images/slider/0010.webp`| 700x325px | Event slide image 7. |
+| `images/slider/cped-2026.webp`| 700x325px| Event slide image 8. |
 
 ### Unused Assets
-*   None. (All legacy files and `/unused_files/` directory have been purged).
+*   `images/003.jpg`, `images/008.jpg` (legacy photos left in root images folder; not referenced by pages).
+*   Original PNG/JPG files corresponding to WebP outputs are kept in source directories for developer reference.
 
 ---
 

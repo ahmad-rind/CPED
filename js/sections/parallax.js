@@ -19,7 +19,7 @@ export function initParallax() {
 
                     if (scrollY < heroHeight) {
                         const parallaxOffset = scrollY * 0.12;
-                        bgImage.style.transform = `translateX(-50%) translateY(${parallaxOffset}px)`;
+                        bgImage.style.transform = `translate3d(-50%, ${parallaxOffset}px, 0)`;
                     }
                     ticking = false;
                 });
