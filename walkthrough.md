@@ -93,3 +93,29 @@ Following the real audit, the following key performance issues were resolved and
 | **Cumulative Layout Shift (CLS)** | 0.002 | **0.001** | ~0 (Optimal) |
 | **Speed Index** | 3.5s | **5.1s** | Throttled Preview Latency |
 
+## Mobile Scrolling and Interaction Lag Fixes
+
+We optimized the Events and Mission & PEO sections specifically to resolve scroll lag (jank) and frames-per-second drops on mobile viewports:
+
+1. **Events Coverflow Slider (Smooth Swipes & Interaction)**:
+   - **Removed `filter` Transition**: Removed the CSS transition on `filter` for `.event-slide` in `events.css`. Transitioning blurs (`blur(...)`) and brightness adjustments triggers dynamic pixel-level layout repaints on every transition frame.
+   - **Mobile Filter Bypass**: Modified `events.js` to detect mobile viewports (`window.innerWidth <= 768`) and bypass the expensive `blur` and `brightness` filters on non-active/hidden slides entirely. Inactive slides now use a compositor-safe `opacity: 0.5` reduction instead, which keeps them visually distinct without any rendering penalty.
+
+2. **Mission & PEO Section (Smooth Page Scrolling)**:
+   - **Bypassed Backdrop Filter on Mobile**: Added a `@media (max-width: 768px)` media query in `mission-peos.css` to disable `backdrop-filter: blur(10px)` and `-webkit-backdrop-filter` on the `.mission-features` block and Events `.slider-control` buttons. Doing so prevents expensive real-time background blurring calculations on every scroll frame.
+   - **Bypassed Mix Blend Mode on Mobile**: Disabled `mix-blend-mode: luminosity` on `.mission-panel::before` inside the mobile media query, preventing runtime image color-blending operations during scrolling.
+
+## Assets Cleanup & Ignore Configuration
+
+We moved all unused files out of the active codebase directories to clean up asset size and configured ignoring:
+
+1. **Created `unused/` Folder**: Created a dedicated folder at `d:/CPED/unused` to isolate historical/unused files.
+2. **Moved 15 Unused Files**:
+   - Moved the legacy 2.7 MB original PNG hero background (`images/cped-hero-background.png`).
+   - Moved duplicate context photos (`images/003.jpg` and `images/008.jpg`).
+   - Moved unused WebP graphic asset conversions (`images/CPED logo.webp` and `images/academics-decor.webp`).
+   - Moved unused events slider helper pages (`images/slider/006.html` and `images/slider/007.html`).
+   - Moved all unused WebP slider slide image conversions from `images/slider/`.
+3. **Configured Ignored Directories**:
+   - Added `unused/` to [.gitignore](file:///d:/CPED/.gitignore) to prevent tracking of historical assets.
+   - Added `unused/` to and updated [.antigravityignore](file:///d:/CPED/.antigravityignore) to optimize project indexing.

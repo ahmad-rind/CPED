@@ -4,3 +4,4 @@ dist/
 .env*
 !*demo*
 .agents/
+unused/
