@@ -100,7 +100,7 @@
     font-weight: 600;
     font-size: 0.95rem;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     align-items: center;
     gap: 10px;
@@ -152,7 +152,7 @@
     gap: 16px;
     border: 1px solid rgba(0, 0, 0, 0.06);
     box-shadow: none;
-    transition: all 0.3s var(--ease-standard);
+    transition: border-color 0.3s var(--ease-standard), transform 0.3s var(--ease-standard), box-shadow 0.3s var(--ease-standard);
     overflow: hidden;
 }
 
@@ -173,7 +173,7 @@
     font-size: 1.25rem;
     flex-shrink: 0;
     margin-top: 2px; /* aligns icon perfectly with title first line */
-    transition: all 0.25s var(--ease-standard);
+    transition: color 0.25s var(--ease-standard), transform 0.25s var(--ease-standard);
 }
 
 .cped-outcomes-section .plo-card:hover .plo-icon-box {
@@ -269,7 +269,7 @@
     text-align: center;
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     font-size: 0.9rem;
 }
 
@@ -314,7 +314,7 @@
     border-radius: 6px;
     font-size: 0.9rem;
     box-shadow: 0 3px 6px rgba(0, 58, 101, 0.15);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .cped-outcomes-section .matrix-table tr:hover .check-badge {
@@ -365,7 +365,7 @@
     font-size: 1.8rem;
     color: var(--accent-gold);
     transform: rotate(-5deg);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 10px 20px rgba(0, 58, 101, 0.15);
 }
 

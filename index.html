@@ -8,9 +8,19 @@
     <meta name="description"
         content="Welcome to the Computer & Software Engineering Department. Empowering future engineers through excellence in education, research, and innovation.">
 
-    <link
+    <!-- Preconnect to font origins for faster discovery -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Preload hero LCP image for immediate discovery -->
+    <link rel="preload" as="image" type="image/webp" href="cped-hero-background.webp">
+
+    <!-- Async Google Fonts — non-render-blocking -->
+    <link rel="preload" as="style"
         href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap"></noscript>
 
     <!-- JSON-LD Structured Data Schema for Educational Department -->
     <script type="application/ld+json">
@@ -35,8 +45,11 @@
     }
     </script>
 
-    <!-- FontAwesome for crisp icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- FontAwesome load deferred asynchronously to prevent render-blocking above the fold -->
+    <link rel="preload" as="style"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -58,7 +71,11 @@
 
         <!-- Building image (bottom-aligned) -->
         <div class="hero-bg-image">
-            <img src="cped-hero-background.png" alt="Computer & Software Engineering Department Building">
+            <picture>
+                <source srcset="cped-hero-background.webp" type="image/webp">
+                <img src="cped-hero-background.png" alt="Computer &amp; Software Engineering Department Building"
+                     fetchpriority="high" decoding="async">
+            </picture>
         </div>
 
         <!-- Subtle dark gradient overlay for text readability -->
@@ -1026,14 +1043,14 @@
                         <tbody>
                             <tr>
                                 <td>PLO-1 Engineering Knowledge</td>
-                                <td><div class="check-badge"><i class="fa-solid fa-check"></i></div></td>
+                                <td><div class="check-badge"><i aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></i></div></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>PLO-2 Problem Analysis</td>
-                                <td><div class="check-badge"><i class="fa-solid fa-check"></i></div></td>
+                                <td><div class="check-badge"><i aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></i></div></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
@@ -1041,20 +1058,20 @@
                             <tr>
                                 <td>PLO-3 Design/Development of Solutions</td>
                                 <td></td>
-                                <td><div class="check-badge"><i class="fa-solid fa-check"></i></div></td>
+                                <td><div class="check-badge"><i aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></i></div></td>
                                 <td></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>PLO-4 Investigation</td>
-                                <td><div class="check-badge"><i class="fa-solid fa-check"></i></div></td>
+                                <td><div class="check-badge"><i aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></i></div></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>PLO-5 Modern Tool Usage</td>
-                                <td><div class="check-badge"><i class="fa-solid fa-check"></i></div></td>
+                                <td><div class="check-badge"><i aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></i></div></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
@@ -1063,7 +1080,7 @@
                                 <td>PLO-6 The Engineer and Society</td>
                                 <td></td>
                                 <td></td>
-                                <td><div class="check-badge"><i class="fa-solid fa-check"></i></div></td>
+                                <td><div class="check-badge"><i aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></i></div></td>
                                 <td></td>
                             </tr>
                             <tr>
@@ -1071,26 +1088,26 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td><div class="check-badge"><i class="fa-solid fa-check"></i></div></td>
+                                <td><div class="check-badge"><i aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></i></div></td>
                             </tr>
                             <tr>
                                 <td>PLO-8 Ethics</td>
                                 <td></td>
                                 <td></td>
-                                <td><div class="check-badge"><i class="fa-solid fa-check"></i></div></td>
+                                <td><div class="check-badge"><i aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></i></div></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>PLO-9 Individual and Team Work</td>
                                 <td></td>
-                                <td><div class="check-badge"><i class="fa-solid fa-check"></i></div></td>
+                                <td><div class="check-badge"><i aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></i></div></td>
                                 <td></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>PLO-10 Communication</td>
                                 <td></td>
-                                <td><div class="check-badge"><i class="fa-solid fa-check"></i></div></td>
+                                <td><div class="check-badge"><i aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></i></div></td>
                                 <td></td>
                                 <td></td>
                             </tr>
@@ -1099,14 +1116,14 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td><div class="check-badge"><i class="fa-solid fa-check"></i></div></td>
+                                <td><div class="check-badge"><i aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></i></div></td>
                             </tr>
                             <tr>
                                 <td>PLO-12 Lifelong Learning</td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td><div class="check-badge"><i class="fa-solid fa-check"></i></div></td>
+                                <td><div class="check-badge"><i aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></i></div></td>
                             </tr>
                         </tbody>
                     </table>
@@ -1129,14 +1146,14 @@
                         <tbody>
                             <tr>
                                 <td>PLO-1 Engineering Knowledge</td>
-                                <td><div class="check-badge"><i class="fa-solid fa-check"></i></div></td>
+                                <td><div class="check-badge"><i aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></i></div></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>PLO-2 Problem Analysis</td>
-                                <td><div class="check-badge"><i class="fa-solid fa-check"></i></div></td>
+                                <td><div class="check-badge"><i aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></i></div></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
@@ -1144,20 +1161,20 @@
                             <tr>
                                 <td>PLO-3 Design/Development of Solutions</td>
                                 <td></td>
-                                <td><div class="check-badge"><i class="fa-solid fa-check"></i></div></td>
+                                <td><div class="check-badge"><i aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></i></div></td>
                                 <td></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>PLO-4 Investigation</td>
-                                <td><div class="check-badge"><i class="fa-solid fa-check"></i></div></td>
+                                <td><div class="check-badge"><i aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></i></div></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>PLO-5 Tool Usage</td>
-                                <td><div class="check-badge"><i class="fa-solid fa-check"></i></div></td>
+                                <td><div class="check-badge"><i aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></i></div></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
@@ -1166,27 +1183,27 @@
                                 <td>PLO-6 The Engineer and the World</td>
                                 <td></td>
                                 <td></td>
-                                <td><div class="check-badge"><i class="fa-solid fa-check"></i></div></td>
+                                <td><div class="check-badge"><i aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></i></div></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>PLO-7 Ethics</td>
                                 <td></td>
                                 <td></td>
-                                <td><div class="check-badge"><i class="fa-solid fa-check"></i></div></td>
+                                <td><div class="check-badge"><i aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></i></div></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>PLO-8 Individual and Collaborative Team Work</td>
                                 <td></td>
-                                <td><div class="check-badge"><i class="fa-solid fa-check"></i></div></td>
+                                <td><div class="check-badge"><i aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></i></div></td>
                                 <td></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>PLO-9 Communication</td>
                                 <td></td>
-                                <td><div class="check-badge"><i class="fa-solid fa-check"></i></div></td>
+                                <td><div class="check-badge"><i aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></i></div></td>
                                 <td></td>
                                 <td></td>
                             </tr>
@@ -1195,14 +1212,14 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td><div class="check-badge"><i class="fa-solid fa-check"></i></div></td>
+                                <td><div class="check-badge"><i aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></i></div></td>
                             </tr>
                             <tr>
                                 <td>PLO-11 Lifelong Learning</td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td><div class="check-badge"><i class="fa-solid fa-check"></i></div></td>
+                                <td><div class="check-badge"><i aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></i></div></td>
                             </tr>
                         </tbody>
                     </table>
@@ -1214,22 +1231,22 @@
                  ========================================== -->
             <div class="features-wrapper">
                 <div class="feature-block">
-                    <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M12 8v4"></path><path d="M12 16h.01"></path></svg></div>
                     <h4>Outcome-Based Education</h4>
                     <p>Aligned with global standards and focused on student success.</p>
                 </div>
                 <div class="feature-block">
-                    <div class="feature-icon"><i class="fa-solid fa-bullseye"></i></div>
+                    <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg></div>
                     <h4>Continuous Improvement</h4>
                     <p>Regular assessment and updates for excellence in education.</p>
                 </div>
                 <div class="feature-block">
-                    <div class="feature-icon"><i class="fa-solid fa-users"></i></div>
+                    <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
                     <h4>Industry Relevance</h4>
                     <p>Preparing graduates for real-world challenges and opportunities.</p>
                 </div>
                 <div class="feature-block">
-                    <div class="feature-icon"><i class="fa-solid fa-book-open-reader"></i></div>
+                    <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg></div>
                     <h4>Lifelong Learning</h4>
                     <p>Encouraging curiosity, growth, and continuous development.</p>
                 </div>

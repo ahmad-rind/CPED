@@ -183,7 +183,7 @@
     text-transform: uppercase;
     border: none;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .hero-btn-primary:hover {
@@ -206,7 +206,7 @@
     text-transform: uppercase;
     border: 2px solid rgba(255, 255, 255, 0.5);
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
 }
 
 .hero-btn-outline:hover {
@@ -241,7 +241,7 @@
     border: 2px solid rgba(255, 255, 255, 0.5);
     background: rgba(255, 255, 255, 0.1);
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
     text-decoration: none;
     position: relative;
 }
@@ -318,7 +318,7 @@
     color: var(--white);
     font-size: 34px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, background-color 0.3s ease;
     width: 40px;
     height: 40px;
     display: flex;

@@ -10,12 +10,16 @@ export function initParallax() {
             return;
         }
 
+        let heroHeight = hero.offsetHeight;
+        window.addEventListener('resize', () => {
+            heroHeight = hero.offsetHeight;
+        }, { passive: true });
+
         let ticking = false;
         window.addEventListener('scroll', () => {
             if (!ticking) {
                 window.requestAnimationFrame(() => {
                     const scrollY = window.scrollY;
-                    const heroHeight = hero.offsetHeight;
 
                     if (scrollY < heroHeight) {
                         const parallaxOffset = scrollY * 0.12;
