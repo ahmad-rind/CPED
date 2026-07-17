@@ -5,6 +5,16 @@ export function initStickyNav() {
     let ticking = false;
 
     if (header) {
+        // Dynamic will-change toggle to release GPU memory when header is static
+        header.addEventListener('transitionstart', () => {
+            header.style.willChange = 'transform';
+        });
+        const resetWillChange = () => {
+            header.style.willChange = 'auto';
+        };
+        header.addEventListener('transitionend', resetWillChange);
+        header.addEventListener('transitioncancel', resetWillChange);
+
         window.addEventListener('scroll', () => {
             if (!ticking) {
                 window.requestAnimationFrame(() => {

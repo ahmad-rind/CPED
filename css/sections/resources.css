@@ -117,18 +117,34 @@
     padding: 1.8rem 1.6rem 1.6rem 1.6rem;
     box-shadow: var(--res-shadow-soft);
     position: relative;
-    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     border: 1px solid rgba(226, 232, 240, 0.8);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     min-height: 370px;
     box-sizing: border-box;
+    z-index: 1;
+}
+
+.info-card::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 24px;
+    box-shadow: var(--res-shadow-hover);
+    opacity: 0;
+    transition: opacity 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: -1;
+    pointer-events: none;
 }
 
 .info-card:hover {
     transform: translateY(-5px);
-    box-shadow: var(--res-shadow-hover);
+}
+
+.info-card:hover::after {
+    opacity: 1;
 }
 
 /* Corner Border Accents */

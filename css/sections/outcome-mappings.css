@@ -126,6 +126,8 @@
     display: none;
     opacity: 0;
     transition: opacity var(--duration-fast) var(--ease-standard);
+    content-visibility: auto;
+    contain-intrinsic-size: auto 600px;
 }
 
 .cped-outcomes-section .plo-grid-container.active {
@@ -152,14 +154,31 @@
     gap: 16px;
     border: 1px solid rgba(0, 0, 0, 0.06);
     box-shadow: none;
-    transition: all 0.3s var(--ease-standard);
-    overflow: hidden;
+    transition: transform 0.3s var(--ease-standard), border-color 0.3s var(--ease-standard);
+    overflow: visible;
+    position: relative;
+    z-index: 1;
+}
+
+.cped-outcomes-section .plo-card::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 58, 101, 0.05);
+    opacity: 0;
+    transition: opacity 0.3s var(--ease-standard);
+    z-index: -1;
+    pointer-events: none;
 }
 
 .cped-outcomes-section .plo-card:hover {
     border-color: var(--primary-blue);
     transform: translateY(-4px);
-    box-shadow: 0 10px 25px rgba(0, 58, 101, 0.05);
+}
+
+.cped-outcomes-section .plo-card:hover::after {
+    opacity: 1;
 }
 
 .cped-outcomes-section .plo-icon-box {
@@ -215,6 +234,8 @@
     display: none;
     opacity: 0;
     transition: opacity var(--duration-fast) var(--ease-standard);
+    content-visibility: auto;
+    contain-intrinsic-size: auto 500px;
 }
 
 .cped-outcomes-section .matrix-container-wrapper.active {

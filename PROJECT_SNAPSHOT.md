@@ -77,6 +77,9 @@ d:/CPED/
 │   │   ├── alert-ticker.js         # News ticker interactivity stub
 │   │   ├── parallax.js             # requestAnimationFrame throttled hero scroll rendering
 │   │   └── plo-tabs.js             # Swaps active states between session PLO grids and matrices
+│   ├── utils/
+│   │   ├── benchmark.js            # Scroll performance testing and metric logging
+│   │   └── scroll-reveal.js        # IntersectionObserver viewport enter animations
 │   └── main.js                     # Central entry script booting all modular JS layers
 ├── partials/                       # Shared HTML layouts (injected at compile time)
 │   ├── header.html                 # Centralized header & navigation layout
@@ -118,6 +121,8 @@ d:/CPED/
 | `css/styles.css` | Entrypoint stylesheet linking modular CSS files. | Referenced in `<head>` by all HTML files. |
 | `css/base/variables.css` | CSS Custom Properties, layout resets, and z-index scales. | Imported by `css/styles.css`. |
 | `js/main.js` | Boots and imports JS sub-modules. | Loaded at the footer of all HTML files. |
+| `js/utils/scroll-reveal.js` | Scroll animations using IntersectionObserver. | Imported by `js/main.js`. |
+| `js/utils/benchmark.js` | Performance profiler for scroll FPS and CPU long tasks. | Loaded programmatically via `?benchmark=true` in `js/main.js`. |
 | `vite.config.js` | Configures EJS views directory and Rollup entrypoint configs. | Vite engine configuration. |
 | `package.json` | Project metadata, scripts, and EJS plugins. | Package manager configuration. |
 | `cped-hero-background.webp` | WebP-optimized main hero background image. | Loaded by hero background and mission card. |

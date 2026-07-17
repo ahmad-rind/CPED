@@ -25,17 +25,32 @@
         0 10px 30px rgba(0, 0, 0, 0.05),
         0 2px 8px rgba(0, 0, 0, 0.02),
         inset 0 1px 0 rgba(255, 255, 255, 0.8);
-    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     opacity: 0;
     animation: pillLoadIn 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
 }
 
-.alert-ticker-wrapper:hover {
-    transform: translateY(-3px);
+.alert-ticker-wrapper::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 9999px;
     box-shadow: 
         0 15px 35px rgba(11, 74, 122, 0.1),
         0 4px 12px rgba(0, 0, 0, 0.04),
         inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    opacity: 0;
+    transition: opacity 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.alert-ticker-wrapper:hover {
+    transform: translateY(-3px);
+}
+
+.alert-ticker-wrapper:hover::after {
+    opacity: 1;
 }
 
 /* Left badge capsule */
