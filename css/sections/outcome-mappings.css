@@ -317,6 +317,15 @@
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.cped-outcomes-section .check-badge i,
+.cped-outcomes-section .check-badge svg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 12px;
+    height: 12px;
+}
+
 .cped-outcomes-section .matrix-table tr:hover .check-badge {
     transform: scale(1.1) translateY(-1px);
     background: var(--accent-gold);
