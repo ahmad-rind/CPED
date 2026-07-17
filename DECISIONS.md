@@ -71,4 +71,14 @@
 - **Decision**: Added `#events` section with a side-by-side card layout (event image and content text card) on desktop, wrapping to a stacked column layout on mobile. Implemented CSS slider track translations in `css/sections/events.css` and interactive autoplay, touch-swipe, and mouse-drag gestures in `js/sections/events.js`.
 - **Consequence**: Users can smoothly browse upcoming department events on all devices (mobile, tablet, desktop) using arrow controls, pagination dots, mouse dragging, or touch swiping, with autoplay pausing on hover/focus to support accessibility.
 
+## 15. Refactored PEO (Program Educational Objectives) Cards layout & Visuals
+- **Context**: The existing `.peo-card` left border was browser-rendered on high border-radii elements, leading to uneven and broken curves that didn't look premium or consistent. Spacing, colors, contrast, and micro-interactions also lacked high-fidelity feedback.
+- **Decision**: Removed direct `border-left` from `.peo-card` and implemented a custom bracket using a pseudo-element (`::before`) that scales on hover. Added premium interactive hover transitions to numbers (color/bg swaps, rotating outer dashed rings), icons (scale and stroke changes), text (header color interpolation, darker contrast for descriptions), and chevron arrows (sliding translation).
+- **Consequence**: The PEO cards render cleanly and uniformly across all modern browsers and viewport sizes, and respond with premium micro-interactions that elevate the user experience.
+
+## 16. Refactored Feature Highlights Blocks layout & Visuals
+- **Context**: The existing `.feature-block` elements were flat text blocks with tilted icon boxes that lacked hover feedback, layout separation, and visual polish. Spacing and typography colors also needed refinement.
+- **Decision**: Converted `.feature-block` blocks to compact float-elevation micro-cards that scale and background-tint to `var(--off-white)` and `var(--border)` on hover. Redesigned the icon squircles to use compact dimensions and solid brand colors (`var(--primary-deep)` and `var(--accent-gold)`) instead of linear gradients and glowing neon shadows. Compacted padding, gaps, margins, and text sizes across the grid layout.
+- **Consequence**: The feature highlights present a highly responsive, space-efficient, and aligned visual block on desktop that uses the same color scheme as other app sections and integrates seamlessly.
+
 

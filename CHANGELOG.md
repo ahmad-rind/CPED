@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.3.0] - 2026-07-17
+
+### Changed
+- Replaced the browser-dependent left borders of PEO cards with an elegant `::before` custom pseudo-element forming a perfectly curved left bracket `(`.
+- Added high-fidelity micro-interactions: card translations and custom shadows on hover; dial-turning rotating outer dotted rings on number badges; 10-degree rotations, stroke-color transforms (blue to orange), and scale-up pulse effects on icon badges and yellow accent dots; right-sliding arrow chevron translations.
+- Refined text sizes, colors, and line heights of PEO headers and descriptions to meet WCAG AA contrast standards.
+- Optimized PEO card layouts and custom bracket shapes for tablet and mobile responsive breakpoints.
+- Upgraded Feature Highlights blocks to responsive, compact micro-cards that elevate vertically and transition to off-white backgrounds with clean shadow borders.
+- Redesigned feature squircle icons with a solid deep navy background that dynamically straightens and shifts to solid gold on hover, matching the color scheme of other app components and removing glowing neon shadow effects.
+- Reduced spacings, text sizes, and column margins across the features grid to achieve a clean, space-efficient block.
+
 ## [1.2.0] - 2026-07-17
 
 ### Added
