@@ -377,3 +377,25 @@
         right: 24px;
     }
 }
+
+@media (max-width: 768px) {
+    /* Disable expensive backdrop blur filters on mobile scroll paths */
+    .mission-features {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        background-color: rgba(0, 27, 47, 0.95) !important;
+    }
+
+    /* Disable expensive mix-blend-mode calculations on mobile scroll paths */
+    .mission-panel::before {
+        mix-blend-mode: normal !important;
+        opacity: 0.08 !important; /* reduce opacity to offset lack of luminosity blend */
+    }
+
+    /* Disable expensive backdrop blur on events slider buttons for mobile */
+    .slider-control {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        background-color: rgba(20, 40, 60, 0.85) !important;
+    }
+}

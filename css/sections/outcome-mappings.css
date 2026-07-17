@@ -378,6 +378,12 @@
     box-shadow: 0 10px 20px rgba(0, 58, 101, 0.15);
 }
 
+.cped-outcomes-section .feature-icon svg {
+    display: block;
+    width: 28px;
+    height: 28px;
+}
+
 .cped-outcomes-section .feature-block:hover .feature-icon {
     transform: rotate(0deg) scale(1.1);
     background: var(--accent-gold);

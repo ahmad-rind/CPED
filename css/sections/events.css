@@ -95,7 +95,6 @@
     transform: translate(-50%, -50%);
     transform-style: preserve-3d;
     transition: transform 0.76s cubic-bezier(0.76, 0, 0.24, 1),
-                filter 0.76s cubic-bezier(0.76, 0, 0.24, 1),
                 opacity 0.76s cubic-bezier(0.76, 0, 0.24, 1),
                 z-index 0.76s cubic-bezier(0.76, 0, 0.24, 1);
     border-radius: 20px;

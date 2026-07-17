@@ -43,6 +43,7 @@ export function initEventsSlider() {
         if (index >= totalSlides) index = 0;
 
         currentIndex = index;
+        const isMobile = window.innerWidth <= 768;
 
         slides.forEach((slide, i) => {
             const offset = getCircularOffset(i, currentIndex, totalSlides);
@@ -57,22 +58,22 @@ export function initEventsSlider() {
             } else if (offset === -1) {
                 // Prev slide
                 slide.style.transform = 'translate(-50%, -50%) translateX(-45%) translateZ(-120px) scale(0.82) rotateY(20deg)';
-                slide.style.filter = 'blur(4px) brightness(0.6)';
-                slide.style.opacity = '1';
+                slide.style.filter = isMobile ? 'none' : 'blur(4px) brightness(0.6)';
+                slide.style.opacity = isMobile ? '0.5' : '1';
                 slide.style.zIndex = '5';
                 slide.style.pointerEvents = 'auto';
             } else if (offset === 1) {
                 // Next slide
                 slide.style.transform = 'translate(-50%, -50%) translateX(45%) translateZ(-120px) scale(0.82) rotateY(-20deg)';
-                slide.style.filter = 'blur(4px) brightness(0.6)';
-                slide.style.opacity = '1';
+                slide.style.filter = isMobile ? 'none' : 'blur(4px) brightness(0.6)';
+                slide.style.opacity = isMobile ? '0.5' : '1';
                 slide.style.zIndex = '5';
                 slide.style.pointerEvents = 'auto';
             } else {
                 // Hidden slides
                 const direction = offset < 0 ? -1 : 1;
                 slide.style.transform = `translate(-50%, -50%) translateX(${direction * 90}%) translateZ(-300px) scale(0.5) rotateY(${-direction * 40}deg)`;
-                slide.style.filter = 'blur(8px) brightness(0.3)';
+                slide.style.filter = isMobile ? 'none' : 'blur(8px) brightness(0.3)';
                 slide.style.opacity = '0';
                 slide.style.zIndex = '1';
                 slide.style.pointerEvents = 'none';
