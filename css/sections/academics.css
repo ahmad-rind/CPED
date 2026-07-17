@@ -96,29 +96,13 @@
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
     text-decoration: none;
     color: inherit;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     overflow: visible;
-    z-index: 1;
-}
-
-.program-card::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 16px;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: -1;
-    pointer-events: none;
 }
 
 .program-card:hover {
     transform: translateY(-6px);
-}
-
-.program-card:hover::after {
-    opacity: 1;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
 }
 
 /* Staggered entrance animation delays */

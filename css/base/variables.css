@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap');
+
 /* ============================================
    RESET & BASE
    ============================================ */
@@ -96,13 +98,13 @@
    ============================================ */
 .fade-up {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(14px);
 }
 .fade-up.in-view {
     opacity: 1;
     transform: translateY(0);
-    transition: opacity 300ms cubic-bezier(0.25, 1, 0.5, 1),
-                transform 300ms cubic-bezier(0.25, 1, 0.5, 1);
+    transition: opacity var(--duration-slow) var(--ease-standard),
+                transform var(--duration-slow) var(--ease-standard);
 }
 
 html {

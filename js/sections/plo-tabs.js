@@ -30,19 +30,15 @@ export function initPloTabs() {
 
                     if (newTab) {
                         newTab.classList.add('active');
-                        requestAnimationFrame(() => {
-                            requestAnimationFrame(() => {
-                                newTab.classList.add('fade-in');
-                            });
-                        });
+                        // Force layout reflow
+                        newTab.offsetHeight;
+                        newTab.classList.add('fade-in');
                     }
                     if (newMatrix) {
                         newMatrix.classList.add('active');
-                        requestAnimationFrame(() => {
-                            requestAnimationFrame(() => {
-                                newMatrix.classList.add('fade-in');
-                            });
-                        });
+                        // Force layout reflow
+                        newMatrix.offsetHeight;
+                        newMatrix.classList.add('fade-in');
                     }
                 }, 150); // Matches the 150ms transition duration
             });
