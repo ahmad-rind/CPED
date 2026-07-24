@@ -1,8 +1,653 @@
-<%- include('partials/subpage-template.html', {
-    prefix: '../',
-    activeTab: 'faculty',
-    activeSub: 'members',
-    title: 'Faculty Members',
-    icon: '👨‍🏫',
-    description: 'This section is currently under development as part of the new Computer Engineering Department portal. Please check back soon for updates.'
-}) %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Members — Computer Engineering Department (CPED)</title>
+    <meta name="description" content="Meet the distinguished faculty members, professors, and researchers of the Computer Engineering Department at UET Taxila.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+<%- include('partials/header.html', { prefix: '../', activeTab: 'faculty', activeSub: 'members' }) %>
+
+<!-- Hero Banner Section -->
+<section class="faculty-hero-section">
+    <div class="faculty-hero-container">
+        <div class="faculty-hero-badge">
+            <i class="fa-solid fa-graduation-cap"></i> Academic Excellence & Research
+        </div>
+        <h1 class="faculty-hero-title">Faculty Members</h1>
+        <p class="faculty-hero-subtitle">
+            Meet the distinguished educators, researchers, and engineers leading cutting-edge computer engineering innovation and empowering future technology leaders at UET Taxila.
+        </p>
+    </div>
+</section>
+
+<!-- Main Faculty Directory Section -->
+<section class="faculty-main-section">
+    <div class="container">
+        
+        <!-- Controls: Search & Category Filters -->
+        <div class="faculty-controls">
+            <div class="faculty-search-box">
+                <i class="fa-solid fa-magnifying-glass faculty-search-icon"></i>
+                <input type="text" id="facultySearchInput" class="faculty-search-input" placeholder="Search faculty by name, designation, or specialization...">
+            </div>
+
+            <div class="faculty-filter-wrapper">
+                <button class="filter-btn active" data-filter="all">All Members <span class="count-badge">22</span></button>
+                <button class="filter-btn" data-filter="executive">Executive Leadership <span class="count-badge">2</span></button>
+                <button class="filter-btn" data-filter="professor">Professors <span class="count-badge">3</span></button>
+                <button class="filter-btn" data-filter="assoc-prof">Associate Professors <span class="count-badge">1</span></button>
+                <button class="filter-btn" data-filter="asst-prof">Assistant Professors <span class="count-badge">9</span></button>
+                <button class="filter-btn" data-filter="lecturer">Lecturers <span class="count-badge">8</span></button>
+                <button class="filter-btn" data-filter="lab-eng">Lab Engineers <span class="count-badge">1</span></button>
+            </div>
+        </div>
+
+        <!-- No Results Fallback Message -->
+        <div id="facultyNoResults" class="faculty-no-results" style="display: none;">
+            <i class="fa-solid fa-user-slash"></i>
+            <h3>No Faculty Members Found</h3>
+            <p>No faculty member matched your search query. Try adjusting your search or category filter.</p>
+        </div>
+
+        <!-- 1. Executive Leadership Section -->
+        <div class="faculty-group-section" data-group="executive">
+            <div class="faculty-group-header">
+                <h2 class="faculty-group-title"><i class="fa-solid fa-award"></i> Executive Leadership</h2>
+                <span class="faculty-group-count">2 Members</span>
+            </div>
+            <div class="faculty-grid">
+                
+                <!-- Dean -->
+                <div class="faculty-card" data-category="professor" data-name="Prof. Dr. Hafiz Adnan Habib" data-role="Dean & Professor" data-specialization="Image Processing, Computer Vision, Video Processing, Gesture Recognition">
+                    <div class="faculty-img-wrapper">
+                        <img src="./member/adnan.habib.jpg" alt="Prof. Dr. Hafiz Adnan Habib" class="faculty-img">
+                        <div class="faculty-avatar-fallback">
+                            <span class="fallback-initials">AH</span>
+                            <i class="fa-solid fa-user-tie fallback-icon"></i>
+                        </div>
+                        <div class="faculty-social-overlay">
+                            <a href="mailto:adnan.habib@uettaxila.edu.pk" class="social-btn" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                            <a href="tel:+92519047414" class="social-btn" title="Phone"><i class="fa-solid fa-phone"></i></a>
+                            <a href="#" class="social-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#" class="social-btn" title="Research Profile"><i class="fa-solid fa-graduation-cap"></i></a>
+                        </div>
+                    </div>
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">Prof. Dr. Hafiz Adnan Habib</h3>
+                        <p class="faculty-role">Dean, FT&IE / Professor</p>
+                        <div class="faculty-minimal-meta">
+                            <span class="faculty-qual-text">PhD Electrical Engg (UET Taxila)</span>
+                            <span class="faculty-spec-text">Specialization: Image Processing, Computer Vision, Video & Gesture Recognition</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chairman -->
+                <div class="faculty-card" data-category="professor" data-name="Prof. Dr. Muhammad Haroon Yousaf" data-role="Chairman & Professor" data-specialization="Image Processing, Computer Vision, Video Processing, Gesture Recognition">
+                    <div class="faculty-img-wrapper">
+                        <img src="./member/haroon.yousaf.jpg" alt="Prof. Dr. Muhammad Haroon Yousaf" class="faculty-img">
+                        <div class="faculty-avatar-fallback">
+                            <span class="fallback-initials">HY</span>
+                            <i class="fa-solid fa-user-tie fallback-icon"></i>
+                        </div>
+                        <div class="faculty-social-overlay">
+                            <a href="mailto:haroon.yousaf@uettaxila.edu.pk" class="social-btn" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                            <a href="tel:+92519047568" class="social-btn" title="Phone"><i class="fa-solid fa-phone"></i></a>
+                            <a href="#" class="social-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#" class="social-btn" title="Research Profile"><i class="fa-solid fa-graduation-cap"></i></a>
+                        </div>
+                    </div>
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">Prof. Dr. Muhammad Haroon Yousaf</h3>
+                        <p class="faculty-role">Chairman & Professor</p>
+                        <div class="faculty-minimal-meta">
+                            <span class="faculty-qual-text">PhD Computer Engg (UET Taxila)</span>
+                            <span class="faculty-spec-text">Specialization: Image Processing, Computer Vision, Video & Gesture Recognition</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 2. Professors Section -->
+        <div class="faculty-group-section" data-group="professor">
+            <div class="faculty-group-header">
+                <h2 class="faculty-group-title"><i class="fa-solid fa-user-graduate"></i> Professors</h2>
+                <span class="faculty-group-count">3 Members</span>
+            </div>
+            <div class="faculty-grid">
+
+                <!-- Dr. Muhammad Majid -->
+                <div class="faculty-card" data-category="professor" data-name="Dr. Muhammad Majid" data-role="Professor" data-specialization="Image and Video Coding, Multimedia Signal Processing, Biomedical Signal Processing, Emotion Recognition, Human Stress Analysis">
+                    <div class="faculty-img-wrapper">
+                        <img src="./member/m.majid.jpg" alt="Dr. Muhammad Majid" class="faculty-img">
+                        <div class="faculty-avatar-fallback">
+                            <span class="fallback-initials">MM</span>
+                            <i class="fa-solid fa-user-graduate fallback-icon"></i>
+                        </div>
+                        <div class="faculty-social-overlay">
+                            <a href="mailto:m.majid@uettaxila.edu.pk" class="social-btn" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                            <a href="tel:+920519047581" class="social-btn" title="Phone"><i class="fa-solid fa-phone"></i></a>
+                            <a href="#" class="social-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#" class="social-btn" title="Research Profile"><i class="fa-solid fa-graduation-cap"></i></a>
+                        </div>
+                    </div>
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">Dr. Muhammad Majid</h3>
+                        <p class="faculty-role">Professor</p>
+                        <div class="faculty-minimal-meta">
+                            <span class="faculty-qual-text">PhD Sheffield (UK)</span>
+                            <span class="faculty-spec-text">Specialization: Image & Video Coding, Multimedia & Biomedical Signal Processing</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 3. Associate Professors Section -->
+        <div class="faculty-group-section" data-group="assoc-prof">
+            <div class="faculty-group-header">
+                <h2 class="faculty-group-title"><i class="fa-solid fa-chalkboard-user"></i> Associate Professors</h2>
+                <span class="faculty-group-count">1 Member</span>
+            </div>
+            <div class="faculty-grid">
+
+                <!-- Dr. Farhan Qamar -->
+                <div class="faculty-card" data-category="assoc-prof" data-name="Dr. Farhan Qamar" data-role="Associate Professor" data-specialization="Optical Fiber Comm, Wireless Comm.">
+                    <div class="faculty-img-wrapper">
+                        <img src="./member/farhan.qamar.jpg" alt="Dr. Farhan Qamar" class="faculty-img">
+                        <div class="faculty-avatar-fallback">
+                            <span class="fallback-initials">FQ</span>
+                            <i class="fa-solid fa-user-graduate fallback-icon"></i>
+                        </div>
+                        <div class="faculty-social-overlay">
+                            <a href="mailto:farhan.qamar@uettaxila.edu.pk" class="social-btn" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                            <a href="tel:+920519047903" class="social-btn" title="Phone"><i class="fa-solid fa-phone"></i></a>
+                            <a href="#" class="social-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#" class="social-btn" title="Research Profile"><i class="fa-solid fa-graduation-cap"></i></a>
+                        </div>
+                    </div>
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">Dr. Farhan Qamar</h3>
+                        <p class="faculty-role">Associate Professor</p>
+                        <div class="faculty-minimal-meta">
+                            <span class="faculty-qual-text">PhD Telecom Engg (UET Taxila)</span>
+                            <span class="faculty-spec-text">Specialization: Optical Fiber & Wireless Communications</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 4. Assistant Professors Section -->
+        <div class="faculty-group-section" data-group="asst-prof">
+            <div class="faculty-group-header">
+                <h2 class="faculty-group-title"><i class="fa-solid fa-laptop-code"></i> Assistant Professors</h2>
+                <span class="faculty-group-count">9 Members</span>
+            </div>
+            <div class="faculty-grid">
+
+                <!-- 1. Engr. Malik Muhammad Asim -->
+                <div class="faculty-card" data-category="asst-prof" data-name="Engr. Malik Muhammad Asim" data-role="Assistant Professor" data-specialization="Computer Networks, Wireless Communication">
+                    <div class="faculty-img-wrapper">
+                        <img src="./member/asim.malik.jpg" alt="Engr. Malik Muhammad Asim" class="faculty-img">
+                        <div class="faculty-avatar-fallback">
+                            <span class="fallback-initials">MA</span>
+                            <i class="fa-solid fa-user-graduate fallback-icon"></i>
+                        </div>
+                        <div class="faculty-social-overlay">
+                            <a href="mailto:asim.malik@uettaxila.edu.pk" class="social-btn" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                            <a href="tel:+92519047577" class="social-btn" title="Phone"><i class="fa-solid fa-phone"></i></a>
+                            <a href="#" class="social-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">Engr. Malik Muhammad Asim</h3>
+                        <p class="faculty-role">Assistant Professor</p>
+                        <span class="faculty-leave-badge"><i class="fa-solid fa-plane"></i> On Study Leave Abroad</span>
+                        <div class="faculty-minimal-meta">
+                            <span class="faculty-qual-text">MS Computer Engg (UET Taxila)</span>
+                            <span class="faculty-spec-text">Specialization: Computer Networks, Wireless Communication</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Dr. Fawad Hussain -->
+                <div class="faculty-card" data-category="asst-prof" data-name="Dr. Fawad Hussain" data-role="Assistant Professor" data-specialization="Audio & Speech Processing, Computer Vision, Digital Image Processing, Network-on-Chip(NoC) Design">
+                    <div class="faculty-img-wrapper">
+                        <img src="./member/fawad.hussain.jpg" alt="Dr. Fawad Hussain" class="faculty-img">
+                        <div class="faculty-avatar-fallback">
+                            <span class="fallback-initials">FH</span>
+                            <i class="fa-solid fa-user-graduate fallback-icon"></i>
+                        </div>
+                        <div class="faculty-social-overlay">
+                            <a href="mailto:fawad.hussain@uettaxila.edu.pk" class="social-btn" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                            <a href="#" class="social-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">Dr. Fawad Hussain</h3>
+                        <p class="faculty-role">Assistant Professor</p>
+                        <div class="faculty-minimal-meta">
+                            <span class="faculty-qual-text">PhD Computer Engg (UET Taxila)</span>
+                            <span class="faculty-spec-text">Specialization: Audio & Speech Processing, Computer Vision, NoC Design</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Engr. Sana Ziafat -->
+                <div class="faculty-card" data-category="asst-prof" data-name="Engr. Sana Ziafat" data-role="Assistant Professor" data-specialization="Wireless Communication, Computer Networks">
+                    <div class="faculty-img-wrapper">
+                        <img src="./member/sana.ziafat.jpg" alt="Engr. Sana Ziafat" class="faculty-img">
+                        <div class="faculty-avatar-fallback">
+                            <span class="fallback-initials">SZ</span>
+                            <i class="fa-solid fa-user-graduate fallback-icon"></i>
+                        </div>
+                        <div class="faculty-social-overlay">
+                            <a href="mailto:sana.ziafat@uettaxila.edu.pk" class="social-btn" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                            <a href="#" class="social-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">Engr. Sana Ziafat</h3>
+                        <p class="faculty-role">Assistant Professor</p>
+                        <div class="faculty-minimal-meta">
+                            <span class="faculty-qual-text">MS Computer Engg (UET Taxila)</span>
+                            <span class="faculty-spec-text">Specialization: Wireless Communication, Computer Networks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Dr. Naveed Khan Baloch -->
+                <div class="faculty-card" data-category="asst-prof" data-name="Dr. Naveed Khan Baloch" data-role="Assistant Professor" data-specialization="Digital Design, Embedded Systems">
+                    <div class="faculty-img-wrapper">
+                        <img src="./member/naveed.khan.jpg" alt="Dr. Naveed Khan Baloch" class="faculty-img">
+                        <div class="faculty-avatar-fallback">
+                            <span class="fallback-initials">NB</span>
+                            <i class="fa-solid fa-user-graduate fallback-icon"></i>
+                        </div>
+                        <div class="faculty-social-overlay">
+                            <a href="mailto:naveed.khan@uettaxila.edu.pk" class="social-btn" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                            <a href="tel:+92519047586" class="social-btn" title="Phone"><i class="fa-solid fa-phone"></i></a>
+                            <a href="#" class="social-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">Dr. Naveed Khan Baloch</h3>
+                        <p class="faculty-role">Assistant Professor</p>
+                        <div class="faculty-minimal-meta">
+                            <span class="faculty-qual-text">PhD Computer Engg (UET Taxila)</span>
+                            <span class="faculty-spec-text">Specialization: Digital Design, Embedded Systems</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Dr. Afshan Jamil -->
+                <div class="faculty-card" data-category="asst-prof" data-name="Dr. Afshan Jamil" data-role="Assistant Professor" data-specialization="Multimedia and image processing, Image and video retrieval, Digital image processing, Video content analysis">
+                    <div class="faculty-img-wrapper">
+                        <img src="./member/afshan.jamil.jpg" alt="Dr. Afshan Jamil" class="faculty-img">
+                        <div class="faculty-avatar-fallback">
+                            <span class="fallback-initials">AJ</span>
+                            <i class="fa-solid fa-user-graduate fallback-icon"></i>
+                        </div>
+                        <div class="faculty-social-overlay">
+                            <a href="mailto:afshan.jamil@uettaxila.edu.pk" class="social-btn" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                            <a href="tel:0519047588" class="social-btn" title="Phone"><i class="fa-solid fa-phone"></i></a>
+                        </div>
+                    </div>
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">Dr. Afshan Jamil</h3>
+                        <p class="faculty-role">Assistant Professor</p>
+                        <span class="faculty-leave-badge"><i class="fa-solid fa-plane"></i> Ex-Pakistan Leave</span>
+                        <div class="faculty-minimal-meta">
+                            <span class="faculty-qual-text">PhD Computer Engg (UET Taxila)</span>
+                            <span class="faculty-spec-text">Specialization: Multimedia & Image Processing, Video Retrieval</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Dr. Abdul Rehman Aslam -->
+                <div class="faculty-card" data-category="asst-prof" data-name="Dr. Abdul Rehman Aslam" data-role="Assistant Professor" data-specialization="Digital Design, Embedded Systems, Biomedical ASIC Design">
+                    <div class="faculty-img-wrapper">
+                        <img src="./member/arehman.aslam.jpg" alt="Dr. Abdul Rehman Aslam" class="faculty-img">
+                        <div class="faculty-avatar-fallback">
+                            <span class="fallback-initials">AA</span>
+                            <i class="fa-solid fa-user-graduate fallback-icon"></i>
+                        </div>
+                        <div class="faculty-social-overlay">
+                            <a href="mailto:arehman.aslam@uettaxila.edu.pk" class="social-btn" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                            <a href="tel:0519047569" class="social-btn" title="Phone"><i class="fa-solid fa-phone"></i></a>
+                            <a href="#" class="social-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">Dr. Abdul Rehman Aslam</h3>
+                        <p class="faculty-role">Assistant Professor</p>
+                        <div class="faculty-minimal-meta">
+                            <span class="faculty-qual-text">PhD LUMS (Lahore)</span>
+                            <span class="faculty-spec-text">Specialization: Digital Design, Embedded Systems, Biomedical ASIC</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. Dr. Waqar Ahmad -->
+                <div class="faculty-card" data-category="asst-prof" data-name="Dr. Waqar Ahmad" data-role="Assistant Professor" data-specialization="VLSI/FPGA architectures, High Level Synthesis (HLS), Embedded Multimedia, Image and Video Coding, Multimedia Signal Processing">
+                    <div class="faculty-img-wrapper">
+                        <img src="./member/waqar.ahmad.jpg" alt="Dr. Waqar Ahmad" class="faculty-img">
+                        <div class="faculty-avatar-fallback">
+                            <span class="fallback-initials">WA</span>
+                            <i class="fa-solid fa-user-graduate fallback-icon"></i>
+                        </div>
+                        <div class="faculty-social-overlay">
+                            <a href="mailto:waqar.ahmad@uettaxila.edu.pk" class="social-btn" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                            <a href="tel:+92519047580" class="social-btn" title="Phone"><i class="fa-solid fa-phone"></i></a>
+                            <a href="#" class="social-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">Dr. Waqar Ahmad</h3>
+                        <p class="faculty-role">Assistant Professor</p>
+                        <div class="faculty-minimal-meta">
+                            <span class="faculty-qual-text">PhD Politecnico di Torino (Italy)</span>
+                            <span class="faculty-spec-text">Specialization: VLSI/FPGA, High Level Synthesis, Embedded Multimedia</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. Dr. Romana Farhan -->
+                <div class="faculty-card" data-category="asst-prof" data-name="Dr. Romana Farhan" data-role="Assistant Professor" data-specialization="Network Security">
+                    <div class="faculty-img-wrapper">
+                        <img src="./member/romana.farhan.jpg" alt="Dr. Romana Farhan" class="faculty-img">
+                        <div class="faculty-avatar-fallback">
+                            <span class="fallback-initials">RF</span>
+                            <i class="fa-solid fa-user-graduate fallback-icon"></i>
+                        </div>
+                        <div class="faculty-social-overlay">
+                            <a href="mailto:romana.farhan@uettaxila.edu.pk" class="social-btn" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                            <a href="#" class="social-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">Dr. Romana Farhan</h3>
+                        <p class="faculty-role">Assistant Professor</p>
+                        <div class="faculty-minimal-meta">
+                            <span class="faculty-qual-text">PhD Computer Engg (UET Taxila)</span>
+                            <span class="faculty-spec-text">Specialization: Network Security</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 9. Dr. Muhammad Asif Khan -->
+                <div class="faculty-card" data-category="asst-prof" data-name="Dr. Muhammad Asif Khan" data-role="Assistant Professor" data-specialization="Chaos based Cryptography, Wireless PHY Layer Security, Information security, Blockchain, watermarking and Multimedia security">
+                    <div class="faculty-img-wrapper">
+                        <img src="./member/masif.khan.jpg" alt="Dr. Muhammad Asif Khan" class="faculty-img">
+                        <div class="faculty-avatar-fallback">
+                            <span class="fallback-initials">AK</span>
+                            <i class="fa-solid fa-user-graduate fallback-icon"></i>
+                        </div>
+                        <div class="faculty-social-overlay">
+                            <a href="mailto:masif.khan@uettaxila.edu.pk" class="social-btn" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                            <a href="tel:0092519047575" class="social-btn" title="Phone"><i class="fa-solid fa-phone"></i></a>
+                            <a href="#" class="social-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">Dr. Muhammad Asif Khan</h3>
+                        <p class="faculty-role">Assistant Professor</p>
+                        <div class="faculty-minimal-meta">
+                            <span class="faculty-qual-text">PhD UTP (Malaysia)</span>
+                            <span class="faculty-spec-text">Specialization: Cryptography, Wireless PHY Security, Blockchain</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 5. Lecturers Section -->
+        <div class="faculty-group-section" data-group="lecturer">
+            <div class="faculty-group-header">
+                <h2 class="faculty-group-title"><i class="fa-solid fa-book-open"></i> Lecturers</h2>
+                <span class="faculty-group-count">8 Members</span>
+            </div>
+            <div class="faculty-grid">
+
+                <!-- 1. Engr. Mona Waseem -->
+                <div class="faculty-card" data-category="lecturer" data-name="Engr. Mona Waseem" data-role="Lecturer" data-specialization="Network Security">
+                    <div class="faculty-img-wrapper">
+                        <img src="./member/mona.waseem.jpg" alt="Engr. Mona Waseem" class="faculty-img">
+                        <div class="faculty-avatar-fallback">
+                            <span class="fallback-initials">MW</span>
+                            <i class="fa-solid fa-user-graduate fallback-icon"></i>
+                        </div>
+                        <div class="faculty-social-overlay">
+                            <a href="mailto:mona.waseem@uettaxila.edu.pk" class="social-btn" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                            <a href="tel:0519047569" class="social-btn" title="Phone"><i class="fa-solid fa-phone"></i></a>
+                        </div>
+                    </div>
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">Engr. Mona Waseem</h3>
+                        <p class="faculty-role">Lecturer</p>
+                        <div class="faculty-minimal-meta">
+                            <span class="faculty-qual-text">MS Computer Engg (UET Taxila)</span>
+                            <span class="faculty-spec-text">Specialization: Network Security</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Dr. Noshina Ishaque -->
+                <div class="faculty-card" data-category="lecturer" data-name="Dr. Noshina Ishaque" data-role="Lecturer" data-specialization="Network Security">
+                    <div class="faculty-img-wrapper">
+                        <img src="./member/noshina.ishaq.jpg" alt="Dr. Noshina Ishaque" class="faculty-img">
+                        <div class="faculty-avatar-fallback">
+                            <span class="fallback-initials">NI</span>
+                            <i class="fa-solid fa-user-graduate fallback-icon"></i>
+                        </div>
+                        <div class="faculty-social-overlay">
+                            <a href="mailto:noshina.ishaq@uettaxila.edu.pk" class="social-btn" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                            <a href="tel:+92519047591" class="social-btn" title="Phone"><i class="fa-solid fa-phone"></i></a>
+                        </div>
+                    </div>
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">Dr. Noshina Ishaque</h3>
+                        <p class="faculty-role">Lecturer</p>
+                        <div class="faculty-minimal-meta">
+                            <span class="faculty-qual-text">PhD Computer Engg (UET Taxila)</span>
+                            <span class="faculty-spec-text">Specialization: Network Security</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Dr. Zahid Mehmood -->
+                <div class="faculty-card" data-category="lecturer" data-name="Dr. Zahid Mehmood" data-role="Lecturer" data-specialization="Computer Engineering">
+                    <div class="faculty-img-wrapper">
+                        <img src="./member/zahid.mehmood.jpg" alt="Dr. Zahid Mehmood" class="faculty-img">
+                        <div class="faculty-avatar-fallback">
+                            <span class="fallback-initials">ZM</span>
+                            <i class="fa-solid fa-user-graduate fallback-icon"></i>
+                        </div>
+                        <div class="faculty-social-overlay">
+                            <a href="mailto:zahid.mehmood@uettaxila.edu.pk" class="social-btn" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                            <a href="tel:0519047746" class="social-btn" title="Phone"><i class="fa-solid fa-phone"></i></a>
+                        </div>
+                    </div>
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">Dr. Zahid Mehmood</h3>
+                        <p class="faculty-role">Lecturer</p>
+                        <div class="faculty-minimal-meta">
+                            <span class="faculty-qual-text">PhD Computer Engg (UET Taxila)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Dr. Aasim Raheel -->
+                <div class="faculty-card" data-category="lecturer" data-name="Dr. Aasim Raheel" data-role="Lecturer" data-specialization="Biomedical Signal Processing">
+                    <div class="faculty-img-wrapper">
+                        <img src="./member/asim.raheel.jpg" alt="Dr. Aasim Raheel" class="faculty-img">
+                        <div class="faculty-avatar-fallback">
+                            <span class="fallback-initials">AR</span>
+                            <i class="fa-solid fa-user-graduate fallback-icon"></i>
+                        </div>
+                        <div class="faculty-social-overlay">
+                            <a href="mailto:asim.raheel@uettaxila.edu.pk" class="social-btn" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                            <a href="tel:0519047584" class="social-btn" title="Phone"><i class="fa-solid fa-phone"></i></a>
+                        </div>
+                    </div>
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">Dr. Aasim Raheel</h3>
+                        <p class="faculty-role">Lecturer</p>
+                        <div class="faculty-minimal-meta">
+                            <span class="faculty-qual-text">PhD Computer Engg (UET Taxila)</span>
+                            <span class="faculty-spec-text">Specialization: Biomedical Signal Processing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Engr. Asim Raza -->
+                <div class="faculty-card" data-category="lecturer" data-name="Engr. Asim Raza" data-role="Lecturer" data-specialization="Computer Engineering">
+                    <div class="faculty-img-wrapper">
+                        <img src="./member/asim.raza.jpg" alt="Engr. Asim Raza" class="faculty-img">
+                        <div class="faculty-avatar-fallback">
+                            <span class="fallback-initials">AR</span>
+                            <i class="fa-solid fa-user-graduate fallback-icon"></i>
+                        </div>
+                        <div class="faculty-social-overlay">
+                            <a href="mailto:asim.raza@uettaxila.edu.pk" class="social-btn" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                            <a href="tel:0519047596" class="social-btn" title="Phone"><i class="fa-solid fa-phone"></i></a>
+                        </div>
+                    </div>
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">Engr. Asim Raza</h3>
+                        <p class="faculty-role">Lecturer</p>
+                        <div class="faculty-minimal-meta">
+                            <span class="faculty-qual-text">MS Computer Engg (UET Taxila)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Dr. Sanay Muhammad Umar Saeed -->
+                <div class="faculty-card" data-category="lecturer" data-name="Dr. Sanay Muhammad Umar Saeed" data-role="Lecturer" data-specialization="Computer Engineering">
+                    <div class="faculty-img-wrapper">
+                        <img src="./member/sanay.muhammad.jpg" alt="Dr. Sanay Muhammad Umar Saeed" class="faculty-img">
+                        <div class="faculty-avatar-fallback">
+                            <span class="fallback-initials">SS</span>
+                            <i class="fa-solid fa-user-graduate fallback-icon"></i>
+                        </div>
+                        <div class="faculty-social-overlay">
+                            <a href="mailto:sanay.muhammad@uettaxila.edu.pk" class="social-btn" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">Dr. Sanay Muhammad Umar Saeed</h3>
+                        <p class="faculty-role">Lecturer</p>
+                        <div class="faculty-minimal-meta">
+                            <span class="faculty-qual-text">PhD Computer Engg (UET Taxila)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. Engr. Muhammad Tariq Javed -->
+                <div class="faculty-card" data-category="lecturer" data-name="Engr. Muhammad Tariq Javed" data-role="Lecturer" data-specialization="Computer Engineering">
+                    <div class="faculty-img-wrapper">
+                        <img src="./member/tariq.javed.jpg" alt="Engr. Muhammad Tariq Javed" class="faculty-img">
+                        <div class="faculty-avatar-fallback">
+                            <span class="fallback-initials">TJ</span>
+                            <i class="fa-solid fa-user-graduate fallback-icon"></i>
+                        </div>
+                        <div class="faculty-social-overlay">
+                            <a href="mailto:tariq.javed@uettaxila.edu.pk" class="social-btn" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                            <a href="tel:0519047588" class="social-btn" title="Phone"><i class="fa-solid fa-phone"></i></a>
+                        </div>
+                    </div>
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">Engr. Muhammad Tariq Javed</h3>
+                        <p class="faculty-role">Lecturer</p>
+                        <div class="faculty-minimal-meta">
+                            <span class="faculty-qual-text">MS Computer Engg (UET Taxila)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. Dr. Sharoon Saleem -->
+                <div class="faculty-card" data-category="lecturer" data-name="Dr. Sharoon Saleem" data-role="Lecturer" data-specialization="Computer Engineering">
+                    <div class="faculty-img-wrapper">
+                        <img src="./member/sharoon.saleem.jpg" alt="Dr. Sharoon Saleem" class="faculty-img">
+                        <div class="faculty-avatar-fallback">
+                            <span class="fallback-initials">SS</span>
+                            <i class="fa-solid fa-user-graduate fallback-icon"></i>
+                        </div>
+                        <div class="faculty-social-overlay">
+                            <a href="mailto:sharoon.saleem@uettaxila.edu.pk" class="social-btn" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                            <a href="tel:+92519047596" class="social-btn" title="Phone"><i class="fa-solid fa-phone"></i></a>
+                        </div>
+                    </div>
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">Dr. Sharoon Saleem</h3>
+                        <p class="faculty-role">Lecturer</p>
+                        <div class="faculty-minimal-meta">
+                            <span class="faculty-qual-text">PhD Computer Engg (UET Taxila)</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 6. Lab Engineers Section -->
+        <div class="faculty-group-section" data-group="lab-eng">
+            <div class="faculty-group-header">
+                <h2 class="faculty-group-title"><i class="fa-solid fa-flask"></i> Lab Engineers</h2>
+                <span class="faculty-group-count">1 Member</span>
+            </div>
+            <div class="faculty-grid">
+
+                <!-- Dr. Usman Rauf -->
+                <div class="faculty-card" data-category="lab-eng" data-name="Dr. Usman Rauf" data-role="Lab Engineer" data-specialization="Computer Engineering">
+                    <div class="faculty-img-wrapper">
+                        <img src="./member/usman.rauf.jpg" alt="Dr. Usman Rauf" class="faculty-img">
+                        <div class="faculty-avatar-fallback">
+                            <span class="fallback-initials">UR</span>
+                            <i class="fa-solid fa-user-gear fallback-icon"></i>
+                        </div>
+                        <div class="faculty-social-overlay">
+                            <a href="mailto:usman.rauf@uettaxila.edu.pk" class="social-btn" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                            <a href="tel:0519047360" class="social-btn" title="Phone"><i class="fa-solid fa-phone"></i></a>
+                        </div>
+                    </div>
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">Dr. Usman Rauf</h3>
+                        <p class="faculty-role">Lab Engineer</p>
+                        <div class="faculty-minimal-meta">
+                            <span class="faculty-qual-text">PhD Computer Engg (UET Taxila)</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<%- include('partials/footer.html', { prefix: '../' }) %>
+
+<script type="module" src="../js/main.js"></script>
+</body>
+</html>

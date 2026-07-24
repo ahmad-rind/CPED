@@ -1,0 +1,467 @@
+/* ============================================
+   FACULTY MEMBERS SECTION & CARDS
+   ============================================ */
+
+/* Hero Banner */
+.faculty-hero-section {
+    background: linear-gradient(135deg, var(--brand-navy-midnight) 0%, var(--brand-navy-deep) 50%, var(--brand-navy-dark) 100%);
+    padding: 60px 0 50px;
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+
+.faculty-hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background: radial-gradient(circle at 80% 20%, rgba(232, 101, 26, 0.12) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.faculty-hero-container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.faculty-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--brand-gold-base);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+.faculty-hero-title {
+    font-family: 'Bitter', serif;
+    font-size: 2.75rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    color: var(--white);
+}
+
+.faculty-hero-subtitle {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 680px;
+    line-height: 1.6;
+}
+
+/* Controls Bar: Search & Category Filters */
+.faculty-main-section {
+    padding: 50px 0 80px;
+    background-color: var(--off-white);
+    min-height: 60vh;
+}
+
+.faculty-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.faculty-search-box {
+    position: relative;
+    max-width: 500px;
+    width: 100%;
+}
+
+.faculty-search-input {
+    width: 100%;
+    padding: 14px 20px 14px 48px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.975rem;
+    border: 1.5px solid var(--res-border-light);
+    border-radius: 30px;
+    background-color: var(--white);
+    color: var(--res-text-dark);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    transition: all 0.25s ease;
+}
+
+.faculty-search-input:focus {
+    outline: none;
+    border-color: var(--brand-navy-light);
+    box-shadow: 0 6px 20px rgba(15, 82, 136, 0.12);
+}
+
+.faculty-search-icon {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--res-text-muted);
+    font-size: 1rem;
+    pointer-events: none;
+}
+
+/* Filter Tabs */
+.faculty-filter-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: 1.5px solid var(--res-border-light);
+    background-color: var(--white);
+    color: var(--res-text-dark);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filter-btn:hover {
+    border-color: var(--brand-navy-light);
+    color: var(--brand-navy-light);
+    transform: translateY(-1px);
+}
+
+.filter-btn.active {
+    background-color: var(--brand-navy-dark);
+    border-color: var(--brand-navy-dark);
+    color: var(--white);
+    box-shadow: 0 4px 14px rgba(0, 63, 125, 0.25);
+}
+
+.filter-btn .count-badge {
+    background: rgba(0, 0, 0, 0.08);
+    color: inherit;
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-weight: 700;
+}
+
+.filter-btn.active .count-badge {
+    background: rgba(255, 255, 255, 0.25);
+    color: var(--white);
+}
+
+/* Section Subheadings */
+.faculty-group-header {
+    margin: 40px 0 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--res-border-light);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.faculty-group-title {
+    font-family: 'Bitter', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--brand-navy-dark);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.faculty-group-title i {
+    color: var(--brand-orange-base);
+    font-size: 1.2rem;
+}
+
+.faculty-group-count {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.875rem;
+    color: var(--res-text-muted);
+    font-weight: 500;
+}
+
+/* Cards Grid */
+.faculty-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+/* Clean, Minimal Faculty Card Component */
+.faculty-card {
+    background-color: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 58, 101, 0.05);
+    border: 1px solid rgba(0, 58, 101, 0.06);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+/* Card Hover Transformation to Dark Navy (Match Reference Image) */
+.faculty-card:hover {
+    background-color: var(--brand-navy-dark);
+    border-color: var(--brand-navy-dark);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 45px rgba(0, 30, 65, 0.25);
+}
+
+/* Photo Wrapper */
+.faculty-img-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 14px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0F5288 0%, #00274D 100%);
+    margin-bottom: 20px;
+}
+
+/* Photo Element Layering above Fallback Avatar */
+.faculty-img {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 14px;
+    transition: transform 0.4s ease;
+    display: block;
+}
+
+.faculty-card:hover .faculty-img {
+    transform: scale(1.03);
+}
+
+/* Fallback SVG / Initials Avatar for Blank Images (z-index: 1 behind img) */
+.faculty-avatar-fallback {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0F5288 0%, #002244 100%);
+    color: var(--white);
+    padding: 20px;
+    text-align: center;
+}
+
+.fallback-initials {
+    font-family: 'Bitter', serif;
+    font-size: 2.75rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--brand-gold-base);
+    text-shadow: 0 2px 10px rgba(0,0,0,0.25);
+    margin-bottom: 4px;
+}
+
+.fallback-icon {
+    font-size: 1.4rem;
+    opacity: 0.35;
+    margin-top: 4px;
+}
+
+/* Social Quick-Action Overlay (Left Side of Image - z-index: 5 above img) */
+.faculty-social-overlay {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 5;
+    opacity: 0;
+    transform: translateX(-12px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.faculty-card:hover .faculty-social-overlay {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.social-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--white);
+    color: var(--brand-navy-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.875rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.social-btn:hover {
+    background-color: var(--brand-orange-base);
+    color: var(--white);
+    transform: scale(1.12);
+}
+
+/* Card Body Content — Clean & Minimal */
+.faculty-info {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    flex-grow: 1;
+}
+
+.faculty-name {
+    font-family: 'Bitter', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--brand-navy-dark);
+    transition: color 0.3s ease;
+    line-height: 1.3;
+    margin-bottom: 2px;
+}
+
+.faculty-card:hover .faculty-name {
+    color: var(--white);
+}
+
+.faculty-role {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.925rem;
+    font-weight: 500;
+    color: var(--res-text-muted);
+    transition: color 0.3s ease;
+    margin-bottom: 6px;
+}
+
+.faculty-card:hover .faculty-role {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Leave Badges */
+.faculty-leave-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.775rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 12px;
+    background-color: rgba(232, 101, 26, 0.1);
+    color: var(--brand-orange-base);
+    margin-top: 4px;
+    transition: all 0.3s ease;
+}
+
+.faculty-card:hover .faculty-leave-badge {
+    background-color: rgba(255, 184, 0, 0.25);
+    color: var(--brand-gold-base);
+}
+
+/* Minimal Details Footer (Specialization & Qualification) */
+.faculty-minimal-meta {
+    margin-top: 14px;
+    width: 100%;
+    padding-top: 12px;
+    border-top: 1px solid var(--res-border-light);
+    font-size: 0.825rem;
+    color: var(--res-text-muted);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.faculty-card:hover .faculty-minimal-meta {
+    border-top-color: rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.faculty-spec-text {
+    line-height: 1.45;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.faculty-qual-text {
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: var(--brand-navy-light);
+    transition: color 0.3s ease;
+}
+
+.faculty-card:hover .faculty-qual-text {
+    color: var(--brand-gold-base);
+}
+
+/* Empty State / Search No Results */
+.faculty-no-results {
+    text-align: center;
+    padding: 60px 20px;
+    background: var(--white);
+    border-radius: 16px;
+    border: 1px solid var(--res-border-light);
+    margin: 40px 0;
+}
+
+.faculty-no-results i {
+    font-size: 3rem;
+    color: var(--res-text-muted);
+    margin-bottom: 16px;
+}
+
+.faculty-no-results h3 {
+    font-family: 'Bitter', serif;
+    font-size: 1.4rem;
+    color: var(--brand-navy-dark);
+    margin-bottom: 8px;
+}
+
+.faculty-no-results p {
+    color: var(--res-text-muted);
+    font-size: 0.95rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .faculty-hero-title {
+        font-size: 2.1rem;
+    }
+    
+    .faculty-grid {
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 20px;
+    }
+
+    .faculty-filter-wrapper {
+        overflow-x: auto;
+        padding-bottom: 10px;
+        -webkit-overflow-scrolling: touch;
+        white-space: nowrap;
+        flex-wrap: nowrap;
+    }
+}

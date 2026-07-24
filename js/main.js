@@ -8,6 +8,7 @@ import { initAlertTicker } from './sections/alert-ticker.js';
 import { initEventsSlider } from './sections/events.js';
 import { initScrollReveal } from './utils/scroll-reveal.js';
 import { initBackToTop } from './layout/back-to-top.js';
+import { initFacultyMembers } from './sections/faculty-members.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     initStickyNav();
@@ -20,6 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initEventsSlider();
     initScrollReveal();
     initBackToTop();
+    initFacultyMembers();
+
 
     // SMOOTH SCROLL FOR ANCHOR LINKS
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
